@@ -1,0 +1,173 @@
+{
+  "accounts": [
+    {
+      "type": "checking",
+      "name": "Everyday checking",
+      "suffix": "4821",
+      "balance": 8240.2,
+      "status": "active",
+      "key": "checking"
+    },
+    {
+      "type": "savings",
+      "name": "Everyday Saving",
+      "suffix": "9106",
+      "balance": 4250,
+      "status": "active",
+      "key": "savings"
+    },
+    {
+      "type": "credit",
+      "name": "Hikyu credit card",
+      "suffix": "6308",
+      "balance": 344.3,
+      "status": "active",
+      "limit": 5000,
+      "minimumDue": 25,
+      "dueDate": "2026-10-12",
+      "key": "credit"
+    }
+  ],
+  "transactions": [
+    {
+      "name": "Monthly paycheck",
+      "category": "Income",
+      "date": "2026-09-18",
+      "amount": 4200,
+      "icon": "↙",
+      "key": "t1",
+      "accountKey": "checking"
+    },
+    {
+      "name": "Whole Foods Market",
+      "category": "Groceries",
+      "date": "2026-09-18",
+      "amount": -86.42,
+      "icon": "W",
+      "key": "t2",
+      "accountKey": "credit"
+    },
+    {
+      "name": "Blue Bottle Coffee",
+      "category": "Dining",
+      "date": "2026-09-17",
+      "amount": -12.5,
+      "icon": "B",
+      "key": "t3",
+      "accountKey": "credit"
+    },
+    {
+      "name": "Netflix",
+      "category": "Subscriptions",
+      "date": "2026-09-16",
+      "amount": -15.49,
+      "icon": "N",
+      "key": "t4",
+      "accountKey": "credit"
+    },
+    {
+      "name": "MBTA",
+      "category": "Transport",
+      "date": "2026-09-15",
+      "amount": -90,
+      "icon": "T",
+      "key": "t5",
+      "accountKey": "checking"
+    },
+    {
+      "name": "Trader Joe’s",
+      "category": "Groceries",
+      "date": "2026-09-14",
+      "amount": -64.8,
+      "icon": "TJ",
+      "key": "t6",
+      "accountKey": "credit"
+    },
+    {
+      "name": "Apartment rent",
+      "category": "Housing",
+      "date": "2026-09-01",
+      "amount": -1450,
+      "icon": "⌂",
+      "key": "t7",
+      "accountKey": "checking"
+    },
+    {
+      "name": "Freelance project",
+      "category": "Income",
+      "date": "2026-09-12",
+      "amount": 650,
+      "icon": "↙",
+      "key": "t8",
+      "accountKey": "checking"
+    },
+    {
+      "name": "Sweetgreen",
+      "category": "Dining",
+      "date": "2026-09-11",
+      "amount": -24.5,
+      "icon": "S",
+      "key": "t9",
+      "accountKey": "credit"
+    },
+    {
+      "name": "Internet",
+      "category": "Utilities",
+      "date": "2026-09-08",
+      "amount": -45,
+      "icon": "⌁",
+      "key": "t10",
+      "accountKey": "checking"
+    },
+    {
+      "name": "Target",
+      "category": "Shopping",
+      "date": "2026-09-07",
+      "amount": -128.6,
+      "icon": "T",
+      "key": "t11",
+      "accountKey": "credit"
+    },
+    {
+      "name": "Spotify",
+      "category": "Subscriptions",
+      "date": "2026-09-05",
+      "amount": -11.99,
+      "icon": "S",
+      "key": "t12",
+      "accountKey": "credit"
+    }
+  ],
+  "alerts": [
+    {
+      "type": "scheduled",
+      "title": "Apartment rent",
+      "date": "2026-10-01",
+      "amount": 1450,
+      "channel": "Email",
+      "enabled": true,
+      "key": "r1",
+      "accountKey": "checking"
+    },
+    {
+      "type": "scheduled",
+      "title": "Add to savings",
+      "date": "2026-09-25",
+      "amount": 200,
+      "channel": "Calendar",
+      "enabled": true,
+      "key": "r2",
+      "accountKey": "savings"
+    },
+    {
+      "type": "scheduled",
+      "title": "Internet bill",
+      "date": "2026-10-08",
+      "amount": 45,
+      "channel": "Email",
+      "enabled": false,
+      "key": "r3",
+      "accountKey": "checking"
+    }
+  ]
+}

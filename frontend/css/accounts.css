@@ -1,0 +1,347 @@
+/* Account overview: main banking area with alerts on the right. */
+.overview-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 28px;
+  align-items: start;
+}
+.overview-main {
+  min-width: 0;
+}
+.overview-main > .panel-heading {
+  margin: 0 0 18px;
+}
+.overview-accounts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.overview-account {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-align: left;
+  background: white;
+  border: 1px solid #d4dfeb;
+  border-top: 4px solid #195ca2;
+  border-radius: 8px;
+  padding: 20px;
+  color: #183653;
+  cursor: pointer;
+  font: inherit;
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+.overview-account:hover {
+  box-shadow: 0 8px 22px #163c6314;
+  transform: translateY(-2px);
+}
+.account-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.account-symbol {
+  font-size: 23px;
+  color: #1d63a9;
+}
+.account-arrow {
+  margin-left: auto;
+}
+.overview-account strong {
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+.overview-account small {
+  color: #66788b;
+  margin-top: 6px;
+}
+.account-amount {
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 650;
+  margin: 24px 0 6px;
+  letter-spacing: -0.7px;
+}
+.account-caption {
+  font-size: 12px;
+  color: #61758a;
+  margin-bottom: 24px;
+}
+.account-card-footer {
+  border-top: 1px solid #e4ebf2;
+  padding-top: 14px;
+  font-size: 12px;
+  color: #145aa1;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+}
+.overview-alerts {
+  background: #eaf2fb;
+  padding: 26px;
+  border-radius: 8px;
+  border: 1px solid #d7e5f4;
+  margin-top: 46px;
+}
+.alert-symbol {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  font-size: 26px;
+  border-radius: 50%;
+  background: white;
+  color: #195ca2;
+  margin-bottom: 18px;
+}
+.overview-alerts .eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  color: #32608c;
+}
+.overview-alerts h2 {
+  font-size: 24px;
+  line-height: 1.3;
+  margin: 10px 0;
+}
+.overview-alerts p {
+  line-height: 1.7;
+  color: #50677e;
+  font-size: 14px;
+}
+.overview-alerts .primary-button {
+  width: 100%;
+  margin: 12px 0 16px;
+  justify-content: space-between;
+}
+.overview-alerts .text-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+}
+.overview-alerts small {
+  display: block;
+  color: #5c7186;
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 24px;
+}
+.open-account-banner {
+  margin-top: 28px;
+  padding: 26px;
+  background: white;
+  border: 1px solid #d4dfeb;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.open-account-banner h2 {
+  font-size: 19px;
+  margin: 0 0 6px;
+}
+.open-account-banner p {
+  font-size: 13px;
+  color: #61758a;
+  margin: 0;
+}
+.open-account-banner .primary-button {
+  margin-left: auto;
+}
+.open-symbol {
+  font-size: 28px;
+  color: #195ca2;
+}
+.bank-dialog {
+  width: min(580px, calc(100% - 32px));
+  max-height: calc(100dvh - 48px);
+  padding: 28px;
+  border: 1px solid #d7e2ed;
+  border-radius: 12px;
+  color: #183653;
+  box-shadow: 0 24px 80px #09294933;
+  margin: auto;
+}
+.bank-dialog::backdrop {
+  background: #071b36a6;
+}
+.dialog-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.dialog-heading h2 {
+  font-size: 24px;
+  margin: 0;
+}
+.dialog-heading button {
+  background: #eef3f9;
+  border: 0;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.bank-form {
+  display: grid;
+  gap: 18px;
+}
+.bank-form label {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+}
+.bank-form input:not([type="radio"]),
+.bank-form select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #afc1d3;
+  border-radius: 5px;
+  font: inherit;
+  color: #183653;
+  background: white;
+}
+.bank-form fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.bank-form legend {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.product-options {
+  display: grid;
+  gap: 10px;
+}
+.bank-form .product-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #d5e0eb;
+  border-radius: 6px;
+  padding: 14px;
+  cursor: pointer;
+}
+.product-option:has(input:checked) {
+  border-color: #1b64aa;
+  background: #f0f6fd;
+}
+.product-option small {
+  display: block;
+  margin-top: 5px;
+  color: #61758a;
+}
+.form-note,
+.bank-dialog .muted {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #61758a;
+}
+.bank-form [hidden] {
+  display: none;
+}
+.account-open-status:not(:empty) {
+  color: #b42318;
+  font-weight: 600;
+}
+.bank-dialog [role="status"] {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.success-panel {
+  padding: 18px;
+  background: #edf6f3;
+  border: 1px solid #cde7df;
+  border-radius: 6px;
+}
+.detail-balance {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 20px 0 4px;
+}
+.account-facts {
+  margin: 24px 0;
+}
+.account-facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e4ebf2;
+}
+.account-facts dd {
+  margin: 0;
+  font-weight: 600;
+}
+.saved-alert {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid #e4ebf2;
+}
+.saved-alert small {
+  display: block;
+  margin-top: 6px;
+  color: #61758a;
+}
+.saved-alert input {
+  width: 20px;
+  accent-color: #195ca2;
+}
+.bank-dashboard :is(button, a, input, select):focus-visible,
+.bank-dialog :focus-visible {
+  outline: 3px solid #3e8bdf;
+  outline-offset: 3px;
+}
+.bank-dashboard .filter-row {
+  flex-wrap: wrap;
+}
+@media (max-width: 1100px) {
+  .overview-accounts {
+    grid-template-columns: 1fr;
+  }
+  .account-card-top {
+    margin-bottom: 12px;
+  }
+  .account-amount {
+    margin-top: 16px;
+  }
+}
+@media (max-width: 700px) {
+  .overview-layout {
+    grid-template-columns: 1fr;
+  }
+  .overview-alerts {
+    margin-top: 0;
+  }
+  .open-account-banner {
+    padding: 20px;
+  }
+  .open-account-banner .primary-button {
+    width: 100%;
+    margin: 0;
+  }
+  .bank-dialog {
+    padding: 20px;
+  }
+  .overview-main > .panel-heading {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

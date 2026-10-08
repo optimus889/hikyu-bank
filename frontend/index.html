@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Hikyu Bank — a simulated personal finance assistant."
+    />
+    <title>Hikyu Bank · Your money, in focus</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+    <link rel="stylesheet" href="./css/banking.css" />
+    <link rel="stylesheet" href="./css/accounts.css" />
+    <link rel="stylesheet" href="./css/figma-web.css" />
+    <link rel="stylesheet" href="./css/notifications.css" />
+    <link rel="stylesheet" href="./css/user-profile.css" />
+    <link rel="icon" href="./assets/hikyu-pixiu.png" type="image/png" />
+    <script type="module" src="./js/main.js"></script>
+  </head>
+  <body class="bank-dashboard">
+    <div id="dashboard" hidden>
+      <aside class="sidebar">
+        <a class="brand" id="sidebar-brand" href="#overview">
+          <img class="sidebar-logo" src="./assets/hikyu-pixiu.png" alt="Hikyu Pixiu" />
+          hikyu
+          <span class="brand-bank">BANK</span>
+        </a>
+
+        <button class="mobile-menu-button" id="mobile-menu" type="button"
+          aria-controls="dashboard-nav" aria-expanded="false"
+          aria-label="Open navigation menu">☰</button>
+
+        <nav id="dashboard-nav" aria-label="Main navigation">
+          <a href="#overview" data-nav="overview">
+            <span>Overview</span>
+          </a>
+          <a href="#transactions" data-nav="transactions">
+            <span>Transactions</span>
+          </a>
+          <a href="#assistant" data-nav="assistant">
+            <span>AI assistant</span>
+          </a>
+          <div id="user-profile" class="user-profile"></div>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="demo-note">
+            <span class="demo-dot"></span>
+            A little demo. Big possibilities.
+            <p>
+              Explore your finances with
+              <br />
+              100% simulated data.
+            </p>
+          </div>
+        </div>
+      </aside>
+
+      <div class="shell">
+        <header class="topbar">
+          <span>Personal workspace / <strong id="breadcrumb">Overview</strong></span>
+          <div class="session-actions">
+            <button id="alert-inbox" class="inbox-button" type="button"
+              aria-haspopup="dialog" aria-label="Alert inbox, 0 unread notifications">
+              <span aria-hidden="true">✉</span>
+              Alert inbox <span class="inbox-count" aria-hidden="true">0</span>
+            </button>
+            <button id="sign-out" type="button">Sign out ↗</button>
+          </div>
+        </header>
+
+        <p id="session-error" role="alert"></p>
+        <main id="app">
+          <p>Loading your overview…</p>
+        </main>
+
+        <footer>
+          Hikyu Bank
+          <span>Made for a clearer view of your money.</span>
+          <span>Simulation only · No real banking transactions</span>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

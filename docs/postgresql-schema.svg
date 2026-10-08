@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1360" viewBox="0 0 1500 1360">
+<title>Hikyu Bank UUID PostgreSQL schema</title>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#2563eb"/></marker></defs>
+<rect width="1500" height="1360" fill="#f3f7fd"/>
+<g font-family="Arial, sans-serif">
+<text x="40" y="55" font-size="30" fill="#123869" font-weight="700">Hikyu Bank · UUID + 3NF</text>
+<text x="40" y="90" font-size="18" fill="#536985">Seven live business tables · UUID identity · VARCHAR business codes · ? means optional</text>
+<path d="M480 320 H530" fill="none" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M970 320 H1020" fill="none" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M750 530 V570 H1240 V620" fill="none" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M260 530 V620" fill="none" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M1020 780 H970" fill="none" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M530 780 H480" fill="none" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M750 920 V1020" fill="none" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M970 410 H995 V1100 H970" fill="none" stroke="#2563eb" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="40" y="130" width="440" height="400" rx="12" fill="white" stroke="#c4d5ee"/>
+<rect x="40" y="130" width="440" height="52" rx="12" fill="#174ba4"/>
+<text x="58" y="164" font-size="22" fill="white" font-weight="700">users</text>
+<text x="58" y="215" font-size="18" fill="#183956">id UUID PK</text>
+<text x="58" y="247" font-size="18" fill="#183956">demo_code VARCHAR UNIQUE?</text>
+<text x="58" y="279" font-size="18" fill="#183956">username VARCHAR UNIQUE</text>
+<text x="58" y="311" font-size="18" fill="#183956">first_name / last_name VARCHAR</text>
+<text x="58" y="343" font-size="18" fill="#183956">display_name VARCHAR?</text>
+<text x="58" y="375" font-size="18" fill="#183956">password_hash / pin_hash VARCHAR</text>
+<text x="58" y="407" font-size="18" fill="#183956">masked_phone / masked_email VARCHAR</text>
+<rect x="530" y="130" width="440" height="400" rx="12" fill="white" stroke="#c4d5ee"/>
+<rect x="530" y="130" width="440" height="52" rx="12" fill="#174ba4"/>
+<text x="548" y="164" font-size="22" fill="white" font-weight="700">accounts</text>
+<text x="548" y="215" font-size="18" fill="#183956">id UUID PK</text>
+<text x="548" y="247" font-size="18" fill="#183956">user_id UUID FK</text>
+<text x="548" y="279" font-size="18" fill="#183956">type / name VARCHAR</text>
+<text x="548" y="311" font-size="18" fill="#183956">suffix CHAR(4)</text>
+<text x="548" y="343" font-size="18" fill="#183956">balance NUMERIC(19,2)</text>
+<text x="548" y="375" font-size="18" fill="#183956">status VARCHAR</text>
+<text x="548" y="407" font-size="18" fill="#183956">credit_limit / minimum_due NUMERIC?</text>
+<text x="548" y="439" font-size="18" fill="#183956">due_date DATE?</text>
+<rect x="1020" y="130" width="440" height="400" rx="12" fill="white" stroke="#c4d5ee"/>
+<rect x="1020" y="130" width="440" height="52" rx="12" fill="#174ba4"/>
+<text x="1038" y="164" font-size="22" fill="white" font-weight="700">transactions</text>
+<text x="1038" y="215" font-size="18" fill="#183956">id UUID PK</text>
+<text x="1038" y="247" font-size="18" fill="#183956">account_id UUID FK</text>
+<text x="1038" y="279" font-size="18" fill="#183956">name / category VARCHAR</text>
+<text x="1038" y="311" font-size="18" fill="#183956">posted_date DATE</text>
+<text x="1038" y="343" font-size="18" fill="#183956">amount NUMERIC(19,2)</text>
+<text x="1038" y="375" font-size="18" fill="#183956">icon VARCHAR</text>
+<rect x="40" y="620" width="440" height="300" rx="12" fill="white" stroke="#c4d5ee"/>
+<rect x="40" y="620" width="440" height="52" rx="12" fill="#174ba4"/>
+<text x="58" y="654" font-size="22" fill="white" font-weight="700">notification_recipients</text>
+<text x="58" y="705" font-size="18" fill="#183956">notification_id UUID PK, FK</text>
+<text x="58" y="737" font-size="18" fill="#183956">user_id UUID PK, FK</text>
+<text x="58" y="769" font-size="18" fill="#183956">is_read BOOLEAN</text>
+<text x="58" y="801" font-size="18" fill="#183956">resolved BOOLEAN</text>
+<text x="58" y="833" font-size="18" fill="#183956">CHECK: resolved implies read</text>
+<rect x="530" y="620" width="440" height="300" rx="12" fill="white" stroke="#c4d5ee"/>
+<rect x="530" y="620" width="440" height="52" rx="12" fill="#174ba4"/>
+<text x="548" y="654" font-size="22" fill="white" font-weight="700">notifications</text>
+<text x="548" y="705" font-size="18" fill="#183956">id UUID PK</text>
+<text x="548" y="737" font-size="18" fill="#183956">alert_id UUID FK?</text>
+<text x="548" y="769" font-size="18" fill="#183956">title VARCHAR / body TEXT</text>
+<text x="548" y="801" font-size="18" fill="#183956">created_at TIMESTAMPTZ</text>
+<text x="548" y="833" font-size="18" fill="#183956">source VARCHAR</text>
+<rect x="1020" y="620" width="440" height="300" rx="12" fill="white" stroke="#c4d5ee"/>
+<rect x="1020" y="620" width="440" height="52" rx="12" fill="#174ba4"/>
+<text x="1038" y="654" font-size="22" fill="white" font-weight="700">alerts</text>
+<text x="1038" y="705" font-size="18" fill="#183956">id UUID PK</text>
+<text x="1038" y="737" font-size="18" fill="#183956">account_id UUID FK</text>
+<text x="1038" y="769" font-size="18" fill="#183956">type / title / channel VARCHAR</text>
+<text x="1038" y="801" font-size="18" fill="#183956">amount NUMERIC?</text>
+<text x="1038" y="833" font-size="18" fill="#183956">scheduled_date DATE?</text>
+<text x="1038" y="865" font-size="18" fill="#183956">enabled BOOLEAN</text>
+<rect x="530" y="1020" width="440" height="200" rx="12" fill="white" stroke="#c4d5ee"/>
+<rect x="530" y="1020" width="440" height="52" rx="12" fill="#174ba4"/>
+<text x="548" y="1054" font-size="22" fill="white" font-weight="700">notification_account_links</text>
+<text x="548" y="1105" font-size="18" fill="#183956">notification_id UUID PK, FK</text>
+<text x="548" y="1137" font-size="18" fill="#183956">account_id UUID FK</text>
+<text x="548" y="1169" font-size="18" fill="#183956">Only for notifications without alerts</text>
+<text x="40" y="1270" font-size="18" fill="#536985">Flyway V1-V4 · private V1 archive and fixed identity mapping retained for controlled recovery</text>
+<text x="40" y="1305" font-size="18" fill="#536985">Account ownership is derived through joins; historical notification content is separate from inbox state.</text>
+</g></svg>

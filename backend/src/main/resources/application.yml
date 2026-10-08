@@ -1,0 +1,33 @@
+server:
+  port: ${PORT:8080}
+  address: ${SERVER_ADDRESS:127.0.0.1}
+  servlet:
+    session:
+      timeout: 30m
+      cookie:
+        http-only: true
+        same-site: strict
+spring:
+  application:
+    name: hikyu-bank
+  datasource:
+    url: ${HIKYU_DB_URL:jdbc:postgresql://localhost:5432/hikyu_bank}
+    username: ${HIKYU_DB_USER:hikyu}
+    password: ${HIKYU_DB_PASSWORD:hikyu_local_demo}
+    hikari:
+      maximum-pool-size: 5
+  flyway:
+    enabled: true
+    default-schema: hikyu
+    schemas: hikyu
+    locations: classpath:db/migration
+    clean-disabled: true
+  jackson:
+    default-property-inclusion: non_null
+hikyu:
+  database-mode: ${HIKYU_DB_MODE:local}
+  uuid-migration-approved: ${HIKYU_UUID_MIGRATION_APPROVED:false}
+  demo:
+    seed-enabled: ${HIKYU_SEED_ENABLED:true}
+    password: ${HIKYU_DEMO_PASSWORD:HikyuDemo2026!}
+    pin: ${HIKYU_DEMO_PIN:2468}
