@@ -59,7 +59,7 @@ def main():
         })
         return request("POST", "/api/v1/auth/verify", {
             "challengeId": challenge["challengeId"], "method": "sms",
-            "code": code["demoCode"], "pin": ""
+            "code": code["demoCode"], "pin": "1037"
         })
 
     def start(log):

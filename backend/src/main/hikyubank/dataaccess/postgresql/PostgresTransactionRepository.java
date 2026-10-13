@@ -21,7 +21,7 @@ public class PostgresTransactionRepository implements TransactionRepository {
     private static final RowMapper<Transaction> ROW = (rs, index) -> new Transaction(
         rs.getObject("id", UUID.class), rs.getObject("account_id", UUID.class), rs.getString("name"),
         rs.getString("category"), rs.getString("posted_date"),
-        rs.getBigDecimal("amount"), rs.getString("icon")
+        rs.getBigDecimal("amount"), rs.getString("icon"), rs.getString("kind"), rs.getString("note"), rs.getObject("transfer_id", UUID.class), rs.getObject("peer_payment_id", UUID.class)
     );
 
     private static final String SELECT_OWNED = """
@@ -44,8 +44,8 @@ public class PostgresTransactionRepository implements TransactionRepository {
     @Override
     public Transaction save(UUID userId, Transaction item) {
         int changed = jdbc.update("""
-            INSERT INTO hikyu.transactions (id, account_id, name, category, posted_date, amount, icon)
-            SELECT ?, ?, ?, ?, ?, ?, ?
+            INSERT INTO hikyu.transactions (id, account_id, name, category, posted_date, amount, icon, kind)
+            SELECT ?, ?, ?, ?, ?, ?, ?, ?
             WHERE EXISTS (
                 SELECT 1 FROM hikyu.accounts WHERE id = ? AND user_id = ?
             )
@@ -55,14 +55,15 @@ public class PostgresTransactionRepository implements TransactionRepository {
                 category = EXCLUDED.category,
                 posted_date = EXCLUDED.posted_date,
                 amount = EXCLUDED.amount,
-                icon = EXCLUDED.icon
+                icon = EXCLUDED.icon,
+                kind = EXCLUDED.kind
             WHERE EXISTS (
                 SELECT 1 FROM hikyu.accounts
                 WHERE accounts.id = transactions.account_id AND accounts.user_id = ?
             )
             """,
             item.id(), item.accountId(), item.name(), item.category(),
-            java.sql.Date.valueOf(item.date()), item.amount(), item.icon(),
+            java.sql.Date.valueOf(item.date()), item.amount(), item.icon(), item.kind(),
             item.accountId(), userId, userId
         );
         if (changed != 1) {

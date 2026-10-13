@@ -23,6 +23,7 @@ case "$mode" in
     -h|--help) printf '%s\n' 'Usage: ./start.sh [local|cloud]'; exit 0 ;;
     *) fail "Unknown mode. Use local or cloud." ;;
 esac
+load_settings .env.extensions
 printf '%s\n' "Web app: http://localhost:${PORT:-8080}/login.html"
 cd "$project_dir/backend"
 exec ./mvnw spring-boot:run

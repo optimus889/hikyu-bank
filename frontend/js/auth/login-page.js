@@ -1,6 +1,8 @@
+import { describeDemoProfile } from "./demo-hints.js";
+import { request } from "../api/client.js";
 import { authAPI } from "../api/auth.js";
 import { apiConfig } from "../api/client.js";
-import { DEMO_ACCOUNT, DEMO_ACCOUNTS } from "./demo-account.js";
+import { DEMO_ACCOUNTS } from "./demo-account.js";
 import { clearFlow, saveFlow } from "./page-state.js";
 import { renderAuthLayout, showError } from "./layout.js";
 
@@ -27,7 +29,7 @@ renderAuthLayout(root, {
       </div>
       <p id="auth-error" class="auth-error" role="alert"></p>
       <button type="submit" class="auth-primary">Continue <span>→</span></button>
-      <p class="form-footnote">Next: verify with a text message or email.</p>
+      <p class="form-footnote">Next: verify with a text message or email code and your card PIN.</p><p><a class="auth-text-button" href="./register.html">Create a demo account →</a></p>
     </form>
     ${
       apiConfig.demo
@@ -41,8 +43,8 @@ renderAuthLayout(root, {
           `).join("")}
         </select>
         <dl>
-          <div><dt>PIN for email verification</dt><dd>${DEMO_ACCOUNT.pin}</dd></div>
-          <div><dt>Password</dt><dd>${DEMO_ACCOUNT.password}</dd></div>
+          <div><dt>Card PIN</dt><dd id="demo-pin">Checking this profile…</dd></div>
+          <div><dt>Password</dt><dd id="demo-password">Checking this profile…</dd></div>
         </dl>
         <button id="fill-demo" class="auth-text-button" type="button">
           Use demo credentials
@@ -77,6 +79,7 @@ form.onsubmit = async (event) => {
     clearFlow();
     const response = await authAPI.login(credentials);
     saveFlow({
+      username: credentials.username,
       challengeId: response.challengeId,
       methods: response.methods,
       expiresAt: response.expiresAt,
@@ -103,11 +106,30 @@ root.querySelector("#toggle-password").onclick = (event) => {
   event.currentTarget.setAttribute("aria-pressed", String(visible));
 };
 
+let demoProfiles = [];
+function paintDemoProfile() {
+  const select = root.querySelector("#demo-profile");
+  if (!select) return;
+  const hints = describeDemoProfile(demoProfiles, select.value);
+  root.querySelector("#demo-pin").textContent = hints.pin;
+  root.querySelector("#demo-password").textContent = hints.password;
+}
+async function refreshDemoProfiles() {
+  if (!root.querySelector("#demo-profile")) return;
+  try { demoProfiles = await request("/auth/demo-profiles"); }
+  catch { demoProfiles = []; }
+  paintDemoProfile();
+}
+root.querySelector("#demo-profile")?.addEventListener("change", paintDemoProfile);
 root.querySelector("#fill-demo")?.addEventListener("click", () => {
-  root.querySelector("#username").value = root.querySelector("#demo-profile").value;
-  root.querySelector("#password").value = DEMO_ACCOUNT.password;
+  const username = root.querySelector("#demo-profile").value;
+  const profile = demoProfiles.find(item => item.username === username);
+  root.querySelector("#username").value = username;
+  root.querySelector("#password").value = profile?.defaultPassword || "";
   root.querySelector("#username").focus();
 });
+refreshDemoProfiles();
+window.addEventListener("pageshow", event => { if (event.persisted) refreshDemoProfiles(); });
 
 // Check again after back/forward navigation; private pages do the same.
 window.addEventListener("pageshow", async () => {

@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-13",
+  "revision": "UI controls / English validation / both login methods require card PIN",
+  "backend_tests": 73,
+  "frontend_tests": 13,
+  "launcher_tests": 14,
+  "actual_http_requests": 58,
+  "postman_requests": 27,
+  "javascript_modules_parsed": 32,
+  "all_existing_migrations_unchanged": true,
+  "migration_added": false,
+  "live_database_modified": false,
+  "real_external_calls": false,
+  "browser_interaction_tested": false,
+  "figma_settings_nodes": [
+    "2056:62",
+    "2056:187"
+  ]
+}

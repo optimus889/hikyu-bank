@@ -11,7 +11,8 @@ public class UuidMigrationConfiguration {
     @Bean
     public FlywayMigrationStrategy guardedMigration(
         @Value("${hikyu.database-mode:local}") String mode,
-        @Value("${hikyu.uuid-migration-approved:false}") boolean approved
+        @Value("${hikyu.uuid-migration-approved:false}") boolean approved,
+        @Value("${hikyu.extension-migration-approved:false}") boolean extensionApproved
     ) {
         return flyway -> {
             if ("cloud".equals(mode) && !approved) {
@@ -30,6 +31,13 @@ public class UuidMigrationConfiguration {
                 } catch (java.sql.SQLException error) {
                     throw new IllegalStateException("Cannot inspect cloud migration readiness.", error);
                 }
+            }
+            if (!extensionApproved) {
+                try (var connection = flyway.getConfiguration().getDataSource().getConnection();
+                     var statement = connection.prepareStatement("SELECT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='hikyu' AND table_name='users' AND column_name='id') AND NOT EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='hikyu' AND table_name='users' AND column_name='auth_version')");
+                     var result = statement.executeQuery()) {
+                    if (result.next() && result.getBoolean(1)) throw new IllegalStateException("V5 migration is not approved for this existing database. Test a separate copy and set HIKYU_EXTENSION_MIGRATION_APPROVED=true only for an intended upgrade.");
+                } catch (java.sql.SQLException e) { throw new IllegalStateException("Cannot inspect extension migration readiness.",e); }
             }
             flyway.migrate();
         };

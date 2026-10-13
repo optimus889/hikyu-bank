@@ -24,10 +24,21 @@ spring:
     clean-disabled: true
   jackson:
     default-property-inclusion: non_null
+    deserialization:
+      fail-on-unknown-properties: true
 hikyu:
   database-mode: ${HIKYU_DB_MODE:local}
   uuid-migration-approved: ${HIKYU_UUID_MIGRATION_APPROVED:false}
   demo:
     seed-enabled: ${HIKYU_SEED_ENABLED:true}
     password: ${HIKYU_DEMO_PASSWORD:HikyuDemo2026!}
-    pin: ${HIKYU_DEMO_PIN:2468}
+  extension-migration-approved: ${HIKYU_EXTENSION_MIGRATION_APPROVED:false}
+  ai:
+    mode: ${HIKYU_AI_MODE:demo}
+    key: ${HIKYU_AI_KEY:}
+    model: ${HIKYU_AI_MODEL:}
+    url: ${HIKYU_AI_URL:https://api.openai.com/v1/chat/completions}
+    timeout-seconds: ${HIKYU_AI_TIMEOUT_SECONDS:10}
+    max-tokens: ${HIKYU_AI_MAX_TOKENS:512}
+    requests-per-minute: ${HIKYU_AI_REQUESTS_PER_MINUTE:10}
+    allow-local-http: ${HIKYU_AI_ALLOW_LOCAL_HTTP:false}

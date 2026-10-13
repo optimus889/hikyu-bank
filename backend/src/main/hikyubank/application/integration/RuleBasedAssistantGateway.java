@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 /** Rule-based adapter for synthetic insights; no external AI provider. */
 @Component
+@org.springframework.boot.autoconfigure.condition.ConditionalOnProperty(name="hikyu.ai.mode",havingValue="demo",matchIfMissing=true)
 public class RuleBasedAssistantGateway implements AssistantGateway {
     @Override
     public String reply(String message, List<Account> accounts, List<Transaction> transactions) {

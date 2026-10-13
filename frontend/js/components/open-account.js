@@ -50,7 +50,7 @@ export async function showOpenAccount(onSaved) {
           <input name="name" value="My checking" maxlength="60" required />
         </label>
         <p class="form-note">
-          Demo only. Checking and savings open with $0. Credit card, loan and investment
+          Demo only. Checking and Saving open with $0. Credit card, loan and investment
           applications remain pending. No credit check or real account is created.
         </p>
         <button class="primary-button" type="submit">Continue with demo account</button>

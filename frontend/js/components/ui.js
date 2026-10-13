@@ -33,12 +33,12 @@ function transactionRow(t) {
             ${escape(t.icon || "·")}
           </span>
           <div>
-            ${escape(t.name)}
+            <button type="button" class="text-link" data-transaction="${escape(t.id)}">${escape(t.name)}</button>
             <small>${escape(t.category)}</small>
           </div>
         </div>
       </td>
-      <td class="date-cell">${date(t.date)}, 2026</td>
+      <td class="date-cell">${escape(t.date)}</td>
       <td><span class="category">${escape(t.category)}</span></td>
       <td class="${amountClass}">${sign}${money(Math.abs(t.amount))}</td>
     </tr>
@@ -80,7 +80,7 @@ function transactionCard(transaction) {
         <span class="merchant-icon ${income ? "income-icon" : ""}"
           aria-hidden="true">${escape(transaction.icon || "·")}</span>
         <div>
-          <strong>${escape(transaction.name)}</strong>
+          <button type="button" class="text-link" data-transaction="${escape(transaction.id)}">${escape(transaction.name)}</button>
           <small>${escape(transaction.category)} · ${date(transaction.date)}</small>
         </div>
       </div>

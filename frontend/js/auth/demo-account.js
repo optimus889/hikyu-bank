@@ -8,5 +8,4 @@ export const DEMO_ACCOUNTS = Object.freeze([
 export const DEMO_ACCOUNT = Object.freeze({
   username: DEMO_ACCOUNTS[0].username,
   password: "HikyuDemo2026!",
-  pin: "2468",
 });

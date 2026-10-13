@@ -34,7 +34,7 @@ public class AccountService {
     public List<AccountProduct> products(UUID userId) {
         return List.of(
             product(userId, "checking", "Checking", "A place for everyday money.", "▤"),
-            product(userId, "savings", "Savings", "Give your next goal a home.", "◇"),
+            product(userId, "savings", "Everyday Saving", "Give your next goal a home.", "◇"),
             product(userId, "credit", "Credit card", "Explore a simulated credit account.", "▱"),
             product(userId, "loan", "Loan", "Start a demo loan application.", "⌂"),
             product(userId, "investment", "Investment", "Explore a demo investment account.", "↗")

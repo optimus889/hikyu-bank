@@ -17,6 +17,7 @@ function Import-Settings([string]$Path) {
         }
         $key = $Matches[1]
         $value = $Matches[2]
+        if ($Path -eq '.env.extensions' -and $key -notmatch '^HIKYU_(AI_|EXTENSION_MIGRATION_APPROVED$)') { throw 'Only AI and extension migration settings are allowed in .env.extensions.' }
         if ($value.Length -ge 2 -and (
             ($value.StartsWith('"') -and $value.EndsWith('"')) -or
             ($value.StartsWith("'") -and $value.EndsWith("'"))
@@ -106,6 +107,7 @@ switch ($Mode) {
     default { throw 'Unknown mode. Use local or cloud.' }
 }
 
+Import-Settings '.env.extensions'
 $webPort = Get-Setting 'PORT' '8080'
 Write-Host "Web app: http://localhost:${webPort}/login.html"
 Set-Location 'backend'

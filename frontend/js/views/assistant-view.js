@@ -1,3 +1,4 @@
+import { extensionsAPI } from "../api/extensions.js";
 import { bankAPI } from "../api/index.js";
 import { heading, escape } from "../components/ui.js";
 import { profileDetails } from "../components/user-profile.js";
@@ -28,7 +29,7 @@ export function createAssistantView(user) {
       <section class="panel chat-panel">
         <div class="panel-heading">
           <h2>✧ Hikyu assistant</h2>
-          <span class="demo-badge">Simulated AI</span>
+          <span class="demo-badge" id="ai-mode">Checking mode…</span>
         </div>
         <div id="messages" class="messages" aria-live="polite"></div>
         <div class="suggestions">
@@ -39,10 +40,15 @@ export function createAssistantView(user) {
           <input id="message" placeholder="Ask about your spending…" maxlength="1000" required>
           <button class="primary-button" type="submit">Send ↗</button>
         </form>
-        <p class="chat-note">Backend rule-based responses · No external AI service connected</p>
+        <p class="chat-note" id="ai-note">Checking assistant configuration…</p>
       </section>
     `;
 
+    extensionsAPI.aiStatus().then(status => {
+      if (!active) return;
+      root.querySelector("#ai-mode").textContent = status.mode === "demo" ? "Simulated AI" : "OpenAI mode";
+      root.querySelector("#ai-note").textContent = status.description + (status.configured ? "" : " AI service is not configured.");
+    }).catch(() => { if(active) root.querySelector("#ai-mode").textContent = "Mode unavailable"; });
     function paintChat() {
       if (!active) return;
       const messages = root.querySelector("#messages");
@@ -78,8 +84,8 @@ export function createAssistantView(user) {
       try {
         const response = await bankAPI.askAssistant(message);
         chat.push({ role: "assistant", text: response.reply });
-      } catch {
-        chat.push({ role: "assistant", text: "I couldn't fetch a response. Please try again." });
+      } catch (error) {
+        chat.push({ role: "assistant", text: error.message || "Could not fetch a response." });
       } finally {
         busy = false;
         if (active) {

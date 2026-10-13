@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /** Bootstrap only: template keys are resolved to new, stable persisted UUIDs. */
 @Component
+@org.springframework.core.annotation.Order(0)
 @ConditionalOnProperty(name = "hikyu.demo.seed-enabled", havingValue = "true")
 public class DemoDataSeeder implements ApplicationRunner {
     private final org.springframework.jdbc.core.JdbcTemplate jdbc;
@@ -31,7 +32,6 @@ public class DemoDataSeeder implements ApplicationRunner {
     private final PasswordEncoder encoder;
     private final ObjectMapper mapper;
     private final String password;
-    private final String pin;
 
     public DemoDataSeeder(
         org.springframework.jdbc.core.JdbcTemplate jdbc,
@@ -42,8 +42,7 @@ public class DemoDataSeeder implements ApplicationRunner {
         NotificationRepository notifications,
         PasswordEncoder encoder,
         ObjectMapper mapper,
-        @Value("${hikyu.demo.password}") String password,
-        @Value("${hikyu.demo.pin}") String pin
+        @Value("${hikyu.demo.password}") String password
     ) {
         this.jdbc = jdbc;
         this.users = users;
@@ -54,7 +53,6 @@ public class DemoDataSeeder implements ApplicationRunner {
         this.encoder = encoder;
         this.mapper = mapper;
         this.password = password;
-        this.pin = pin;
     }
 
     @Override
@@ -86,7 +84,7 @@ public class DemoDataSeeder implements ApplicationRunner {
         UUID userId = UUID.randomUUID();
         users.save(new DemoUser(
             userId, demoCode, username, firstName + " " + lastName, firstName, lastName,
-            encoder.encode(password), encoder.encode(pin),
+            encoder.encode(password), encoder.encode(hikyubank.application.service.SecurityService.demoPin(username)),
             "+1 ••• ••• " + phoneSuffix,
             firstName.substring(0, 1).toLowerCase() + "••••@example.com"
         ));

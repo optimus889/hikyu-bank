@@ -25,7 +25,7 @@ class StartupTest(unittest.TestCase):
 import json, os, sys
 from pathlib import Path
 item = {'command': Path(sys.argv[0]).name, 'args': sys.argv[1:],
-        'env': {k: v for k, v in os.environ.items() if k.startswith('HIKYU_DB_')}}
+        'env': {k: v for k, v in os.environ.items() if k.startswith('HIKYU_')}}
 with open(os.environ['LAUNCH_LOG'], 'a') as log:
     log.write(json.dumps(item) + '\\n')
 if item['command'] == 'docker' and os.environ.get('DOCKER_FAIL') == '1':
@@ -122,6 +122,19 @@ if item['command'] == 'docker' and os.environ.get('DOCKER_FAIL') == '1':
         settings = self.cloud_settings()
         settings['HIKYU_DB_URL'] += '?sslmode=disable'
         result, calls = self.run_mode('cloud', settings)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertEqual(calls, [])
+
+    def test_extension_ai_settings_are_loaded_after_database_setup(self):
+        (self.root / '.env.extensions').write_text('HIKYU_AI_MODE=demo\nHIKYU_AI_KEY=literal$#!=key\n')
+        result, calls = self.run_mode('cloud', self.cloud_settings())
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(calls[-1]['env']['HIKYU_AI_KEY'], 'literal$#!=key')
+        self.assertNotIn('literal$#!=key', result.stdout + result.stderr)
+
+    def test_extension_file_cannot_override_database(self):
+        (self.root / '.env.extensions').write_text('HIKYU_DB_URL=jdbc:postgresql://wrong.example.com:5432/postgres\n')
+        result, calls = self.run_mode('cloud', self.cloud_settings())
         self.assertNotEqual(result.returncode, 0)
         self.assertEqual(calls, [])
 

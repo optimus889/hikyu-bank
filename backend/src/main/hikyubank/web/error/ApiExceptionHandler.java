@@ -18,7 +18,7 @@ public class ApiExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiError> validationError(MethodArgumentNotValidException error) {
         var first = error.getBindingResult().getFieldErrors().get(0);
-        String message = first.getField() + ": " + first.getDefaultMessage();
+        String message = ValidationMessages.forField(first.getField(), first.getCode());
         return ResponseEntity.badRequest().body(new ApiError("VALIDATION_ERROR", message));
     }
 

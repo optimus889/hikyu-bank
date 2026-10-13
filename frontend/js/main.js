@@ -1,3 +1,5 @@
+import { installEnglishValidation } from "./components/validation.js";
+if (typeof document !== "undefined") installEnglishValidation(document);
 import { authAPI } from "./api/auth.js";
 import { toLogin } from "./auth/page-state.js";
 import { brandMarkup } from "./components/brand.js";

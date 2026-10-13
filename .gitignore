@@ -55,3 +55,4 @@ hikyu-backup*.sql
 # OS / archive metadata
 # =========================
 __MACOSX/
+!.env.extensions.example

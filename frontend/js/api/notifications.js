@@ -8,6 +8,7 @@ function announceChange() {
 
 /** Local events refresh the UI; inbox records are stored on the server. */
 export const notificationsAPI = {
+  refresh: announceChange,
   subscribe(listener) {
     changes.addEventListener("change", listener);
     return () => changes.removeEventListener("change", listener);

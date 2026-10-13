@@ -1,3 +1,5 @@
+import { installEnglishValidation } from "../components/validation.js";
+if (typeof document !== "undefined") installEnglishValidation(document);
 import { brandMarkup } from "../components/brand.js";
 
 export function renderAuthLayout(root, { step, content }) {

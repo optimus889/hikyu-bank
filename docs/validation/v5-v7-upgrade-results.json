@@ -1,0 +1,11 @@
+{
+  "v5_to_v7": "PASS",
+  "core_rows_balances_ids_credentials_unchanged": true,
+  "counts": {
+    "users": "3",
+    "accounts": "9",
+    "transactions": "36",
+    "alerts": "9",
+    "notifications": "3"
+  }
+}

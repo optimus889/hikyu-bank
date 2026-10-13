@@ -1,0 +1,113 @@
+{
+  "requests": 27,
+  "results": [
+    {
+      "request": "01 Register synthetic user",
+      "status": 201
+    },
+    {
+      "request": "02 Login",
+      "status": 200
+    },
+    {
+      "request": "03 Simulated SMS code",
+      "status": 200
+    },
+    {
+      "request": "04 Verify SMS code and card PIN",
+      "status": 200
+    },
+    {
+      "request": "05 Accounts",
+      "status": 200
+    },
+    {
+      "request": "06 Create reminder",
+      "status": 201
+    },
+    {
+      "request": "06a Request internal SMS verification code",
+      "status": 200
+    },
+    {
+      "request": "07 Transfer once",
+      "status": 201
+    },
+    {
+      "request": "08 Replay same transfer",
+      "status": 201
+    },
+    {
+      "request": "09 Filter transfer legs",
+      "status": 200
+    },
+    {
+      "request": "10 Owned transaction details",
+      "status": 200
+    },
+    {
+      "request": "11 Automatic inbox notification",
+      "status": 200
+    },
+    {
+      "request": "12 Update nickname",
+      "status": 200
+    },
+    {
+      "request": "13 Set preferences",
+      "status": 200
+    },
+    {
+      "request": "14 Security settings",
+      "status": 200
+    },
+    {
+      "request": "15 Demo assistant",
+      "status": 200
+    },
+    {
+      "request": "16 Missing payment code rejected",
+      "status": 400
+    },
+    {
+      "request": "17 Delete temporary notification",
+      "status": 204
+    },
+    {
+      "request": "18 Delete temporary rule",
+      "status": 204
+    },
+    {
+      "request": "19 Verify simulation recipient",
+      "status": 200
+    },
+    {
+      "request": "20 Request peer email verification code",
+      "status": 200
+    },
+    {
+      "request": "21 Peer payment without PIN rejected",
+      "status": 400
+    },
+    {
+      "request": "22 Wrong peer PIN rejected",
+      "status": 400
+    },
+    {
+      "request": "23 Pay simulation user",
+      "status": 201
+    },
+    {
+      "request": "24 Replay same payment",
+      "status": 201
+    },
+    {
+      "request": "25 Payment history",
+      "status": 200
+    },
+    {
+      "request": "26 Filter peer payment legs",
+      "status": 200
+    }
+  ]
+}

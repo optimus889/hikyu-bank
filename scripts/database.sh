@@ -14,6 +14,9 @@ load_settings() {
         case "$setting_line" in *=*) ;; *) fail "Invalid setting in $settings_file: expected KEY=VALUE." ;; esac
         setting_key=${setting_line%%=*}
         setting_value=${setting_line#*=}
+        if [ "$settings_file" = .env.extensions ]; then
+            case "$setting_key" in HIKYU_AI_*|HIKYU_EXTENSION_MIGRATION_APPROVED) ;; *) fail "Only AI and extension migration settings are allowed in .env.extensions." ;; esac
+        fi
         case "$setting_key" in
             HIKYU_*|SUPABASE_*|PORT|SERVER_ADDRESS) ;;
             *) fail "Unsupported setting name in $settings_file." ;;

@@ -37,6 +37,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BankApiIntegrationTest {
     @Autowired MockMvc mvc;
     @Autowired ObjectMapper mapper;
+    @Autowired org.springframework.jdbc.core.JdbcTemplate jdbc;
     @Autowired MutableClock clock;
     @Autowired hikyubank.dataaccess.repository.DemoUserRepository users;
     @Autowired hikyubank.dataaccess.repository.AccountRepository accounts;
@@ -103,7 +104,7 @@ class BankApiIntegrationTest {
         var invalid = call("POST", "/auth/verify", verification(challenge, code, "email", "0000"), session);
         assertEquals(400, invalid.getResponse().getStatus());
         assertEquals(401, call("GET", "/accounts", null, session).getResponse().getStatus());
-        var valid = call("POST", "/auth/verify", verification(challenge, code, "email", "2468"), session);
+        var valid = call("POST", "/auth/verify", verification(challenge, code, "email", "1037"), session);
         assertEquals(200, valid.getResponse().getStatus());
     }
 
@@ -195,7 +196,7 @@ class BankApiIntegrationTest {
         var challenge = json(call("POST", "/auth/login", credentials(), session));
         var code = requestCode(session, challenge, "sms");
         clock.advance(300_001);
-        var expired = call("POST", "/auth/verify", verification(challenge, code, "sms", ""), session);
+        var expired = call("POST", "/auth/verify", verification(challenge, code, "sms", "1037"), session);
         assertEquals("CODE_EXPIRED", json(expired).path("code").asText());
         session = signedIn();
         clock.advance(1_800_001);
@@ -218,7 +219,7 @@ class BankApiIntegrationTest {
         for (int attempt = 0; attempt < 5; attempt++) {
             call("POST", "/auth/verify", invalid, session);
         }
-        var locked = call("POST", "/auth/verify", verification(challenge, code, "sms", ""), session);
+        var locked = call("POST", "/auth/verify", verification(challenge, code, "sms", "1037"), session);
         assertEquals("ATTEMPTS_EXCEEDED", json(locked).path("code").asText());
     }
 
@@ -356,6 +357,43 @@ class BankApiIntegrationTest {
         }
     }
 
+    @Test
+    void smsVerificationRequiresCorrectCardPin() throws Exception {
+        var session = new MockHttpSession();
+        var challenge = json(call("POST", "/auth/login", credentials(), session));
+        var code = requestCode(session, challenge, "sms");
+        var result = call("POST", "/auth/verify", Map.of("challengeId", challenge.path("challengeId").asText(),
+            "method", "sms", "code", code.path("demoCode").asText()), session);
+        assertEquals(400, result.getResponse().getStatus());
+        assertEquals(400, call("POST", "/auth/verify", verification(challenge, code, "sms", "9999"), session).getResponse().getStatus());
+        assertEquals(200, call("POST", "/auth/verify", verification(challenge, code, "sms", "1037"), session).getResponse().getStatus());
+    }
+
+    @Test
+    void emailVerificationRejectsMissingPin() throws Exception {
+        var session = new MockHttpSession();
+        var challenge = json(call("POST", "/auth/login", credentials(), session));
+        var code = requestCode(session, challenge, "email");
+        var result = call("POST", "/auth/verify", Map.of("challengeId", challenge.path("challengeId").asText(),
+            "method", "email", "code", code.path("demoCode").asText()), session);
+        assertEquals(400, result.getResponse().getStatus());
+        assertEquals(200, call("POST", "/auth/verify", verification(challenge, code, "email", "1037"), session).getResponse().getStatus());
+    }
+
+    @Test
+    void demoProfilesStopDisplayingAnOldPinAfterItIsChanged() throws Exception {
+        var service = new hikyubank.web.controller.DemoProfilesController(users,
+            new org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder(), "HikyuDemo2026!");
+        var lee = service.profiles().stream().filter(p -> p.username().equals("chengyang.lee")).findFirst().orElseThrow();
+        assertEquals("1037", lee.defaultPin());
+        String hash = new org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder().encode("7342");
+        var user = users.findByUsername("chengyang.lee").orElseThrow();
+        jdbc.update("UPDATE hikyu.users SET pin_hash=? WHERE id=?", hash, user.id());
+        lee = service.profiles().stream().filter(p -> p.username().equals("chengyang.lee")).findFirst().orElseThrow();
+        assertTrue(lee.pinChanged());
+        assertNull(lee.defaultPin());
+    }
+
     private java.util.UUID leeId() {
         return users.findByUsername("chengyang.lee").orElseThrow().id();
     }
@@ -394,7 +432,7 @@ class BankApiIntegrationTest {
         var challenge = json(call("POST", "/auth/login",
             Map.of("username", username, "password", "HikyuDemo2026!"), session));
         var code = requestCode(session, challenge, "sms");
-        var result = call("POST", "/auth/verify", verification(challenge, code, "sms", ""), session);
+        var result = call("POST", "/auth/verify", verification(challenge, code, "sms", hikyubank.application.service.SecurityService.demoPin(username)), session);
         assertEquals(200, result.getResponse().getStatus());
         return session;
     }
@@ -412,7 +450,7 @@ class BankApiIntegrationTest {
     private Map<String, String> verification(JsonNode challenge, JsonNode code, String method, String pin) {
         return Map.of(
             "challengeId", challenge.path("challengeId").asText(),
-            "method", method, "code", code.path("demoCode").asText(), "pin", pin
+            "method", method, "code", code.path("demoCode").asText(), "pin", pin.isEmpty() ? "1037" : pin
         );
     }
 

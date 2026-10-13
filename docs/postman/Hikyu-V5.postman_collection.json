@@ -1,0 +1,961 @@
+{
+  "info": {
+    "name": "Hikyu V5 Banking Extension",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Run in order against an isolated seeded demo DB. Uses cookie sessions. Creates one synthetic user, internal transfer and peer payment with simulated verification codes. No real payments, SMS or email. Completed financial history remains. Each run chooses a fresh username."
+  },
+  "item": [
+    {
+      "name": "01 Register synthetic user",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/auth/register",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"{{username}}\",\n  \"firstName\": \"Postman\",\n  \"lastName\": \"Tester\",\n  \"password\": \"{{password}}\",\n  \"pin\": \"{{pin}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set(\"username\", \"pm_\" + Date.now());",
+              "pm.environment.set(\"transfer_key\", pm.variables.replaceIn(\"{{$guid}}\"));"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(201));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/auth/login",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));",
+              "pm.environment.set(\"challenge_id\", pm.response.json().challengeId);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 Simulated SMS code",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/auth/code",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"challengeId\": \"{{challenge_id}}\",\n  \"method\": \"sms\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));",
+              "pm.environment.set(\"demo_code\", pm.response.json().demoCode);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "04 Verify SMS code and card PIN",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/auth/verify",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"challengeId\": \"{{challenge_id}}\",\n  \"method\": \"sms\",\n  \"code\": \"{{demo_code}}\",\n  \"pin\": \"{{pin}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "05 Accounts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/accounts"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));",
+              "const a=pm.response.json();pm.environment.set(\"source_id\",a.find(x=>x.type===\"checking\").id);pm.environment.set(\"target_id\",a.find(x=>x.type===\"savings\").id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "06 Create reminder",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/alerts",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"low_balance\",\n  \"accountId\": \"{{source_id}}\",\n  \"title\": \"Postman low balance\",\n  \"channel\": \"In-app\",\n  \"amount\": 990\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(201));",
+              "pm.environment.set(\"alert_id\",pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "06a Request internal SMS verification code",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/payment-verifications",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"targetAccountId\": \"{{target_id}}\",\n  \"amount\": \"25.50\",\n  \"note\": \"Postman transfer\",\n  \"idempotencyKey\": \"{{transfer_key}}\",\n  \"type\": \"internal\",\n  \"method\": \"sms\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));",
+              "pm.environment.set(\"payment_challenge\",pm.response.json().challengeId);",
+              "pm.environment.set(\"payment_code\",pm.response.json().demoCode);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "07 Transfer once",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/transfers",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"targetAccountId\": \"{{target_id}}\",\n  \"amount\": \"25.50\",\n  \"note\": \"Postman transfer\",\n  \"idempotencyKey\": \"{{transfer_key}}\",\n  \"challengeId\": \"{{payment_challenge}}\",\n  \"verificationCode\": \"{{payment_code}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(201));",
+              "pm.environment.set(\"receipt_id\",pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "08 Replay same transfer",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/transfers",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"targetAccountId\": \"{{target_id}}\",\n  \"amount\": \"25.50\",\n  \"note\": \"Postman transfer\",\n  \"idempotencyKey\": \"{{transfer_key}}\",\n  \"challengeId\": \"{{payment_challenge}}\",\n  \"verificationCode\": \"{{payment_code}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(201));",
+              "pm.test(\"Same receipt\",()=>pm.expect(pm.response.json().id).to.eql(pm.environment.get(\"receipt_id\")));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "09 Filter transfer legs",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/transactions/search?kind=transfer&size=10"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));",
+              "pm.test(\"Two legs\",()=>pm.expect(pm.response.json().total).to.eql(2));pm.environment.set(\"transaction_id\",pm.response.json().items[0].id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "10 Owned transaction details",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/transactions/{{transaction_id}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "11 Automatic inbox notification",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/notifications"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));",
+              "pm.test(\"One reminder\",()=>pm.expect(pm.response.json().length).to.eql(1));pm.environment.set(\"notification_id\",pm.response.json()[0].id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "12 Update nickname",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/accounts/{{source_id}}/nickname",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Postman checking\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "13 Set preferences",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/settings/preferences",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"lowBalance\": false,\n  \"largeTransaction\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "14 Security settings",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/settings/security"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "15 Demo assistant",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/assistant/messages",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"How much did I spend?\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "16 Missing payment code rejected",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/transfers",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"targetAccountId\": \"{{target_id}}\",\n  \"amount\": \"25.50\",\n  \"note\": \"Postman transfer\",\n  \"idempotencyKey\": \"{{transfer_key}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "17 Delete temporary notification",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/notifications/{{notification_id}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(204));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "18 Delete temporary rule",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/alerts/{{alert_id}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(204));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "19 Verify simulation recipient",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/payments/recipient",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"{{recipient_username}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "20 Request peer email verification code",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/payment-verifications",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"recipientUsername\": \"{{recipient_username}}\",\n  \"amount\": \"25.00\",\n  \"note\": \"Postman peer payment\",\n  \"idempotencyKey\": \"{{payment_key}}\",\n  \"type\": \"peer\",\n  \"method\": \"email\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set(\"payment_key\",pm.variables.replaceIn(\"{{$guid}}\"));"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));",
+              "pm.environment.set(\"peer_challenge\",pm.response.json().challengeId);",
+              "pm.environment.set(\"peer_code\",pm.response.json().demoCode);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "21 Peer payment without PIN rejected",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/payments",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"recipientUsername\": \"{{recipient_username}}\",\n  \"amount\": \"25.00\",\n  \"note\": \"Postman peer payment\",\n  \"idempotencyKey\": \"{{payment_key}}\",\n  \"challengeId\": \"{{peer_challenge}}\",\n  \"verificationCode\": \"{{peer_code}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "22 Wrong peer PIN rejected",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/payments",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"recipientUsername\": \"{{recipient_username}}\",\n  \"amount\": \"25.00\",\n  \"note\": \"Postman peer payment\",\n  \"idempotencyKey\": \"{{payment_key}}\",\n  \"challengeId\": \"{{peer_challenge}}\",\n  \"verificationCode\": \"{{peer_code}}\",\n  \"pin\": \"9999\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(400));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "23 Pay simulation user",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/payments",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"recipientUsername\": \"{{recipient_username}}\",\n  \"amount\": \"25.00\",\n  \"note\": \"Postman peer payment\",\n  \"idempotencyKey\": \"{{payment_key}}\",\n  \"challengeId\": \"{{peer_challenge}}\",\n  \"verificationCode\": \"{{peer_code}}\",\n  \"pin\": \"{{pin}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(201));",
+              "pm.environment.set(\"payment_receipt\",pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "24 Replay same payment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/payments",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"recipientUsername\": \"{{recipient_username}}\",\n  \"amount\": \"25.00\",\n  \"note\": \"Postman peer payment\",\n  \"idempotencyKey\": \"{{payment_key}}\",\n  \"challengeId\": \"{{peer_challenge}}\",\n  \"verificationCode\": \"{{peer_code}}\",\n  \"pin\": \"{{pin}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(201));",
+              "pm.test(\"Same receipt\",()=>pm.expect(pm.response.json().id).to.eql(pm.environment.get(\"payment_receipt\")));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "25 Payment history",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/payments"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "26 Filter peer payment legs",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/transactions/search?kind=peer_transfer"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\", () => pm.response.to.have.status(200));",
+              "pm.test(\"Only own debit\",()=>pm.expect(pm.response.json().total).to.eql(1));"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

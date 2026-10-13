@@ -6,5 +6,6 @@ import java.util.List;
 
 /** Swap the demo implementation for a backend REST AI adapter later. */
 public interface AssistantGateway {
+    default String mode() { return "rule-based-demo"; }
     String reply(String message, List<Account> accounts, List<Transaction> transactions);
 }

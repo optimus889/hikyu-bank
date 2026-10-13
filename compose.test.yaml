@@ -1,0 +1,19 @@
+services:
+  database:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: hikyu_extension_demo
+      POSTGRES_USER: hikyu
+      POSTGRES_PASSWORD: hikyu_test_only
+    ports:
+      - "127.0.0.1:55432:5432"
+    volumes:
+      - hikyu_test_data:/var/lib/postgresql/data
+      - ./scripts/test-databases.sql:/docker-entrypoint-initdb.d/01-test-databases.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hikyu -d hikyu_extension_demo"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+volumes:
+  hikyu_test_data:

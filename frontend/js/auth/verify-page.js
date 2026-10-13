@@ -1,6 +1,6 @@
 import { authAPI } from "../api/auth.js";
 import { apiConfig } from "../api/client.js";
-import { DEMO_ACCOUNT } from "./demo-account.js";
+import { request } from "../api/client.js";
 import { escape } from "../components/ui.js";
 import { readFlow, saveFlow, toLogin } from "./page-state.js";
 import { renderAuthLayout, showError } from "./layout.js";
@@ -22,7 +22,7 @@ function methodOptions() {
         <strong>${method.id === "sms" ? "Text message" : "Email"}</strong>
         <small>${escape(method.destination)}</small>
       </span>
-      <span class="method-detail">${method.id === "sms" ? "6-digit code" : "Code + PIN"}</span>
+      <span class="method-detail">Code + Card PIN</span>
     </label>
   `,
     )
@@ -37,17 +37,11 @@ function verificationFields() {
       <input id="otp" name="code" class="otp-input" type="text"
         inputmode="numeric" pattern="[0-9]{6}" maxlength="6"
         autocomplete="one-time-code" placeholder="000000" required />
-      ${
-        flow.method === "email"
-          ? `
-        <label for="card-pin">4-digit demo card PIN</label>
-        <input id="card-pin" name="pin" type="password" inputmode="numeric"
-          pattern="[0-9]{4}" maxlength="4" autocomplete="off"
-          placeholder="••••" required />
-        <p class="field-hint">Use the demo PIN only, never your real card PIN.</p>
-      `
-          : ""
-      }
+      <label for="card-pin">4-digit card PIN</label>
+      <input id="card-pin" name="pin" type="password" inputmode="numeric"
+        pattern="[0-9]{4}" maxlength="4" autocomplete="off"
+        placeholder="••••" required />
+      <p class="field-hint">Enter your permanent Hikyu card PIN.</p>
       <p id="auth-error" class="auth-error" role="alert"></p>
       <button type="submit" class="auth-primary">Verify & sign in <span>→</span></button>
     </form>
@@ -58,7 +52,7 @@ function verificationFields() {
         <span>SIMULATED ${flow.method === "email" ? "EMAIL" : "TEXT MESSAGE"}</span>
         <strong>${escape(flow.delivery.demoCode)}</strong>
         <small>One use · valid for 5 minutes</small>
-        ${flow.method === "email" ? `<small>Demo PIN: <b>${DEMO_ACCOUNT.pin}</b></small>` : ""}
+        <small id="demo-pin-hint">Enter the permanent PIN you chose.</small>
       </aside>
     `
         : ""
@@ -135,6 +129,17 @@ function paint() {
       await authAPI.logout();
       toLogin();
     });
+  if (flow.delivery && apiConfig.demo) {
+    const hint = root.querySelector("#demo-pin-hint");
+    const challenge = flow.challengeId;
+    request("/auth/demo-profiles").then(items => {
+      if (!hint?.isConnected || flow.challengeId !== challenge) return;
+      const profile = items.find(item => item.username === flow.username);
+      if (profile) hint.textContent = profile.pinChanged
+        ? "Your PIN has changed. Enter your current PIN; the previous default no longer applies."
+        : "Default demo PIN for this profile: " + profile.defaultPin;
+    }).catch(() => {});
+  }
   updateTimer();
 }
 
