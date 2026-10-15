@@ -45,11 +45,15 @@ public class PaymentAuthorizationService {
   String destination;
   if("internal".equals(p.type())){if(p.targetAccountId()==null || p.targetAccountId().equals(p.sourceAccountId()))throw new BankException(400,"INVALID_TARGET","Choose a different destination account.");var target=accounts.get(user,p.targetAccountId());if(!"active".equals(target.status()) || !List.of("checking","savings").contains(target.type()))throw new BankException(400,"ACCOUNT_NOT_ELIGIBLE","Choose an active deposit account.");destination=p.targetAccountId().toString();}
   else {if(p.recipientUsername()==null || !p.recipientUsername().matches("[a-z0-9][a-z0-9._-]{2,79}"))throw new BankException(400,"INVALID_RECIPIENT","Enter a Hikyu username.");destination=payments.lookup(user,new Lookup(p.recipientUsername())).username();}
-  store.lockUser(user);
-  Instant now=clock.instant();if(store.recentCount(user,now.minusSeconds(600))>=10)throw new BankException(429,"VERIFICATION_RATE_LIMIT","Too many payment codes. Try again in 10 minutes.");
+  return issueBound(user,session,payload(p.type(),p.sourceAccountId(),destination,p.amount(),p.note(),p.idempotencyKey()),p.method());
+ }
+ @Transactional public Challenge issueBound(UUID user,String session,String fingerprint,String method){
+  if(!List.of("sms","email").contains(method==null?"":method))throw new BankException(400,"INVALID_VERIFICATION_METHOD","Choose SMS or email.");
+  store.lockUser(user);Instant now=clock.instant();
+  if(store.recentCount(user,now.minusSeconds(600))>=10)throw new BankException(429,"VERIFICATION_RATE_LIMIT","Too many payment codes. Try again in 10 minutes.");
   UUID id=UUID.randomUUID();String code=String.format(Locale.ROOT,"%06d",random.nextInt(1000000));Instant expires=now.plusSeconds(300);
-  store.insert(id,user,hash(session),payload(p.type(),p.sourceAccountId(),destination,p.amount(),p.note(),p.idempotencyKey()),hash(id+":"+code),p.method(),now,expires);
-  return new Challenge(id,p.method(),expires,code,"Demo verification code only. No SMS or email was sent.");
+  store.insert(id,user,hash(session),fingerprint,hash(id+":"+code),method,now,expires);
+  return new Challenge(id,method,expires,code,"Demo verification code only. No SMS or email was sent.");
  }
  public <T> T execute(UUID user,String session,String payload,UUID challenge,String code,Supplier<T> action){
   // Commit unsuccessful-code attempts separately, without committing failed financial operations.

@@ -8,3 +8,5 @@
 AuthState carries the credential generation read at login. Every protected API request compares it to users.auth_version; password/PIN changes and logout-all increment that value. OpenAI is behind AssistantGateway and is conditionally selected; default local rules require no network credentials. No AI tools can write SQL or move money.
 
 Payment authorization validates a code in a short transaction so failed-code attempts persist. A separate financial transaction rechecks/locks that challenge, invokes the transfer/payment service, and marks the code consumed only after success. Replays are limited to the same payload and immutable receipt. No PIN or plaintext code is persisted.
+
+BankingService/BankingRepository implement the second batch, with BankingController exposing REST operations. Banking view handles entry/review/code/receipt states and does not adjust authoritative balances. Statement exports use a read-only repeatable-read transaction, owner predicates and bounded row count. V8 is additive; financial_operations and linked transaction legs form immutable history. Card controls and saved payee writes use the same user-row lock as funds changes.

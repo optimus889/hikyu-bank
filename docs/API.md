@@ -43,7 +43,7 @@ Automatic reminders run in the same transaction. Low balance fires when the post
 
 ## Transaction Search
 
-`accountId`, `from`, `to` (inclusive YYYY-MM-DD); `min`, `max` (absolute amount); `kind` all/income/expense/transfer/peer_transfer; `q` case-insensitive literal substring of name/category/note; `category` exact string; `sort` date_desc/date_asc/amount_desc/amount_asc; `page` zero-based, 0–100000; `size` 1–50 (default 10). A UUID tie-breaker makes ordering stable. Count and items use one repeatable-read snapshot. Empty results return an empty items array. Internal transfer legs never contribute to assistant income/expense totals.
+`accountId`, `from`, `to` (inclusive YYYY-MM-DD); `min`, `max` (absolute amount); `kind` all/income/expense/transfer/peer_transfer/credit_payment; `q` case-insensitive literal substring of name/category/note; `category` exact string; `sort` date_desc/date_asc/amount_desc/amount_asc; `page` zero-based, 0–100000; `size` 1–50 (default 10). A UUID tie-breaker makes ordering stable. Count and items use one repeatable-read snapshot. Empty results return an empty items array. Internal transfer and credit repayment legs never contribute to assistant income/expense totals.
 
 ## Errors
 
@@ -87,3 +87,47 @@ Peer recipients must have an active Checking account. Sources are current-user a
 `peer_transfer` is distinct from `transfer`. Its negative sender leg counts as spending and its positive receiver leg as income in search/assistant summaries. Internal own-account legs remain excluded from income/spending. The new transaction detail field `peerPaymentId` links a peer leg to its receipt.
 
 Validation errors use explicit English API messages instead of locale-dependent validator strings or raw regular expressions. Frontend native validation popups are suppressed in favor of English inline messages.
+
+
+## Batch 2 REST API
+
+All routes require the existing authenticated session. Writes require X-Hikyu-Request: web. Unknown JSON properties are rejected. Currency is USD; amounts are positive, up to 1,000,000 and at most two decimals.
+
+| Method | Route | Contract |
+|---|---|---|
+| GET | /banking/catalog | Simulation spending categories and mock billers |
+| POST | /banking/verifications | OperationInput plus method sms/email → five-minute bound demo code |
+| POST | /banking/operations | OperationInput plus pin/challengeId/verificationCode → completed receipt; 201 |
+| GET | /banking/operations | Current user's most recent 100 immutable receipts |
+| GET/POST | /payees | List / create or revive an owned saved recipient; POST 201 |
+| PATCH/DELETE | /payees/{id} | Edit alias/reference / soft-delete; DELETE 204 |
+| GET | /cards | Owned debit/credit card controls; creates missing controls for new accounts |
+| PATCH | /cards/{accountId} | {locked:true/false}; owned active card only |
+| GET | /budgets?month=YYYY-MM | Owned budgets with spent/remaining/exceeded |
+| POST | /budgets | Create or update same month/category; 201 |
+| PUT/DELETE | /budgets/{id} | Edit owned budget / delete; DELETE 204 |
+| GET | /statements.csv?from=YYYY-MM-DD&to=YYYY-MM-DD&accountId=UUID | UTF-8 CSV attachment; accountId optional; owner-scoped repeatable snapshot |
+
+Purchase code request:
+```json
+{"type":"purchase","sourceAccountId":"OWN_CARD_ACCOUNT_UUID","merchant":"Demo grocery","category":"Groceries","amount":"25.00","note":"Demo purchase","idempotencyKey":"NEW_UUID","method":"sms"}
+```
+Submit the same fields to /banking/operations with `pin`, `challengeId` and `verificationCode` from the code response. Repayment replaces merchant/category with `targetAccountId` (own active credit account). Bill payment replaces merchant/category with `payeeId` and `payeeReference` copied from the current saved biller. Do not include fields belonging to another workflow.
+
+Payee request:
+```json
+{"kind":"peer","identifier":"gospelhope.david","alias":"David","reference":""}
+```
+For kind=biller choose identifier from catalog: electric, internet, water or rent, and provide a nonblank simulation-only reference. Payee identifiers/kinds cannot be reassigned through PATCH. A changed bill reference invalidates a pending confirmation. Deletion preserves the historical payee row and financial receipts.
+
+Budget request:
+```json
+{"month":"2026-10","category":"Groceries","limit":"400.00"}
+```
+Supported categories are the catalog categories plus Peer transfer. Month must be 1970–2100. Spending sums negative expense/peer_transfer legs within [month start, next month start); credit repayments and own transfers are excluded. Remaining may be negative. No scheduled budget notifications are claimed.
+
+Purchase sources are Checking debit or credit accounts. Credit purchase increases debt and must stay within credit_limit. Repayment sources are Checking/Saving; amount cannot exceed debt or available deposit funds. Card locking blocks new purchases, never credit repayments. Bill Pay debits a deposit account to a synthetic biller; no real routing/account network is used.
+
+New error codes include CARD_LOCKED, CREDIT_LIMIT_EXCEEDED, OVERPAYMENT, PAYEE_CHANGED, PAYEE_NOT_FOUND, BUDGET_NOT_FOUND and EXPORT_TOO_LARGE. Existing code/PIN/ownership/idempotency errors apply. Keys are unique per user across purchase/repayment/bill operations; changed requests return 409. A completed identical replay can return its original receipt even if the card was later locked; no new charge is made. Failed operations do not consume the code or reserve the request key.
+
+Transaction details add operationId for these financial receipts. credit_payment is separately searchable and never classified as income/expense. CSV includes transaction/account/date/name/type/category/amount/note/reference; text fields are quoted and formula-leading text is prefixed with an apostrophe. Numeric amounts preserve their sign. More than 10,000 rows returns 413; narrow the dates rather than silently truncating.

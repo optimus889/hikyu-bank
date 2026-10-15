@@ -6,7 +6,7 @@ import hikyubank.application.dto.ExtensionDtos.Page;import hikyubank.application
 public class TransactionQueryRepository {
  private final JdbcTemplate jdbc;
  public TransactionQueryRepository(JdbcTemplate jdbc){this.jdbc=jdbc;}
- private Transaction row(java.sql.ResultSet rs,int n)throws java.sql.SQLException{return new Transaction(rs.getObject("id",UUID.class),rs.getObject("account_id",UUID.class),rs.getString("name"),rs.getString("category"),rs.getString("posted_date"),rs.getBigDecimal("amount"),rs.getString("icon"),rs.getString("kind"),rs.getString("note"),rs.getObject("transfer_id",UUID.class),rs.getObject("peer_payment_id",UUID.class));}
+ private Transaction row(java.sql.ResultSet rs,int n)throws java.sql.SQLException{return new Transaction(rs.getObject("id",UUID.class),rs.getObject("account_id",UUID.class),rs.getString("name"),rs.getString("category"),rs.getString("posted_date"),rs.getBigDecimal("amount"),rs.getString("icon"),rs.getString("kind"),rs.getString("note"),rs.getObject("transfer_id",UUID.class),rs.getObject("peer_payment_id",UUID.class),rs.getObject("operation_id",UUID.class));}
  public Transaction detail(UUID user,UUID id){var list=jdbc.query("SELECT t.* FROM hikyu.transactions t JOIN hikyu.accounts a ON a.id=t.account_id WHERE a.user_id=? AND t.id=?",this::row,user,id);return list.isEmpty()?null:list.get(0);}
  public Page search(UUID user,UUID account,LocalDate from,LocalDate to,BigDecimal min,BigDecimal max,String kind,String q,String category,String order,int page,int size){
   StringBuilder where=new StringBuilder(" FROM hikyu.transactions t JOIN hikyu.accounts a ON a.id=t.account_id WHERE a.user_id=?");List<Object> args=new ArrayList<>();args.add(user);

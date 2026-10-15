@@ -17,9 +17,9 @@ public class OpenAiAssistantGateway implements AssistantGateway {
   if(uri.getHost()==null || uri.getUserInfo()!=null || uri.getFragment()!=null || !("https".equals(uri.getScheme()) || local) || settings.timeoutSeconds()<1 || settings.timeoutSeconds()>30 || settings.maxTokens()<64 || settings.maxTokens()>2048)throw error(503,"AI_NOT_CONFIGURED","AI service is not configured.");
   Map<String,BigDecimal> spending=new TreeMap<>(),balances=new TreeMap<>();BigDecimal income=BigDecimal.ZERO;
   for(var a:accounts)balances.merge(a.type(),a.balance(),BigDecimal::add);
-  for(var t:transactions){if("transfer".equals(t.kind()))continue;if(t.amount().signum()<0)spending.merge(t.category(),t.amount().negate(),BigDecimal::add);else income=income.add(t.amount());}
+  for(var t:transactions){if(List.of("transfer","credit_payment").contains(t.kind()))continue;if(t.amount().signum()<0)spending.merge(t.category(),t.amount().negate(),BigDecimal::add);else income=income.add(t.amount());}
   var summary=Map.of("balancesByType",balances,"spendingByCategory",spending,"recordedIncome",income);
-  var payload=Map.of("model",settings.model(),"store",false,"max_completion_tokens",settings.maxTokens(),"messages",List.of(Map.of("role","system","content","You explain simulated finances. Use only supplied figures; history may be incomplete. Internal transfers are excluded from income/spending. No money-moving tools are available. Summary: "+summary),Map.of("role","user","content",question)));
+  var payload=Map.of("model",settings.model(),"store",false,"max_completion_tokens",settings.maxTokens(),"messages",List.of(Map.of("role","system","content","You explain simulated finances. Use only supplied figures; history may be incomplete. Internal transfers and credit repayments are excluded from income/spending. No money-moving tools are available. Summary: "+summary),Map.of("role","user","content",question)));
   // No client is created in Demo mode or when configuration is incomplete.
   try{
    var client=HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(settings.timeoutSeconds())).followRedirects(HttpClient.Redirect.NEVER).build();

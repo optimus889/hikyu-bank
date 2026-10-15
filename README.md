@@ -1,4 +1,4 @@
-# Hikyu Bank V5 — Startup Guide
+# Hikyu Bank V5 — Batch 2
 
 Spring Boot serves both the web pages and REST API. Start the backend once; no separate frontend server is required.
 
@@ -11,7 +11,7 @@ Spring Boot serves both the web pages and REST API. Start the backend once; no s
 - **Local mode:** Docker Desktop / Docker Engine with Docker Compose v2 running.
 - **Cloud mode:** An existing Supabase PostgreSQL connection configured in `.env.supabase`. Docker is not required.
 
-This V5 revision includes additive V5–V7 migrations. Existing V4 databases are guarded against an accidental upgrade; read the V5 database instructions below before using them.
+This V5 revision includes additive V5–V8 migrations. Existing V4 databases are guarded against an accidental upgrade; read the V5 database instructions below before using them.
 
 ## Quick Start on macOS / Linux
 
@@ -170,7 +170,7 @@ PINs are permanent credentials, not one-time verification codes. Leading zeros a
 This optional test Compose file creates a NEW data volume and binds PostgreSQL to port 55432. It does not mount your V4 volume.
 
 ```sh
-docker compose -f compose.test.yaml up -d --wait database
+docker compose -p hikyu-bank-batch2-test -f compose.test.yaml up -d --wait database
 cd backend
 HIKYU_DB_URL=jdbc:postgresql://127.0.0.1:55432/hikyu_extension_demo \
 HIKYU_DB_USER=hikyu HIKYU_DB_PASSWORD=hikyu_test_only ./mvnw spring-boot:run
@@ -221,7 +221,7 @@ The adapter uses `POST /v1/chat/completions`, `model`, `messages`, `store:false`
 - Postman collection/environment: `docs/postman/`
 - Original V4 documents are retained under `docs/v4-reference/` and describe the uploaded baseline, not V5 test results.
 
-No real OpenAI call, email, SMS, payment network or live Supabase upgrade was performed. Card purchases, Bill Pay, budgets, exports and card locking remain future work; PIN authorization can be reused when a simulated purchase workflow is implemented.
+No real OpenAI call, email, SMS, payment network or live Supabase upgrade was performed. Batch 2 implements simulated purchases, credit repayment, immediate Bill Pay, budgets, CSV export, card locking and saved recipients. PDF statements, scheduled payments/reminders and real financial integrations remain future work.
 
 ## Login Correction
 
@@ -247,3 +247,60 @@ Figma updates: [Pay & Transfer desktop](https://www.figma.com/design/qHd626nmXLZ
 ## UI and login correction
 
 Transaction names are interactive text with no button border/background; other row content is informational. Form validation messages are English regardless of browser/server locale. Settings uses the same navy/blue controls as the rest of the app. Demo hints say **Card PIN**; the previous email-only note is removed. Both SMS and email login require a code and card PIN. Internal payments still require a payment code only; peer payments require PIN plus code. No migration or PIN reset is introduced by this correction.
+
+
+## Batch 2 features and navigation
+
+Use **Banking** in the top navigation (mobile: open the menu). Its six tabs are:
+
+| Tab | Behavior |
+|---|---|
+| Simulate purchase | Active unlocked Checking debit card or credit card; merchant/category/amount/note; review, card PIN + SMS/email demo code; receipt |
+| Credit repayment | Own active Checking/Saving → own active credit account; reduces deposit balance, outstanding debt and unpaid minimum due; blocks overpayment |
+| Bill Pay | Immediate mock payment to a saved demo biller/reference; card PIN + payment code; no scheduled/external payment |
+| Cards | Lock/unlock the user's simulated debit/credit card; locked cards reject new purchases but allow account transfers and credit repayments |
+| Budgets | Create/edit/delete monthly category budgets; actual spending, remaining amount, progress and over-budget status |
+| Saved recipients | Create/edit/delete a known Hikyu recipient or demo biller; completed financial history is retained |
+
+**Pay & Transfer → To another person** now offers a saved-recipient selector. Selecting one still requires authoritative recipient verification before payment. **Transactions → Export a CSV statement** downloads only the signed-in user's accounts within inclusive dates. CSV covers at most 367 days / 10,000 records and protects text fields from spreadsheet formula execution.
+
+Credit purchases increase outstanding debt; debit purchases and bills reduce deposit funds. Credit repayments create two linked `credit_payment` legs and are excluded from income/spending and budgets. Internal transfers are also excluded. Outgoing peer payments count as spending under Peer transfer. Budgets use UTC posting dates and calendar months.
+
+The built-in demo profiles have active credit accounts. Newly registered profiles start with Checking and Everyday Saving only; use a built-in profile for credit purchase/repayment tests. No new credit-approval/underwriting workflow was added.
+
+V8 adds card controls, saved payees, financial operations, budgets and reminder deduplication. Applied **V1–V7 bytes are unchanged**. No private configuration is included; copy your own `.env.local`/`.env.supabase` privately when using normal launchers. Validate an independent restored V7 copy first. A normal V7 startup with this build applies V8 automatically; do not leave `SPRING_FLYWAY_TARGET` pinned below 8. Existing V4 approval rules remain in place.
+
+## First test in a separate database
+
+Use an explicit project name to keep test containers separate from the normal database:
+
+```sh
+docker compose -p hikyu-bank-batch2-test -f compose.test.yaml up -d --wait database
+(
+  unset SPRING_FLYWAY_TARGET
+  export HIKYU_DB_MODE=local
+  export HIKYU_DB_URL=jdbc:postgresql://127.0.0.1:55432/hikyu_extension_demo
+  export HIKYU_DB_USER=hikyu
+  export HIKYU_DB_PASSWORD=hikyu_test_only
+  export HIKYU_AI_MODE=demo
+  export PORT=8081
+  cd backend
+  ./mvnw spring-boot:run
+)
+```
+
+Open http://localhost:8081/login.html. The test Compose creates `hikyu_bank_test` for automated tests. In another terminal, from the project root:
+
+```sh
+(
+  cd backend
+  HIKYU_TEST_DB_URL=jdbc:postgresql://127.0.0.1:55432/hikyu_bank_test \
+  HIKYU_TEST_DB_USER=hikyu HIKYU_TEST_DB_PASSWORD=hikyu_test_only ./mvnw test
+)
+(cd frontend && npm test)
+python3 scripts/tests/test_startup.py
+```
+
+See `docs/BATCH2.md`, `docs/API.md`, `docs/MANUAL-TESTS.md` and `docs/TEST-RESULTS.md`. Import both Postman files under `docs/postman/`, set base_url to http://localhost:8081/api/v1, and run sequentially against a seeded test database. The collection creates synthetic records and retains completed financial history. Repeat in a fresh disposable database for the original assertions.
+
+Figma: [Banking desktop](https://www.figma.com/design/qHd626nmXLZRuxvIESJx4b/Hikyu-Bank?node-id=2063-95). Editable desktop/mobile frames cover all six tabs, confirmation and CSV export. These are mock design states; the running application's values come from PostgreSQL.

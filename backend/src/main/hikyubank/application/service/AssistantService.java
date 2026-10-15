@@ -25,7 +25,7 @@ public class AssistantService {
     public AssistantResponse ask(UUID userId, String message) {
         limiter.check(userId);
         return new AssistantResponse(
-            gateway.reply(message, accounts.list(userId), transactions.list(userId, null).stream().filter(t -> !"transfer".equals(t.kind())).toList()),
+            gateway.reply(message, accounts.list(userId), transactions.list(userId, null).stream().filter(t -> !java.util.List.of("transfer","credit_payment").contains(t.kind())).toList()),
             gateway.mode()
         );
     }

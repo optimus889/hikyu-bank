@@ -1,0 +1,278 @@
+{
+  "requests": 54,
+  "checks": [
+    {
+      "path": "/auth/login",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/auth/code",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/auth/verify",
+      "method": "POST",
+      "status": 400
+    },
+    {
+      "path": "/auth/verify",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/auth/login",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/auth/code",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/auth/verify",
+      "method": "POST",
+      "status": 400
+    },
+    {
+      "path": "/auth/verify",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/accounts",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/banking/catalog",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/cards",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/banking/verifications",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/banking/operations",
+      "method": "POST",
+      "status": 400
+    },
+    {
+      "path": "/banking/operations",
+      "method": "POST",
+      "status": 400
+    },
+    {
+      "path": "/banking/operations",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "/banking/operations",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "/accounts",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/cards/61359d0b-9c8f-4aa3-9031-e0ca31b6311c",
+      "method": "PATCH",
+      "status": 200
+    },
+    {
+      "path": "/banking/verifications",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/banking/operations",
+      "method": "POST",
+      "status": 409
+    },
+    {
+      "path": "/cards/61359d0b-9c8f-4aa3-9031-e0ca31b6311c",
+      "method": "PATCH",
+      "status": 404
+    },
+    {
+      "path": "/cards/61359d0b-9c8f-4aa3-9031-e0ca31b6311c",
+      "method": "PATCH",
+      "status": 200
+    },
+    {
+      "path": "/banking/verifications",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/banking/operations",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "/cards/30be6fbc-b5a2-4de2-a443-701ebfc826ec",
+      "method": "PATCH",
+      "status": 200
+    },
+    {
+      "path": "/banking/verifications",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/banking/operations",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "/accounts",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/payees",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "/payees/db5825b8-b06b-4516-a121-d5acac3ebb14",
+      "method": "PATCH",
+      "status": 200
+    },
+    {
+      "path": "/payees/db5825b8-b06b-4516-a121-d5acac3ebb14",
+      "method": "DELETE",
+      "status": 404
+    },
+    {
+      "path": "/payees",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "/banking/verifications",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/banking/operations",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "/payees/d5873bbc-cd02-4448-b642-baede21e1716",
+      "method": "DELETE",
+      "status": 204
+    },
+    {
+      "path": "/banking/operations",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/budgets",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "/budgets/d48a9e7c-cb64-4349-a5e8-b8a670b3d038",
+      "method": "PUT",
+      "status": 200
+    },
+    {
+      "path": "/budgets/d48a9e7c-cb64-4349-a5e8-b8a670b3d038",
+      "method": "DELETE",
+      "status": 404
+    },
+    {
+      "path": "/statements.csv?from=2026-10-15&to=2026-10-15&accountId=61359d0b-9c8f-4aa3-9031-e0ca31b6311c",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/statements.csv?from=2026-10-15&to=2026-10-15&accountId=61359d0b-9c8f-4aa3-9031-e0ca31b6311c",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/transactions/search?kind=credit_payment",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/transactions/search?kind=expense&q=HTTP+Batch+2",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/banking/operations",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/auth/login",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/auth/code",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/auth/verify",
+      "method": "POST",
+      "status": 400
+    },
+    {
+      "path": "/auth/verify",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/accounts",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/cards",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/banking/operations",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/budgets?month=2026-10",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/budgets/d48a9e7c-cb64-4349-a5e8-b8a670b3d038",
+      "method": "DELETE",
+      "status": 204
+    },
+    {
+      "path": "/payees/db5825b8-b06b-4516-a121-d5acac3ebb14",
+      "method": "DELETE",
+      "status": 204
+    }
+  ],
+  "restart_persistence": true,
+  "csv_formula_escaped": true,
+  "real_external_calls": false
+}

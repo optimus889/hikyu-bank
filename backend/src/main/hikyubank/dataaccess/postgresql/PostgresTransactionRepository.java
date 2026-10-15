@@ -21,7 +21,7 @@ public class PostgresTransactionRepository implements TransactionRepository {
     private static final RowMapper<Transaction> ROW = (rs, index) -> new Transaction(
         rs.getObject("id", UUID.class), rs.getObject("account_id", UUID.class), rs.getString("name"),
         rs.getString("category"), rs.getString("posted_date"),
-        rs.getBigDecimal("amount"), rs.getString("icon"), rs.getString("kind"), rs.getString("note"), rs.getObject("transfer_id", UUID.class), rs.getObject("peer_payment_id", UUID.class)
+        rs.getBigDecimal("amount"), rs.getString("icon"), rs.getString("kind"), rs.getString("note"), rs.getObject("transfer_id", UUID.class), rs.getObject("peer_payment_id", UUID.class),rs.getObject("operation_id", UUID.class)
     );
 
     private static final String SELECT_OWNED = """

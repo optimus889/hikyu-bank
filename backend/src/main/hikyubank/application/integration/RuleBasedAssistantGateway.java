@@ -20,6 +20,7 @@ public class RuleBasedAssistantGateway implements AssistantGateway {
         Map<String, BigDecimal> categories = new HashMap<>();
         BigDecimal income = BigDecimal.ZERO;
         for (var transaction : transactions) {
+            if (List.of("transfer", "credit_payment").contains(transaction.kind())) continue;
             if (transaction.amount().signum() < 0) {
                 categories.merge(
                     transaction.category(), transaction.amount().negate(), BigDecimal::add

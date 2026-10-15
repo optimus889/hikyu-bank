@@ -1,13 +1,14 @@
-import { heading, escape } from "./ui.js";
+import { heading, escape, money } from "./ui.js";
 import { accountCard, showAccount } from "./accounts.js";
 import { alertSidebar, showAlertForm, showManageAlerts } from "./alerts.js";
 import { showOpenAccount } from "./open-account.js";
 
-/** Overview intentionally contains no transaction rows or spending charts. */
-export function overview(accounts, user = {}) {
+/** Overview shows at most five recent records; full history lives in Transactions. */
+export function overview(accounts, user = {}, transactions = []) {
   const firstName = escape(user.firstName || user.name?.split(" ")[0] || "there");
   return `
     ${heading("PERSONAL BANKING", `Welcome back, ${firstName}.`, "Your accounts. One clear view.")}
+    <div role="navigation" class="extension-actions" aria-label="Quick actions"><a class="primary-button" href="#pay-transfer">Transfer</a><a class="secondary-button" href="#pay-transfer?tab=bill">Pay bills</a>${accounts.some(a=>a.type==='credit'&&a.status==='active')?'<a class="secondary-button" href="#accounts?tab=repayment">Repay credit</a>':''}</div>
     <div class="overview-layout">
       <section class="overview-main" aria-labelledby="accounts-title">
         <div class="panel-heading">
@@ -23,6 +24,7 @@ export function overview(accounts, user = {}) {
         </div>
           <button id="open-account" class="primary-button">Open a new account →</button>
         </section>
+        <section class="panel recent-overview"><h2>Recent transactions</h2><ul class="transfer-history">${[...transactions].sort((a,b)=>String(b.date).localeCompare(String(a.date))).slice(0,5).map(t=>`<li><strong>${escape(t.name)} · ${money(t.amount)}</strong><p>${escape(t.category)} · ${escape(t.date)}</p></li>`).join('')||'<li class="empty-state">No recent transactions yet.</li>'}</ul><a class="text-link" href="#transactions">View all transactions →</a></section>
       </section>
       ${alertSidebar()}
     </div>

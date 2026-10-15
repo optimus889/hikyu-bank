@@ -27,3 +27,12 @@ No migration was applied to the user's existing local or cloud database. Default
 - `V7__payment_verification.sql`: session/payload/code hashes, five-minute expiration, failed-attempt counter and consumed flag. No plaintext PIN/code is stored. Issuance counters are database-backed and survive backend restarts.
 
 A seeded independent V5 database is upgraded to V7 during delivery validation; core UUIDs, balances and credentials must remain unchanged. New V6/V7 rows are additive. Never edit historical applied migration SQL or use Flyway repair to bypass a checksum conflict. No existing Docker volume or live Supabase database was touched for this change. The old V5 client transfer request must now obtain and include a payment code; the packaged frontend and Postman collection are updated together.
+
+
+## V8 — second banking batch
+
+`V8__banking_batch_two.sql` adds saved_payees (owned soft-deleted peer/biller references), card_controls, budgets, financial_operations and financial_alert_events. It adds transactions.operation_id and credit_payment kind plus leg uniqueness and owner/date indexes. Composite owner/account and owner/payee foreign keys prevent cross-user financial linkage. Credit repayment references must have a target; bill operations must have an owned payee.
+
+Existing V1–V7 files are byte-identical to the uploaded baseline. V8 changes no existing balances, users, credentials, transactions, alerts or notifications; new card controls begin unlocked. No data volume/cloud project is modified during delivery testing. Test an independently restored V7 copy and retain a backup before normal startup applies V8. Existing V4 extension approval and UUID migration safeguards remain. Do not run an older client against an intentionally upgraded database; do not modify or repair historical SQL checksums.
+
+A seeded V7 database was upgraded to V8 with identical core snapshots: 3 users, 9 accounts, 36 transactions, 9 alerts and 3 notifications. The test comparison included UUIDs, credential hashes/generation, balances and existing ledger/reminder/inbox rows.

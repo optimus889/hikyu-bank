@@ -593,7 +593,7 @@ td.date-cell {
   font-size: 13px;
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 12px;
 }

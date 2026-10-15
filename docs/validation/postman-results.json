@@ -1,5 +1,5 @@
 {
-  "requests": 27,
+  "requests": 55,
   "results": [
     {
       "request": "01 Register synthetic user",
@@ -107,6 +107,118 @@
     },
     {
       "request": "26 Filter peer payment legs",
+      "status": 200
+    },
+    {
+      "request": "27 Banking catalog",
+      "status": 200
+    },
+    {
+      "request": "28 Save peer recipient",
+      "status": 201
+    },
+    {
+      "request": "29 Save demo electric biller",
+      "status": 201
+    },
+    {
+      "request": "30 Immediate Bill Pay request code",
+      "status": 200
+    },
+    {
+      "request": "30 Immediate Bill Pay confirm",
+      "status": 201
+    },
+    {
+      "request": "31 Replay bill payment",
+      "status": 201
+    },
+    {
+      "request": "32 Cards",
+      "status": 200
+    },
+    {
+      "request": "33 Lock debit card",
+      "status": 200
+    },
+    {
+      "request": "34 Unlock debit card",
+      "status": 200
+    },
+    {
+      "request": "35 Debit purchase request code",
+      "status": 200
+    },
+    {
+      "request": "35 Debit purchase confirm",
+      "status": 201
+    },
+    {
+      "request": "36 Create monthly budget",
+      "status": 201
+    },
+    {
+      "request": "37 List budgets",
+      "status": 200
+    },
+    {
+      "request": "38 Update budget",
+      "status": 200
+    },
+    {
+      "request": "39 Export CSV statement",
+      "status": 200
+    },
+    {
+      "request": "40 Delete budget",
+      "status": 204
+    },
+    {
+      "request": "41 Delete bill payee preserves history",
+      "status": 204
+    },
+    {
+      "request": "42 Delete peer recipient",
+      "status": 204
+    },
+    {
+      "request": "43 Financial history",
+      "status": 200
+    },
+    {
+      "request": "44 Login credit demo profile",
+      "status": 200
+    },
+    {
+      "request": "45 Credit demo SMS code",
+      "status": 200
+    },
+    {
+      "request": "46 Verify code plus card PIN",
+      "status": 200
+    },
+    {
+      "request": "47 Credit demo accounts",
+      "status": 200
+    },
+    {
+      "request": "48 Credit purchase request code",
+      "status": 200
+    },
+    {
+      "request": "48 Credit purchase confirm",
+      "status": 201
+    },
+    {
+      "request": "49 Credit repayment request code",
+      "status": 200
+    },
+    {
+      "request": "49 Credit repayment confirm",
+      "status": 201
+    },
+    {
+      "request": "50 Filter repayment ledger",
       "status": 200
     }
   ]

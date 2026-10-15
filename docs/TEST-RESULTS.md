@@ -1,42 +1,29 @@
-# Pay & Transfer validation — October 13, 2026
+# Batch 2 validation — 2026-10-15 UTC
 
-This revision extends the latest corrected Hikyu V5 project. Historical V1–V5 migration files were compared byte for byte against that source and remain unchanged. New migrations are V6 and V7. Tests used independently initialized PostgreSQL 17.6 databases; no existing Docker volume or live Supabase database was connected or modified.
+The sole application source was the newly uploaded Hikyu-Bank-Project-V5(1).zip. Existing V1–V7 SQL bytes were compared directly to the ZIP and remain unchanged. Tests used an independent PostgreSQL 17.6 instance on a separate local port and dedicated databases. No existing Docker data volume or live Supabase project was accessed.
 
 | Executed verification | Result |
 |---|---|
-| Java 17 compile and executable Spring Boot package | PASS |
-| Backend automated tests | **73 passed**, no failures/errors/skips |
-| New peer-payment/payment-code integration tests | **13 passed** with real PostgreSQL |
-| Existing extension/security integration tests | 19 passed |
-| Existing API/constraint regression | 22 + 12 passed |
-| OpenAI mock-provider tests | 7 passed; no real provider calls |
-| Actual packaged-app HTTP checks | **58 passed**, including restart/re-login |
-| Updated Postman collection and assertions | **27 passed** via cookie-aware HTTP runner |
-| Frontend Node regression | 13 passed |
-| Launcher regression with stub Docker/Maven | 14 passed |
-| JavaScript syntax checks | 32 modules parsed successfully |
-| V5 → V7 upgrade | PASS; IDs, balances, credentials and core rows unchanged |
-| Figma composition/visual inspection | Desktop and narrow entry/review screens created with editable nodes and existing tokens; mobile code-only/PIN-plus-code states visually inspected |
+| Java 17 compile and executable package | PASS |
+| Backend automated tests | **93 passed**, no failures/errors/skips |
+| New second-batch integration tests | **20 passed**, real PostgreSQL |
+| Existing V5 regression/provider tests | 73 passed, including 7 provider mocks |
+| Frontend Node tests | **18 passed** |
+| Launcher tests with stub Docker/Maven | 14 passed |
+| JavaScript syntax checks | 34 modules parsed |
+| Actual packaged-app HTTP checks | **54 passed**, including restart/re-login consistency |
+| Updated Postman requests/assertions | **55 passed** through a cookie-aware HTTP/JavaScript harness |
+| V7 → V8 upgrade | PASS; core snapshots unchanged |
+| Figma design checks | 14 editable Banking desktop/narrow frames plus 2 CSV export panels; representative desktop/mobile/review/export compositions visually inspected |
 
-The new integration tests cover balanced peer ledger entries, both-party receipts, masked recipient lookup, internal code-only authorization, peer PIN-plus-code authorization, payload/user/session binding, code expiry/lockout/issuance rate, idempotent replay/conflict, concurrent same-key requests, opposing-user payments without deadlock, distinct requests that could overdraw, invalid/foreign/self/unknown requests, forced second-leg rollback, notification deduplication/disabled rules and transaction search isolation.
+New tests cover debit and credit purchases, credit limits, card lock/unlock and persistence, repayment while locked, reduction of deposit funds/debt/minimum due, overpayment/insufficient funds, balanced repayment legs, correct income/spending exclusion, simulated bill payment, retained history after payee deletion, stale bill-reference rejection, recipient CRUD and ownership, invalid/foreign requests, same-key replay/conflict, twelve concurrent identical requests, competing overdraw requests, card-lock/purchase races, forced second-leg rollback, enabled/disabled reminder deduplication, monthly budgets, exact-limit/month-boundary behavior, owner isolation and CSV escaping/date/account validation.
 
-A deliberately failing database trigger rejected the peer credit leg. Debit, credit, history, notifications and code consumption rolled back together; the same request was successfully retried after removing the trigger. Concurrent distinct $700 requests against $1,000 allowed exactly one payment; the source remained $300. A completed request replay never created additional financial entries or notifications.
+The deliberate second-leg failure rolled back financial operation, balances, transaction legs, notifications and code consumption together. Retry after removing the test trigger succeeded. Credit repayment pairs are separate credit_payment entries and do not count as income or spending. Concurrent distinct $700 purchases against $1,000 allowed exactly one charge; the account stayed nonnegative. Card-lock races either complete the already-serialized purchase or reject it, with a consistent final locked state.
 
-Real HTTP checks confirmed internal transfer success without a PIN, rejection of a peer request without/wrong PIN or without/wrong code, shared receipt on retries, isolation from a third user, filtered incoming/outgoing peer legs, expiration of old login sessions after backend restart, persistent balances/history and safe completed replay with a newly issued code after re-login. Both SMS and email login reject missing/wrong card PINs and accept the correct code plus permanent PIN. Payment authorization rules remain unchanged.
+The packaged-app HTTP checks exercised login code+PIN, purchase code/PIN rejection and success, idempotent receipt replay, locks, credit purchase/repayment, peer and biller CRUD, immediate Bill Pay, deleted-payee history, budgets, CSV formula-leading text, transaction-kind filters, third-user isolation and backend restart. Test assertions use decimal amounts for financial comparisons. Restart preserved balances, credit lock, operation history and budgets.
 
-Upgrade evidence: 3 users, 9 accounts, 36 transactions, 9 alerts and 3 notifications retained. Snapshot comparison included account UUID/owner/type/status/balance, user credential hashes/generation and pre-existing financial/reminder/inbox rows.
+The V7 fixture upgraded to V8 without changing existing user/account/transaction/alert/notification snapshots. Counts retained: 3 users, 9 accounts, 36 transactions, 9 alerts, 3 notifications. UUIDs, balances and credential hashes/generation were compared. New card controls begin unlocked. V8 adds schema/features without resetting PINs or seeding over existing business data.
 
-Postman desktop was not used. The exported request bodies, pre-request scripts and assertions were executed using a small compatible JavaScript harness and real HTTP cookie sessions. Browser interaction/DOM layout tests, Windows PowerShell execution, Docker Engine execution, live Supabase migrations, real SMS/email delivery and real OpenAI/payment-provider calls were **not executed**. Figma visual checks verify the design compositions; they do not replace browser layout testing. Manual browser acceptance steps are in MANUAL-TESTS.md.
+Postman desktop was not used: the exported bodies, pre-request scripts and assertions were run with a small compatible JavaScript harness and real HTTP cookie sessions. A real-browser DOM interaction/layout test, Windows PowerShell execution, Docker Engine execution, live Supabase upgrade, real OpenAI call, payment network and SMS/email delivery were **not executed**. Figma mock-state visual inspection is separate from browser layout testing. Manual acceptance steps remain in MANUAL-TESTS.md.
 
-The ZIP contains source, launchers, migration files, test cases and placeholder configuration. It excludes compiled output, caches and private environment files. AI remains Demo with blank key/model. All balances, transfers, users, OTPs and notifications are simulation data.
-
-
-## Screenshot UI correction
-
-Transactions now render their names as borderless text controls with transparent backgrounds; only those names open details. Settings shares navy/blue field and button styling, including its secondary sign-out action. Demo hints use Card PIN and no longer show Email Verification Only. Both SMS/email verification pages show the same required card PIN field.
-
-API validation errors are explicitly English and never expose localized validator strings or raw regular expressions. A Chinese-locale MockMvc request verified the recipient-username error; four frontend tests cover English required, numeric, pattern/PIN/code and length/range messages without using browser validationMessage text. Native validation popups are prevented; inline errors retain keyboard focus and aria-invalid indicators.
-
-Figma login/verification desktop and narrow frames were updated; Settings desktop/narrow frames were added using the existing tokens and controls. Mobile Settings wrapping and verification labels were inspected visually after fixing text sizing. This confirms design compositions; a real browser interaction test was not performed.
-
-All V1–V7 SQL bytes remain unchanged from the preceding delivered revision. No new migration or PIN reset is needed for these UI/login corrections. Actual HTTP checks total 58; updated Postman collection requests/assertions total 27. Existing user data and credentials were preserved in an independent V5-to-V7 upgrade fixture; live data volumes/cloud databases were not accessed.
+All financial services use simulated USD amounts. Provider key/model remain blank and AI remains Demo. No scheduled bill payments, scheduled reminders, interest/billing-cycle processing or PDF statements are claimed. The ZIP excludes private environment files, compiled output and caches.

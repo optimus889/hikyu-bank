@@ -80,12 +80,14 @@ export async function showAccount(id) {
       >
         View transactions →
       </a>
+      ${account.type==='credit'&&account.status==='active'?`<a class="primary-button" href="#accounts?tab=repayment&account=${encodeURIComponent(account.id)}">Repay credit</a>`:''}
+      ${['checking','credit'].includes(account.type)?'<a class="secondary-button" href="#accounts?tab=cards">Manage cards</a>':''}
       <p class="muted">
         Simulated account data. No payments or transfers are processed.
       </p>
     `;
     dialog.querySelector('[role="status"]').replaceWith(section);
-    section.querySelector("a").onclick = () => dialog.close();
+    section.querySelectorAll("a").forEach(link=>link.onclick = () => dialog.close());
   } catch (error) {
     if (dialog.open)
       dialog.querySelector('[role="status"]').textContent = error.message;

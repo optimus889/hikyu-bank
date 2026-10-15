@@ -1,8 +1,8 @@
 {
   "info": {
-    "name": "Hikyu V5 Banking Extension",
+    "name": "Hikyu V5 Batch 2",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": "Run in order against an isolated seeded demo DB. Uses cookie sessions. Creates one synthetic user, internal transfer and peer payment with simulated verification codes. No real payments, SMS or email. Completed financial history remains. Each run chooses a fresh username."
+    "description": "Run sequentially against an isolated seeded database. Exercises initial V5 workflows plus saved recipients, immediate bill pay, debit/credit purchases, card controls, budgets, CSV exports and credit repayment. Simulation only. Financial history is retained."
   },
   "item": [
     {
@@ -952,6 +952,1020 @@
             "exec": [
               "pm.test(\"Status\", () => pm.response.to.have.status(200));",
               "pm.test(\"Only own debit\",()=>pm.expect(pm.response.json().total).to.eql(1));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "27 Banking catalog",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/banking/catalog"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "28 Save peer recipient",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/payees",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"kind\": \"peer\",\n  \"identifier\": \"{{recipient_username}}\",\n  \"alias\": \"Demo recipient\",\n  \"reference\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(201));",
+              "pm.environment.set(\"saved_peer_id\",pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "29 Save demo electric biller",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/payees",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"kind\": \"biller\",\n  \"identifier\": \"electric\",\n  \"alias\": \"Demo power\",\n  \"reference\": \"demo-001\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(201));",
+              "pm.environment.set(\"biller_id\",pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "30 Immediate Bill Pay request code",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/banking/verifications",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"bill\",\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"payeeId\": \"{{biller_id}}\",\n  \"payeeReference\": \"demo-001\",\n  \"amount\": \"10.00\",\n  \"note\": \"Postman Batch 2\",\n  \"idempotencyKey\": \"{{finance_key}}\",\n  \"method\": \"sms\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set(\"finance_key\",pm.variables.replaceIn(\"{{$guid}}\"));"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));",
+              "pm.environment.set(\"finance_challenge\",pm.response.json().challengeId);",
+              "pm.environment.set(\"finance_code\",pm.response.json().demoCode);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "30 Immediate Bill Pay confirm",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/banking/operations",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"bill\",\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"payeeId\": \"{{biller_id}}\",\n  \"payeeReference\": \"demo-001\",\n  \"amount\": \"10.00\",\n  \"note\": \"Postman Batch 2\",\n  \"idempotencyKey\": \"{{finance_key}}\",\n  \"pin\": \"{{finance_pin}}\",\n  \"challengeId\": \"{{finance_challenge}}\",\n  \"verificationCode\": \"{{finance_code}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(201));",
+              "pm.environment.set(\"finance_receipt\",pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "31 Replay bill payment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/banking/operations",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"bill\",\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"payeeId\": \"{{biller_id}}\",\n  \"payeeReference\": \"demo-001\",\n  \"amount\": \"10.00\",\n  \"note\": \"Postman Batch 2\",\n  \"idempotencyKey\": \"{{finance_key}}\",\n  \"pin\": \"{{finance_pin}}\",\n  \"challengeId\": \"{{finance_challenge}}\",\n  \"verificationCode\": \"{{finance_code}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(201));",
+              "pm.test(\"Same receipt\",()=>pm.expect(pm.response.json().id).to.eql(pm.environment.get(\"finance_receipt\")));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "32 Cards",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/cards"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "33 Lock debit card",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/cards/{{source_id}}",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"locked\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "34 Unlock debit card",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/cards/{{source_id}}",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"locked\": false\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "35 Debit purchase request code",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/banking/verifications",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"purchase\",\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"merchant\": \"Demo grocery\",\n  \"category\": \"Groceries\",\n  \"amount\": \"10.00\",\n  \"note\": \"Postman Batch 2\",\n  \"idempotencyKey\": \"{{finance_key}}\",\n  \"method\": \"sms\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set(\"finance_key\",pm.variables.replaceIn(\"{{$guid}}\"));"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));",
+              "pm.environment.set(\"finance_challenge\",pm.response.json().challengeId);",
+              "pm.environment.set(\"finance_code\",pm.response.json().demoCode);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "35 Debit purchase confirm",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/banking/operations",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"purchase\",\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"merchant\": \"Demo grocery\",\n  \"category\": \"Groceries\",\n  \"amount\": \"10.00\",\n  \"note\": \"Postman Batch 2\",\n  \"idempotencyKey\": \"{{finance_key}}\",\n  \"pin\": \"{{finance_pin}}\",\n  \"challengeId\": \"{{finance_challenge}}\",\n  \"verificationCode\": \"{{finance_code}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(201));",
+              "pm.environment.set(\"finance_receipt\",pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "36 Create monthly budget",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/budgets",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"month\": \"{{budget_month}}\",\n  \"category\": \"Groceries\",\n  \"limit\": \"15.00\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set(\"budget_month\",new Date().toISOString().slice(0,7));",
+              "pm.environment.set(\"export_today\",new Date().toISOString().slice(0,10));"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(201));",
+              "pm.environment.set(\"budget_id\",pm.response.json().id);",
+              "pm.test(\"Spending\",()=>pm.expect(pm.response.json().spent).to.eql(10));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "37 List budgets",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/budgets?month={{budget_month}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "38 Update budget",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/budgets/{{budget_id}}",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"month\": \"{{budget_month}}\",\n  \"category\": \"Groceries\",\n  \"limit\": \"25.00\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "39 Export CSV statement",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/statements.csv?from={{export_today}}&to={{export_today}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "40 Delete budget",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/budgets/{{budget_id}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(204));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "41 Delete bill payee preserves history",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/payees/{{biller_id}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(204));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "42 Delete peer recipient",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/payees/{{saved_peer_id}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(204));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "43 Financial history",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/banking/operations"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "44 Login credit demo profile",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/auth/login",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"chengyang.lee\",\n  \"password\": \"HikyuDemo2026!\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));",
+              "pm.environment.set(\"challenge_id\",pm.response.json().challengeId);",
+              "pm.environment.set(\"finance_pin\",\"1037\");"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "45 Credit demo SMS code",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/auth/code",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"challengeId\": \"{{challenge_id}}\",\n  \"method\": \"sms\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));",
+              "pm.environment.set(\"demo_code\",pm.response.json().demoCode);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "46 Verify code plus card PIN",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/auth/verify",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"challengeId\": \"{{challenge_id}}\",\n  \"method\": \"sms\",\n  \"code\": \"{{demo_code}}\",\n  \"pin\": \"1037\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "47 Credit demo accounts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/accounts"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));",
+              "const a=pm.response.json();pm.environment.set(\"source_id\",a.find(x=>x.type===\"checking\").id);pm.environment.set(\"credit_id\",a.find(x=>x.type===\"credit\").id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "48 Credit purchase request code",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/banking/verifications",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"purchase\",\n  \"sourceAccountId\": \"{{credit_id}}\",\n  \"merchant\": \"Demo credit shop\",\n  \"category\": \"Shopping\",\n  \"amount\": \"5.00\",\n  \"note\": \"Postman Batch 2\",\n  \"idempotencyKey\": \"{{finance_key}}\",\n  \"method\": \"sms\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set(\"finance_key\",pm.variables.replaceIn(\"{{$guid}}\"));"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));",
+              "pm.environment.set(\"finance_challenge\",pm.response.json().challengeId);",
+              "pm.environment.set(\"finance_code\",pm.response.json().demoCode);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "48 Credit purchase confirm",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/banking/operations",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"purchase\",\n  \"sourceAccountId\": \"{{credit_id}}\",\n  \"merchant\": \"Demo credit shop\",\n  \"category\": \"Shopping\",\n  \"amount\": \"5.00\",\n  \"note\": \"Postman Batch 2\",\n  \"idempotencyKey\": \"{{finance_key}}\",\n  \"pin\": \"{{finance_pin}}\",\n  \"challengeId\": \"{{finance_challenge}}\",\n  \"verificationCode\": \"{{finance_code}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(201));",
+              "pm.environment.set(\"finance_receipt\",pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "49 Credit repayment request code",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/banking/verifications",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"repayment\",\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"targetAccountId\": \"{{credit_id}}\",\n  \"amount\": \"5.00\",\n  \"note\": \"Postman Batch 2\",\n  \"idempotencyKey\": \"{{finance_key}}\",\n  \"method\": \"sms\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.environment.set(\"finance_key\",pm.variables.replaceIn(\"{{$guid}}\"));"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));",
+              "pm.environment.set(\"finance_challenge\",pm.response.json().challengeId);",
+              "pm.environment.set(\"finance_code\",pm.response.json().demoCode);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "49 Credit repayment confirm",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/banking/operations",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"repayment\",\n  \"sourceAccountId\": \"{{source_id}}\",\n  \"targetAccountId\": \"{{credit_id}}\",\n  \"amount\": \"5.00\",\n  \"note\": \"Postman Batch 2\",\n  \"idempotencyKey\": \"{{finance_key}}\",\n  \"pin\": \"{{finance_pin}}\",\n  \"challengeId\": \"{{finance_challenge}}\",\n  \"verificationCode\": \"{{finance_code}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(201));",
+              "pm.environment.set(\"finance_receipt\",pm.response.json().id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "50 Filter repayment ledger",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Hikyu-Request",
+            "value": "web"
+          }
+        ],
+        "url": "{{base_url}}/transactions/search?kind=credit_payment"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status\",()=>pm.response.to.have.status(200));",
+              "pm.test(\"Two repayment legs\",()=>pm.expect(pm.response.json().total).to.eql(2));"
             ]
           }
         }

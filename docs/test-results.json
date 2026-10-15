@@ -1,19 +1,19 @@
 {
-  "date": "2026-10-13",
-  "revision": "UI controls / English validation / both login methods require card PIN",
-  "backend_tests": 73,
-  "frontend_tests": 13,
+  "date_utc": "2026-10-15",
+  "batch": "2",
+  "backend_tests": 93,
+  "new_banking_tests": 20,
+  "frontend_tests": 18,
   "launcher_tests": 14,
-  "actual_http_requests": 58,
-  "postman_requests": 27,
-  "javascript_modules_parsed": 32,
-  "all_existing_migrations_unchanged": true,
-  "migration_added": false,
+  "actual_http_requests": 54,
+  "postman_requests": 55,
+  "javascript_modules_parsed": 34,
+  "new_migration": "V8__banking_batch_two.sql",
+  "v1_to_v7_unchanged": true,
+  "upgrade": "V7 -> V8, core snapshot unchanged",
   "live_database_modified": false,
   "real_external_calls": false,
   "browser_interaction_tested": false,
-  "figma_settings_nodes": [
-    "2056:62",
-    "2056:187"
-  ]
+  "figma_file": "qHd626nmXLZRuxvIESJx4b",
+  "figma_desktop_node": "2063:95"
 }

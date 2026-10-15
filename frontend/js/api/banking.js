@@ -1,0 +1,8 @@
+import { request, sendJSON, apiConfig } from "./client.js";
+export const bankingAPI={
+ catalog:()=>request('/banking/catalog'),history:()=>request('/banking/operations'),code:p=>sendJSON('/banking/verifications','POST',p),execute:p=>sendJSON('/banking/operations','POST',p),
+ payees:()=>request('/payees'),savePayee:p=>sendJSON('/payees','POST',p),editPayee:(id,p)=>sendJSON('/payees/'+encodeURIComponent(id),'PATCH',p),deletePayee:id=>request('/payees/'+encodeURIComponent(id),{method:'DELETE'}),
+ cards:()=>request('/cards'),lockCard:(id,locked)=>sendJSON('/cards/'+encodeURIComponent(id),'PATCH',{locked}),
+ budgets:month=>request('/budgets?'+new URLSearchParams({month})),saveBudget:(p,id)=>sendJSON('/budgets'+(id?'/'+encodeURIComponent(id):''),id?'PUT':'POST',p),deleteBudget:id=>request('/budgets/'+encodeURIComponent(id),{method:'DELETE'}),
+ async downloadStatement(params){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),apiConfig.timeout);try{const response=await fetch(apiConfig.baseURL+'/statements.csv?'+new URLSearchParams(params),{credentials:'same-origin',signal:controller.signal,headers:{'X-Hikyu-Request':'web'}});if(!response.ok){if(response.status===401)globalThis.dispatchEvent?.(new Event('hikyu:session-expired'));const body=await response.json().catch(()=>({}));throw new Error(body.message||'Could not export this statement.');}const blob=await response.blob(),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='hikyu-statement.csv';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}finally{clearTimeout(timer);}}
+};

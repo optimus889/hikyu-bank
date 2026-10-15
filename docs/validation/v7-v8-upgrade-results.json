@@ -1,5 +1,5 @@
 {
-  "v5_to_v7": "PASS",
+  "v7_to_v8": "PASS",
   "core_rows_balances_ids_credentials_unchanged": true,
   "counts": {
     "users": "3",

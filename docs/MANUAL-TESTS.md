@@ -36,3 +36,20 @@ Automated results and unexecuted browser/Windows/external-service checks are lis
 - Set browser language to Chinese, submit an invalid recipient username, empty required fields or an invalid amount/PIN/code: messages remain English and raw regular expressions are not shown.
 - Settings: verify navy headings, blue primary/outlined secondary buttons, blue checkboxes, matching field borders and keyboard focus rings.
 - Demo login: check Card PIN label and current selected-profile default; no Email Verification Only text. SMS and email both show PIN input and both reject missing/wrong PIN. Changed PIN defaults remain hidden.
+
+
+## Batch 2 acceptance
+
+Use the separate test database and a built-in demo profile for credit tests.
+
+1. Banking → Simulate purchase: choose Checking, merchant/category/amount/note; review; obtain SMS/email code; require current card PIN + code. Check debit balance, expense leg, receipt and refreshed history. Repeat with credit: debt increases and available limit is enforced.
+2. Cards: lock/unlock a card, refresh/re-login/restart and verify state. Locked cards must reject new purchases. Credit repayments and internal/peer transfers remain allowed. A completed replay must not charge again.
+3. Credit repayment: use Checking/Saving → own active credit. Check both balances, minimum due, two linked credit_payment legs and no added spending/income/budget usage. Reject overpayment, foreign target, inactive accounts and insufficient funds.
+4. Saved recipients: add/edit/delete known peer usernames and demo billers/references. Select a saved peer in Pay & Transfer and still verify the recipient. Other users cannot view/edit/delete it.
+5. Bill Pay: choose an owned saved biller/reference, review, PIN + code, pay once. Confirm expense/history/notifications. Delete the payee: financial history remains. Change reference after requesting a code: stale confirmation must fail.
+6. Budgets: create/update/delete month/category limits; purchase and bill spending changes progress/remaining. Internal transfers/repayments do not. Test exact limit, exceeded limit, adjacent-month boundaries and empty month.
+7. Transactions → Export CSV: select account/date range; compare rows/amounts to filtered transactions. Export empty results, inclusive boundary dates, quoted notes and formula-leading text. Foreign accounts must fail; large exports must ask for narrower dates.
+8. Repeat/double-click/retry confirmed requests: one immutable receipt, no duplicate debit or notifications. Run the included concurrency and forced-rollback tests only on hikyu_bank_test.
+9. At mobile/tablet/desktop widths check all Banking tabs, card gutters, verification controls, long notes/UUIDs, budget bars, CSV controls and keyboard focus. Browser validation/error text must remain English.
+
+Actual executed checks and unexecuted browser/Windows/external-provider checks are distinguished in TEST-RESULTS.md.

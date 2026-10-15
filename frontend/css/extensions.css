@@ -6,7 +6,7 @@
 .payment-modes button{flex:1;padding:12px 16px;border:0;border-radius:7px;background:transparent;color:#193b59;font:inherit;font-weight:600;cursor:pointer;min-width:0}
 .payment-modes button[aria-pressed=true]{background:#092b52;color:white}
 .payment-panel h2,.payment-history h2{margin:0 0 12px}.payment-panel>.muted{margin-bottom:24px}
-.payment-panel form,.payment-pin{display:flex;flex-direction:column;gap:18px;width:100%;max-width:none}
+.payment-panel form,.payment-pin{display:flex;flex-direction:column;gap:14px;width:100%;max-width:none}
 .payment-panel label,.payment-pin{display:flex;flex-direction:column;gap:8px;min-width:0}
 .payment-panel input,.payment-panel select{box-sizing:border-box;width:100%;min-width:0;padding:13px 14px;border:1px solid #cad9e6;border-radius:8px;background:white;color:#193b59;font:inherit}
 .payment-panel button{max-width:100%;white-space:normal}.secondary-button{padding:12px 18px;border:1px solid #155ea7;border-radius:8px;color:#155ea7;background:white;font:inherit;font-weight:600;cursor:pointer}
@@ -32,3 +32,46 @@
 .settings-panel input[type=checkbox]{accent-color:var(--figma-blue,#155ea7)}.settings-panel .form-note{color:var(--figma-muted,#596f83)}
 .settings-panel input:focus-visible,.settings-panel select:focus-visible{outline:2px solid var(--figma-blue,#155ea7);outline-offset:2px}.settings-panel .extension-actions{margin:4px 0;gap:16px}.settings-panel .secondary-button{color:var(--figma-blue,#155ea7);border-color:var(--figma-blue,#155ea7);background:white}
 .settings-panel .check-label{flex-direction:row;align-items:center;font-weight:500}
+/* Second batch reuses the existing Hikyu navy/blue controls and card gutters. */
+.banking-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 24px}.banking-tabs button{font:inherit;font-weight:600;min-height:44px}
+.banking-panel [hidden]{display:none!important}.banking-panel .bank-form{max-width:none;gap:14px}.banking-panel input,.banking-panel select{font:inherit}.banking-panel h2{color:var(--figma-navy,#092b52)}
+.banking-card-list,.budget-list,.payee-list{display:flex;flex-direction:column;gap:18px}.budget-list,.payee-list{margin-top:28px}.banking-item{padding:20px;background:var(--figma-canvas,#f5f8fc);border:1px solid var(--figma-line,#cad9e6);border-radius:10px;min-width:0;overflow-wrap:anywhere}.banking-item h3{margin:0 0 12px;color:var(--figma-navy,#092b52)}.banking-item .extension-actions{margin:12px 0 0}
+.banking-item progress{display:block;width:100%;height:12px;accent-color:var(--figma-blue,#155ea7)}.budget-exceeded{color:#a83432;font-weight:600}.banking-panel .finance-code-hint,.banking-panel .finance-status{overflow-wrap:anywhere}.banking-history{overflow-wrap:anywhere}
+.statement-export{border-top:1px solid var(--figma-line,#cad9e6);border-bottom:1px solid var(--figma-line,#cad9e6);padding:20px 0;margin-bottom:24px}.statement-export summary{cursor:pointer;color:var(--figma-blue,#155ea7);font-weight:600}.statement-form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}.statement-form label{display:flex;flex-direction:column;gap:8px}.statement-form input,.statement-form select{padding:12px 14px;border:1px solid var(--figma-line,#cad9e6);border-radius:8px;background:white;color:var(--figma-ink,#193b59);font:inherit;width:100%;box-sizing:border-box;min-width:0}
+@media(max-width:700px){.statement-form{grid-template-columns:1fr}.banking-tabs{gap:8px}.banking-tabs button{flex:1 1 140px}.banking-item{padding:16px}}
+.banking-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.banking-tabs button{width:100%;min-width:0}
+@media(max-width:700px){.banking-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Native selects keep keyboard behavior, but use a single painted control surface.
+   Explicit appearance avoids platform-native select bevels above the biller field. */
+.bank-dashboard :is(.payment-panel,.settings-panel,.transaction-filters,.statement-form,.biller-form) select{appearance:none;background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23193b59' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;box-shadow:none;min-height:46px}
+.bank-dashboard :is(.primary-button,.secondary-button){display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:12px 18px;border-radius:7px;font:inherit;font-weight:600;text-align:center;line-height:1.3;gap:8px}
+.bank-dashboard :is(.primary-button,.secondary-button):disabled{opacity:.55;cursor:default}
+.bank-dashboard .primary-button:hover{background:#104a84}
+.bank-dashboard input[type=number]{appearance:textfield;-moz-appearance:textfield}
+.bank-dashboard input[type=number]::-webkit-inner-spin-button,.bank-dashboard input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.single-panel{grid-template-columns:minmax(0,1fr);max-width:850px}
+.section-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.section-tabs [aria-current=page]{background:var(--figma-navy,#092b52);border-color:var(--figma-navy,#092b52);color:white}
+.empty-state{padding:18px 0;color:var(--figma-muted,#596f83);line-height:1.6}
+.recent-overview{padding:24px;margin-top:24px}
+.bank-dashboard nav .demo-tools-link{font-size:13px;color:#c6d9e9;opacity:.85}
+.bank-dashboard #dashboard-nav{flex-wrap:wrap;gap:12px 24px}
+@media(max-width:700px){.section-tabs a{flex:1 1 150px}.bank-dashboard #dashboard-nav{gap:8px 16px}.single-panel{max-width:100%}}
+
+/* Bill Pay: inline list and a native, focus-trapping dialog; no full-page biller editor. */
+.saved-billers{margin:24px 0;padding:20px 0;border-top:1px solid var(--figma-line,#cad9e6);border-bottom:1px solid var(--figma-line,#cad9e6)}
+.biller-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.biller-heading h3{margin:0;font-size:18px;color:var(--figma-navy,#092b52)}
+.saved-biller-list ul{list-style:none;margin:14px 0 0;padding:0}
+.saved-biller-list li{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--figma-line,#cad9e6);overflow-wrap:anywhere}
+.saved-biller-list li:last-child{border-bottom:0}.saved-biller-list li>div{min-width:0}.saved-biller-list small{display:block;margin-top:5px;color:var(--figma-muted,#596f83);line-height:1.5}
+.biller-actions{display:flex;gap:16px;flex-wrap:wrap}.biller-notice:empty{display:none}.biller-notice{margin:14px 0 0;color:var(--figma-ink,#193b59);line-height:1.6;overflow-wrap:anywhere}
+.bank-dashboard .biller-dialog{width:min(520px,calc(100% - 32px));padding:clamp(20px,4vw,28px);overflow-y:auto}
+.biller-dialog .biller-form{display:flex;flex-direction:column;gap:18px;margin-top:20px}
+.biller-form label{display:flex;flex-direction:column;gap:8px;color:var(--figma-ink,#193b59);font-weight:600}
+.biller-form input,.biller-form select{width:100%;min-width:0;min-height:46px;padding:12px 14px;border:1px solid var(--figma-line,#cad9e6);border-radius:8px;background-color:white;color:var(--figma-ink,#193b59);font:inherit;box-sizing:border-box}
+.biller-form .form-status{margin:0;min-height:0;color:#a02b2b}.biller-form .form-status:empty{display:none}
+.biller-dialog-actions{display:flex;justify-content:flex-end;align-items:center;gap:12px;flex-wrap:wrap;margin-top:6px}
+.biller-dialog :focus-visible{outline:3px solid var(--figma-bright,#287bc1);outline-offset:3px}
+@media(max-width:550px){.saved-biller-list li{align-items:flex-start;flex-direction:column;gap:8px}.biller-dialog-actions button{flex:1}.biller-heading{gap:12px}.biller-heading .secondary-button{min-height:44px}}
