@@ -1,0 +1,565 @@
+{
+  "kind": "Configuration export only; contains no user records or credentials; install source plugin and migration rather than importing IDs across databases",
+  "tables": [
+    {
+      "name": "support_inbox",
+      "min_role_read": 1,
+      "min_role_write": 1,
+      "ownership_field_id": 155,
+      "fields": [
+        {
+          "name": "assigned_user_id",
+          "type": "Key",
+          "reftable_name": "users",
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "case_business_id",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "claimed_at",
+          "type": "Date",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "claimed_by",
+          "type": "Key",
+          "reftable_name": "users",
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "confirmed_description",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "created_at",
+          "type": "Date",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "draft_status",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "draft_version",
+          "type": "Integer",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "error_code",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "id",
+          "type": "Integer",
+          "attributes": {}
+        },
+        {
+          "name": "payload_hash",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "selected_transaction_id",
+          "type": "Integer",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "source_event_id",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "source_namespace",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "source_reference",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "source_type",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "subject",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "submitted_at",
+          "type": "Date",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "support_request_id",
+          "type": "Key",
+          "reftable_name": "support_requests",
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "updated_at",
+          "type": "Date",
+          "attributes": {
+            "min_role_write": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "v7_case_sync",
+      "min_role_read": 1,
+      "min_role_write": 1,
+      "ownership_field_id": null,
+      "fields": [
+        {
+          "name": "attempts",
+          "type": "Integer",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "case_id",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "error_code",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "external_record_id",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "id",
+          "type": "Integer",
+          "attributes": {}
+        },
+        {
+          "name": "last_attempt_at",
+          "type": "Date",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "next_attempt_at",
+          "type": "Date",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "state_version",
+          "type": "Integer",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "support_request_id",
+          "type": "Key",
+          "reftable_name": "support_requests",
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "synced_at",
+          "type": "Date",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "sync_status",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "v7_outbox",
+      "min_role_read": 1,
+      "min_role_write": 1,
+      "ownership_field_id": null,
+      "fields": [
+        {
+          "name": "attempts",
+          "type": "Integer",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "case_id",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "case_processed_at",
+          "type": "Date",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "created_at",
+          "type": "Date",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "delivery_id",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "error_code",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "event_id",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "final_state",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "generation",
+          "type": "Integer",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "id",
+          "type": "Integer",
+          "attributes": {}
+        },
+        {
+          "name": "job_status",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "next_attempt_at",
+          "type": "Date",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "state_version",
+          "type": "Integer",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "support_request_id",
+          "type": "Key",
+          "reftable_name": "support_requests",
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "updated_at",
+          "type": "Date",
+          "attributes": {
+            "min_role_write": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "v7_receipts",
+      "min_role_read": 1,
+      "min_role_write": 1,
+      "ownership_field_id": null,
+      "fields": [
+        {
+          "name": "case_id",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "delivery_id",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "external_record_id",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "id",
+          "type": "Integer",
+          "attributes": {}
+        },
+        {
+          "name": "receipt_id",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "receipt_result",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "received_at",
+          "type": "Date",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "state_version",
+          "type": "Integer",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "synced_at",
+          "type": "Date",
+          "attributes": {
+            "min_role_write": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "v7_audit",
+      "min_role_read": 1,
+      "min_role_write": 1,
+      "ownership_field_id": null,
+      "fields": [
+        {
+          "name": "actor_id",
+          "type": "Integer",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "correlation_id",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "event_kind",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "id",
+          "type": "Integer",
+          "attributes": {}
+        },
+        {
+          "name": "occurred_at",
+          "type": "Date",
+          "attributes": {
+            "min_role_write": 1
+          }
+        },
+        {
+          "name": "result_code",
+          "type": "String",
+          "attributes": {
+            "min_role_write": 1
+          }
+        }
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "indexname": "v7_audit_pkey",
+      "indexdef": "CREATE UNIQUE INDEX v7_audit_pkey ON public.v7_audit USING btree (id)"
+    },
+    {
+      "indexname": "v7_case_sync_pkey",
+      "indexdef": "CREATE UNIQUE INDEX v7_case_sync_pkey ON public.v7_case_sync USING btree (id)"
+    },
+    {
+      "indexname": "v7_draft_case",
+      "indexdef": "CREATE UNIQUE INDEX v7_draft_case ON public.support_inbox USING btree (case_business_id)"
+    },
+    {
+      "indexname": "v7_outbox_case_version",
+      "indexdef": "CREATE UNIQUE INDEX v7_outbox_case_version ON public.v7_outbox USING btree (case_id, state_version)"
+    },
+    {
+      "indexname": "v7_outbox_delivery",
+      "indexdef": "CREATE UNIQUE INDEX v7_outbox_delivery ON public.v7_outbox USING btree (delivery_id)"
+    },
+    {
+      "indexname": "v7_outbox_event",
+      "indexdef": "CREATE UNIQUE INDEX v7_outbox_event ON public.v7_outbox USING btree (event_id)"
+    },
+    {
+      "indexname": "v7_outbox_pkey",
+      "indexdef": "CREATE UNIQUE INDEX v7_outbox_pkey ON public.v7_outbox USING btree (id)"
+    },
+    {
+      "indexname": "v7_receipt_identity",
+      "indexdef": "CREATE UNIQUE INDEX v7_receipt_identity ON public.v7_receipts USING btree (receipt_id)"
+    },
+    {
+      "indexname": "v7_receipts_pkey",
+      "indexdef": "CREATE UNIQUE INDEX v7_receipts_pkey ON public.v7_receipts USING btree (id)"
+    },
+    {
+      "indexname": "v7_source_identity",
+      "indexdef": "CREATE UNIQUE INDEX v7_source_identity ON public.support_inbox USING btree (source_type, source_namespace, source_event_id)"
+    },
+    {
+      "indexname": "v7_sync_case",
+      "indexdef": "CREATE UNIQUE INDEX v7_sync_case ON public.v7_case_sync USING btree (case_id)"
+    }
+  ],
+  "pages": [
+    {
+      "name": "case-synchronization",
+      "title": "Outcome Synchronization",
+      "min_role": 80,
+      "layout": {
+        "above": [
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<style>.v6-panel{border:1px solid #c9dbee;border-radius:8px;padding:20px;margin:18px 0;background:white}body{background:#f4f8fc;color:#0b2d50}</style>"
+          },
+          {
+            "type": "view",
+            "view": "V7_sync",
+            "block": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "support-inbox",
+      "title": "Support Inbox",
+      "min_role": 80,
+      "layout": {
+        "above": [
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<style>.v6-panel{border:1px solid #c9dbee;border-radius:8px;padding:20px;margin:18px 0;background:white}body{background:#f4f8fc;color:#0b2d50}</style>"
+          },
+          {
+            "type": "view",
+            "view": "V7_inbox",
+            "block": true
+          }
+        ]
+      }
+    }
+  ]
+}

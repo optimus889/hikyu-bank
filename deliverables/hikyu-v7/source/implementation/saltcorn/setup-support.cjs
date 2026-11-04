@@ -1,0 +1,8 @@
+const {init,db,Field,Table,View,Page,state}=require('./sdk.cjs');const fs=require('fs'),crypto=require('crypto');
+(async()=>{await init();const t=Table.findOne('support_requests');for(const f of [{name:'request_hash',label:'Private request hash',type:'String'},{name:'retry_attempts',label:'Retry attempts',type:'Integer'},{name:'next_retry_at',label:'Next retry',type:'Date'}])if(!t.getFields().some(x=>x.name===f.name))await Field.create({...f,table_id:t.id,attributes:{}});
+await db.query('CREATE UNIQUE INDEX IF NOT EXISTS v6_support_business_unique ON support_requests(business_id)');
+const rolesPath='/workspace/hikyu-v7/work/private/roles.json';const roles=JSON.parse(fs.readFileSync(rolesPath));const users=JSON.parse(fs.readFileSync('/workspace/hikyu-v7/work/private/saltcorn-accounts.json'));
+for(const u of users.filter(u=>u.key!=='builder'))if(!roles.some(r=>r.id==='sc-user-'+u.id))roles.push({id:'sc-user-'+u.id,role:u.key==='other_requester'?'requester':u.key,token:crypto.randomBytes(32).toString('base64url')});fs.writeFileSync(rolesPath,JSON.stringify(roles,null,2),{mode:0o600});
+if(!View.findOne({name:'V6_Support_Workflow'}))await View.create({name:'V6_Support_Workflow',viewtemplate:'Hikyu Support Review',table_id:t.id,min_role:80,configuration:{}});
+const p=Page.findOne({name:'support-requests'});const layout=p.layout;layout.above=layout.above.filter(x=>x.type!=='view');layout.above.splice(layout.above.length-1,0,{type:'view',view:'V6_Support_Workflow',block:true});await Page.update(p.id,{layout});
+await state.getState().setConfig('allow_signup',false);await db.close();console.log('Configured native LCNC workflow view, correlation index and generated role bindings');})();

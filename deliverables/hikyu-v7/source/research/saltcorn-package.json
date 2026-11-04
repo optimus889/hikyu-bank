@@ -1,0 +1,9 @@
+{
+  "version": "1.6.2",
+  "license": "MIT",
+  "repository": {
+    "url": "git+https://github.com/saltcorn/saltcorn.git",
+    "type": "git"
+  },
+  "dist.integrity": "sha512-xZCFM6KCwrS6Bsr0Xcsijd0BxHW4HQeQFaT6JC6NBABxKBhVT1QIH2FpQ7ro+2cx6tCz3+s2Fbq0jWlytllSMA=="
+}

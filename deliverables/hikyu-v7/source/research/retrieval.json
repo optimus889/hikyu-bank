@@ -1,0 +1,38 @@
+[
+  {
+    "id": "bubble-pricing",
+    "url": "https://bubble.io/pricing",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "retrieved_at": "2026-11-03T18:59:03.623836+00:00"
+  },
+  {
+    "id": "bubble-api",
+    "url": "https://manual.bubble.io/help-guides/integrations/api",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "retrieved_at": "2026-11-03T18:59:03.626056+00:00"
+  },
+  {
+    "id": "bonita",
+    "url": "https://www.bonitasoft.com/bonita-platform/downloads",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "retrieved_at": "2026-11-03T18:59:03.624935+00:00"
+  },
+  {
+    "id": "processmaker",
+    "url": "https://www.processmaker.com/pricing/",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "retrieved_at": "2026-11-03T18:59:03.622462+00:00"
+  },
+  {
+    "id": "n8n",
+    "url": "https://docs.n8n.io/hosting/community-edition-features/",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "retrieved_at": "2026-11-03T18:59:03.628271+00:00"
+  },
+  {
+    "id": "flowable",
+    "url": "https://www.flowable.com/open-source/docs/bpmn/ch02-GettingStarted/",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "retrieved_at": "2026-11-03T18:59:03.627127+00:00"
+  }
+]

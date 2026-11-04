@@ -1,0 +1,936 @@
+{
+  "kind": "Actual V7 local audit metadata; no Zapier run IDs",
+  "events": [
+    {
+      "correlation_id": "v6-b81ff7cd-d38c-4061-af4e-1c787cdf5112",
+      "event_kind": "OUTCOME_DELIVERY_FAILED",
+      "result_code": "AUTH_FAILED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:20.682Z"
+    },
+    {
+      "correlation_id": "v6-b81ff7cd-d38c-4061-af4e-1c787cdf5112",
+      "event_kind": "OUTCOME_DELIVERY_FAILED",
+      "result_code": "NETWORK_FAILURE",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:20.680Z"
+    },
+    {
+      "correlation_id": "v6-b81ff7cd-d38c-4061-af4e-1c787cdf5112",
+      "event_kind": "OUTCOME_QUEUED",
+      "result_code": "PERSISTED_TERMINAL",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:20.678Z"
+    },
+    {
+      "correlation_id": "v6-64d6a6fd-ee3b-47d5-baf8-66e7c8a230b6",
+      "event_kind": "OUTCOME_RECEIPT",
+      "result_code": "SYNCED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:20.439Z"
+    },
+    {
+      "correlation_id": "v6-64d6a6fd-ee3b-47d5-baf8-66e7c8a230b6",
+      "event_kind": "OUTCOME_PUBLISHED",
+      "result_code": "WAITING_ZAPIER",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:20.428Z"
+    },
+    {
+      "correlation_id": "v6-64d6a6fd-ee3b-47d5-baf8-66e7c8a230b6",
+      "event_kind": "OUTCOME_MANUAL_REPLAY",
+      "result_code": "NEW_DELIVERY_ATTEMPT",
+      "actor_id": 4,
+      "occurred_at": "2026-11-04T23:18:20.422Z"
+    },
+    {
+      "correlation_id": "v6-64d6a6fd-ee3b-47d5-baf8-66e7c8a230b6",
+      "event_kind": "OUTCOME_RECEIPT",
+      "result_code": "FAILED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:20.326Z"
+    },
+    {
+      "correlation_id": "v6-64d6a6fd-ee3b-47d5-baf8-66e7c8a230b6",
+      "event_kind": "OUTCOME_PUBLISHED",
+      "result_code": "WAITING_ZAPIER",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:20.311Z"
+    },
+    {
+      "correlation_id": "v6-64d6a6fd-ee3b-47d5-baf8-66e7c8a230b6",
+      "event_kind": "OUTCOME_QUEUED",
+      "result_code": "PERSISTED_TERMINAL",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:20.305Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793834296281",
+      "event_kind": "DRAFT_SUBMITTED",
+      "result_code": "FLOWABLE_SUBMITTED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:18:19.033Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793834296281",
+      "event_kind": "DRAFT_CONFIRMATION",
+      "result_code": "OWNERSHIP_CONFIRMED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:18:18.993Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793834296281",
+      "event_kind": "DRAFT_CLAIMED",
+      "result_code": "CLAIMED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:18:18.779Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793834296281",
+      "event_kind": "DRAFT_ASSIGNED",
+      "result_code": "ASSIGNED",
+      "actor_id": 4,
+      "occurred_at": "2026-11-04T23:18:17.568Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793834296281",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "UNSUPPORTED_FIELD",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:16.901Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793834296281",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_TIMESTAMP",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:16.900Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793834296281",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_TIMESTAMP",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:16.898Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793834296281",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_DESCRIPTION",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:16.897Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793834296281",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_SUBJECT",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:16.895Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793834296281",
+      "event_kind": "INTAKE_ACCEPTED",
+      "result_code": "DUPLICATE_IGNORED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:16.893Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793834296281",
+      "event_kind": "INTAKE_ACCEPTED",
+      "result_code": "DRAFT_CREATED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:16.759Z"
+    },
+    {
+      "correlation_id": "relay",
+      "event_kind": "RELAY_POLL_FAILED",
+      "result_code": "RELAY_NETWORK_FAILURE",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:18:16.743Z"
+    },
+    {
+      "correlation_id": "v6-aa713022-1862-4d1f-a8b9-6e357ee47c5d",
+      "event_kind": "OUTCOME_DELIVERY_FAILED",
+      "result_code": "AUTH_FAILED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:11:02.035Z"
+    },
+    {
+      "correlation_id": "v6-aa713022-1862-4d1f-a8b9-6e357ee47c5d",
+      "event_kind": "OUTCOME_DELIVERY_FAILED",
+      "result_code": "NETWORK_FAILURE",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:11:02.033Z"
+    },
+    {
+      "correlation_id": "v6-aa713022-1862-4d1f-a8b9-6e357ee47c5d",
+      "event_kind": "OUTCOME_QUEUED",
+      "result_code": "PERSISTED_TERMINAL",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:11:02.031Z"
+    },
+    {
+      "correlation_id": "v6-c4c37a2b-d6ea-41ff-be0d-84ac2d6d08a4",
+      "event_kind": "OUTCOME_RECEIPT",
+      "result_code": "SYNCED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:11:01.805Z"
+    },
+    {
+      "correlation_id": "v6-c4c37a2b-d6ea-41ff-be0d-84ac2d6d08a4",
+      "event_kind": "OUTCOME_PUBLISHED",
+      "result_code": "WAITING_ZAPIER",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:11:01.795Z"
+    },
+    {
+      "correlation_id": "v6-c4c37a2b-d6ea-41ff-be0d-84ac2d6d08a4",
+      "event_kind": "OUTCOME_MANUAL_REPLAY",
+      "result_code": "NEW_DELIVERY_ATTEMPT",
+      "actor_id": 4,
+      "occurred_at": "2026-11-04T23:11:01.788Z"
+    },
+    {
+      "correlation_id": "v6-c4c37a2b-d6ea-41ff-be0d-84ac2d6d08a4",
+      "event_kind": "OUTCOME_RECEIPT",
+      "result_code": "FAILED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:11:01.673Z"
+    },
+    {
+      "correlation_id": "v6-c4c37a2b-d6ea-41ff-be0d-84ac2d6d08a4",
+      "event_kind": "OUTCOME_PUBLISHED",
+      "result_code": "WAITING_ZAPIER",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:11:01.660Z"
+    },
+    {
+      "correlation_id": "v6-c4c37a2b-d6ea-41ff-be0d-84ac2d6d08a4",
+      "event_kind": "OUTCOME_QUEUED",
+      "result_code": "PERSISTED_TERMINAL",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:11:01.654Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833857739",
+      "event_kind": "DRAFT_SUBMITTED",
+      "result_code": "FLOWABLE_SUBMITTED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:11:00.472Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833857739",
+      "event_kind": "DRAFT_CONFIRMATION",
+      "result_code": "OWNERSHIP_CONFIRMED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:11:00.432Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833857739",
+      "event_kind": "DRAFT_CLAIMED",
+      "result_code": "CLAIMED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:11:00.247Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833857739",
+      "event_kind": "DRAFT_ASSIGNED",
+      "result_code": "ASSIGNED",
+      "actor_id": 4,
+      "occurred_at": "2026-11-04T23:10:59.032Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833857739",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "UNSUPPORTED_FIELD",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:10:58.372Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833857739",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_TIMESTAMP",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:10:58.370Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833857739",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_TIMESTAMP",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:10:58.369Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833857739",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_DESCRIPTION",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:10:58.368Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833857739",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_SUBJECT",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:10:58.366Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833857739",
+      "event_kind": "INTAKE_ACCEPTED",
+      "result_code": "DUPLICATE_IGNORED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:10:58.364Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833857739",
+      "event_kind": "INTAKE_ACCEPTED",
+      "result_code": "DRAFT_CREATED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:10:58.229Z"
+    },
+    {
+      "correlation_id": "relay",
+      "event_kind": "RELAY_POLL_FAILED",
+      "result_code": "RELAY_NETWORK_FAILURE",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:10:58.216Z"
+    },
+    {
+      "correlation_id": "v6-372e4dc8-c91e-4072-b812-7fdb098c7df7",
+      "event_kind": "OUTCOME_DELIVERY_FAILED",
+      "result_code": "AUTH_FAILED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:38.107Z"
+    },
+    {
+      "correlation_id": "v6-372e4dc8-c91e-4072-b812-7fdb098c7df7",
+      "event_kind": "OUTCOME_DELIVERY_FAILED",
+      "result_code": "NETWORK_FAILURE",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:38.105Z"
+    },
+    {
+      "correlation_id": "v6-372e4dc8-c91e-4072-b812-7fdb098c7df7",
+      "event_kind": "OUTCOME_QUEUED",
+      "result_code": "PERSISTED_TERMINAL",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:38.103Z"
+    },
+    {
+      "correlation_id": "v6-29f602d1-4c94-4c9e-bc43-475006cf7125",
+      "event_kind": "OUTCOME_RECEIPT",
+      "result_code": "SYNCED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:37.860Z"
+    },
+    {
+      "correlation_id": "v6-29f602d1-4c94-4c9e-bc43-475006cf7125",
+      "event_kind": "OUTCOME_PUBLISHED",
+      "result_code": "WAITING_ZAPIER",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:37.849Z"
+    },
+    {
+      "correlation_id": "v6-29f602d1-4c94-4c9e-bc43-475006cf7125",
+      "event_kind": "OUTCOME_MANUAL_REPLAY",
+      "result_code": "NEW_DELIVERY_ATTEMPT",
+      "actor_id": 4,
+      "occurred_at": "2026-11-04T23:09:37.842Z"
+    },
+    {
+      "correlation_id": "v6-29f602d1-4c94-4c9e-bc43-475006cf7125",
+      "event_kind": "OUTCOME_RECEIPT",
+      "result_code": "FAILED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:37.729Z"
+    },
+    {
+      "correlation_id": "v6-29f602d1-4c94-4c9e-bc43-475006cf7125",
+      "event_kind": "OUTCOME_PUBLISHED",
+      "result_code": "WAITING_ZAPIER",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:37.714Z"
+    },
+    {
+      "correlation_id": "v6-29f602d1-4c94-4c9e-bc43-475006cf7125",
+      "event_kind": "OUTCOME_QUEUED",
+      "result_code": "PERSISTED_TERMINAL",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:37.709Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833773861",
+      "event_kind": "DRAFT_SUBMITTED",
+      "result_code": "FLOWABLE_SUBMITTED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:09:36.499Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833773861",
+      "event_kind": "DRAFT_CONFIRMATION",
+      "result_code": "OWNERSHIP_CONFIRMED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:09:36.440Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833773861",
+      "event_kind": "DRAFT_CLAIMED",
+      "result_code": "CLAIMED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:09:36.242Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833773861",
+      "event_kind": "DRAFT_ASSIGNED",
+      "result_code": "ASSIGNED",
+      "actor_id": 4,
+      "occurred_at": "2026-11-04T23:09:35.110Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833773861",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "UNSUPPORTED_FIELD",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:34.489Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833773861",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_TIMESTAMP",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:34.488Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833773861",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_TIMESTAMP",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:34.487Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833773861",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_DESCRIPTION",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:34.485Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833773861",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_SUBJECT",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:34.483Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833773861",
+      "event_kind": "INTAKE_ACCEPTED",
+      "result_code": "DUPLICATE_IGNORED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:34.481Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833773861",
+      "event_kind": "INTAKE_ACCEPTED",
+      "result_code": "DRAFT_CREATED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:34.339Z"
+    },
+    {
+      "correlation_id": "relay",
+      "event_kind": "RELAY_POLL_FAILED",
+      "result_code": "RELAY_NETWORK_FAILURE",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:09:34.319Z"
+    },
+    {
+      "correlation_id": "v6-1b7a72da-6e88-446c-9da4-d609263fc3af",
+      "event_kind": "OUTCOME_RECEIPT",
+      "result_code": "SYNCED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:59.358Z"
+    },
+    {
+      "correlation_id": "v6-1b7a72da-6e88-446c-9da4-d609263fc3af",
+      "event_kind": "OUTCOME_PUBLISHED",
+      "result_code": "WAITING_ZAPIER",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:59.348Z"
+    },
+    {
+      "correlation_id": "v6-1b7a72da-6e88-446c-9da4-d609263fc3af",
+      "event_kind": "OUTCOME_MANUAL_REPLAY",
+      "result_code": "NEW_DELIVERY_ATTEMPT",
+      "actor_id": 4,
+      "occurred_at": "2026-11-04T23:08:59.342Z"
+    },
+    {
+      "correlation_id": "v6-1b7a72da-6e88-446c-9da4-d609263fc3af",
+      "event_kind": "OUTCOME_RECEIPT",
+      "result_code": "FAILED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:59.248Z"
+    },
+    {
+      "correlation_id": "v6-1b7a72da-6e88-446c-9da4-d609263fc3af",
+      "event_kind": "OUTCOME_PUBLISHED",
+      "result_code": "WAITING_ZAPIER",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:59.234Z"
+    },
+    {
+      "correlation_id": "v6-1b7a72da-6e88-446c-9da4-d609263fc3af",
+      "event_kind": "OUTCOME_QUEUED",
+      "result_code": "PERSISTED_TERMINAL",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:59.227Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833735243",
+      "event_kind": "DRAFT_SUBMITTED",
+      "result_code": "FLOWABLE_SUBMITTED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:08:58.036Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833735243",
+      "event_kind": "DRAFT_CONFIRMATION",
+      "result_code": "OWNERSHIP_CONFIRMED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:08:57.996Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833735243",
+      "event_kind": "DRAFT_CLAIMED",
+      "result_code": "CLAIMED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:08:57.789Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833735243",
+      "event_kind": "DRAFT_ASSIGNED",
+      "result_code": "ASSIGNED",
+      "actor_id": 4,
+      "occurred_at": "2026-11-04T23:08:56.600Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833735243",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "UNSUPPORTED_FIELD",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:55.904Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833735243",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_TIMESTAMP",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:55.902Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833735243",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_TIMESTAMP",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:55.901Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833735243",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_DESCRIPTION",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:55.899Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833735243",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_SUBJECT",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:55.898Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833735243",
+      "event_kind": "INTAKE_ACCEPTED",
+      "result_code": "DUPLICATE_IGNORED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:55.895Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833735243",
+      "event_kind": "INTAKE_ACCEPTED",
+      "result_code": "DRAFT_CREATED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:55.748Z"
+    },
+    {
+      "correlation_id": "relay",
+      "event_kind": "RELAY_POLL_FAILED",
+      "result_code": "RELAY_NETWORK_FAILURE",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:55.732Z"
+    },
+    {
+      "correlation_id": "v6-db728cf8-88cc-4650-b90f-789c9b57e7cd",
+      "event_kind": "OUTCOME_DELIVERY_FAILED",
+      "result_code": "AUTH_FAILED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:09.110Z"
+    },
+    {
+      "correlation_id": "v6-db728cf8-88cc-4650-b90f-789c9b57e7cd",
+      "event_kind": "OUTCOME_DELIVERY_FAILED",
+      "result_code": "NETWORK_FAILURE",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:09.108Z"
+    },
+    {
+      "correlation_id": "v6-cc59694e-3de9-499e-9a2e-c4ef07c2af05",
+      "event_kind": "OUTCOME_RECEIPT",
+      "result_code": "SYNCED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:08.948Z"
+    },
+    {
+      "correlation_id": "v6-cc59694e-3de9-499e-9a2e-c4ef07c2af05",
+      "event_kind": "OUTCOME_PUBLISHED",
+      "result_code": "WAITING_ZAPIER",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:08.936Z"
+    },
+    {
+      "correlation_id": "v6-cc59694e-3de9-499e-9a2e-c4ef07c2af05",
+      "event_kind": "OUTCOME_MANUAL_REPLAY",
+      "result_code": "NEW_DELIVERY_ATTEMPT",
+      "actor_id": 4,
+      "occurred_at": "2026-11-04T23:08:08.930Z"
+    },
+    {
+      "correlation_id": "v6-cc59694e-3de9-499e-9a2e-c4ef07c2af05",
+      "event_kind": "OUTCOME_RECEIPT",
+      "result_code": "FAILED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:08.813Z"
+    },
+    {
+      "correlation_id": "v6-cc59694e-3de9-499e-9a2e-c4ef07c2af05",
+      "event_kind": "OUTCOME_PUBLISHED",
+      "result_code": "WAITING_ZAPIER",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:08.800Z"
+    },
+    {
+      "correlation_id": "v6-cc59694e-3de9-499e-9a2e-c4ef07c2af05",
+      "event_kind": "OUTCOME_QUEUED",
+      "result_code": "PERSISTED_TERMINAL",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:08.795Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833684699",
+      "event_kind": "DRAFT_SUBMITTED",
+      "result_code": "FLOWABLE_SUBMITTED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:08:07.488Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833684699",
+      "event_kind": "DRAFT_CONFIRMATION",
+      "result_code": "OWNERSHIP_CONFIRMED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:08:07.433Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833684699",
+      "event_kind": "DRAFT_CLAIMED",
+      "result_code": "CLAIMED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:08:07.223Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833684699",
+      "event_kind": "DRAFT_ASSIGNED",
+      "result_code": "ASSIGNED",
+      "actor_id": 4,
+      "occurred_at": "2026-11-04T23:08:05.987Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833684699",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "UNSUPPORTED_FIELD",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:05.233Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833684699",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_TIMESTAMP",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:05.231Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833684699",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_TIMESTAMP",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:05.230Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833684699",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_DESCRIPTION",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:05.229Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833684699",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_SUBJECT",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:05.227Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833684699",
+      "event_kind": "INTAKE_ACCEPTED",
+      "result_code": "DUPLICATE_IGNORED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:05.225Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833684699",
+      "event_kind": "INTAKE_ACCEPTED",
+      "result_code": "DRAFT_CREATED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:05.218Z"
+    },
+    {
+      "correlation_id": "v6-db728cf8-88cc-4650-b90f-789c9b57e7cd",
+      "event_kind": "OUTCOME_PUBLISHED",
+      "result_code": "WAITING_ZAPIER",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:05.210Z"
+    },
+    {
+      "correlation_id": "relay",
+      "event_kind": "RELAY_POLL_FAILED",
+      "result_code": "RELAY_NETWORK_FAILURE",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:05.201Z"
+    },
+    {
+      "correlation_id": "v6-db728cf8-88cc-4650-b90f-789c9b57e7cd",
+      "event_kind": "OUTCOME_QUEUED",
+      "result_code": "PERSISTED_TERMINAL",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:08:05.196Z"
+    },
+    {
+      "correlation_id": "v6-f648e6cb-24b0-4ff0-bbb9-774af3fb7bf1",
+      "event_kind": "OUTCOME_DELIVERY_FAILED",
+      "result_code": "AUTH_FAILED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:58.454Z"
+    },
+    {
+      "correlation_id": "v6-f648e6cb-24b0-4ff0-bbb9-774af3fb7bf1",
+      "event_kind": "OUTCOME_DELIVERY_FAILED",
+      "result_code": "NETWORK_FAILURE",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:58.451Z"
+    },
+    {
+      "correlation_id": "v6-08519720-8e6f-42f4-8efb-dcb321075c29",
+      "event_kind": "OUTCOME_RECEIPT",
+      "result_code": "SYNCED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:58.289Z"
+    },
+    {
+      "correlation_id": "v6-08519720-8e6f-42f4-8efb-dcb321075c29",
+      "event_kind": "OUTCOME_PUBLISHED",
+      "result_code": "WAITING_ZAPIER",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:58.278Z"
+    },
+    {
+      "correlation_id": "v6-08519720-8e6f-42f4-8efb-dcb321075c29",
+      "event_kind": "OUTCOME_MANUAL_REPLAY",
+      "result_code": "NEW_DELIVERY_ATTEMPT",
+      "actor_id": 4,
+      "occurred_at": "2026-11-04T23:04:58.271Z"
+    },
+    {
+      "correlation_id": "v6-08519720-8e6f-42f4-8efb-dcb321075c29",
+      "event_kind": "OUTCOME_RECEIPT",
+      "result_code": "FAILED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:58.152Z"
+    },
+    {
+      "correlation_id": "v6-08519720-8e6f-42f4-8efb-dcb321075c29",
+      "event_kind": "OUTCOME_PUBLISHED",
+      "result_code": "WAITING_ZAPIER",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:58.138Z"
+    },
+    {
+      "correlation_id": "v6-08519720-8e6f-42f4-8efb-dcb321075c29",
+      "event_kind": "OUTCOME_QUEUED",
+      "result_code": "PERSISTED_TERMINAL",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:58.132Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833493401",
+      "event_kind": "DRAFT_SUBMITTED",
+      "result_code": "FLOWABLE_SUBMITTED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:04:56.613Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833493401",
+      "event_kind": "DRAFT_CONFIRMATION",
+      "result_code": "OWNERSHIP_CONFIRMED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:04:56.559Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833493401",
+      "event_kind": "DRAFT_CLAIMED",
+      "result_code": "CLAIMED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:04:56.218Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833493401",
+      "event_kind": "DRAFT_ASSIGNED",
+      "result_code": "ASSIGNED",
+      "actor_id": 4,
+      "occurred_at": "2026-11-04T23:04:54.630Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833493401",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "UNSUPPORTED_FIELD",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:53.909Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833493401",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_TIMESTAMP",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:53.907Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833493401",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_DESCRIPTION",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:53.906Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833493401",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_SUBJECT",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:53.904Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833493401",
+      "event_kind": "INTAKE_ACCEPTED",
+      "result_code": "DUPLICATE_IGNORED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:53.901Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833493401",
+      "event_kind": "INTAKE_ACCEPTED",
+      "result_code": "DRAFT_CREATED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:53.891Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833455389",
+      "event_kind": "DRAFT_SUBMITTED",
+      "result_code": "FLOWABLE_SUBMITTED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:04:18.701Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833455389",
+      "event_kind": "DRAFT_CONFIRMATION",
+      "result_code": "OWNERSHIP_CONFIRMED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:04:18.581Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833455389",
+      "event_kind": "DRAFT_CLAIMED",
+      "result_code": "CLAIMED",
+      "actor_id": 2,
+      "occurred_at": "2026-11-04T23:04:18.308Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833455389",
+      "event_kind": "DRAFT_ASSIGNED",
+      "result_code": "ASSIGNED",
+      "actor_id": 4,
+      "occurred_at": "2026-11-04T23:04:16.601Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833455389",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "UNSUPPORTED_FIELD",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:15.885Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833455389",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_TIMESTAMP",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:15.883Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833455389",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_DESCRIPTION",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:15.882Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833455389",
+      "event_kind": "INTAKE_REJECTED",
+      "result_code": "INVALID_SUBJECT",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:15.880Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833455389",
+      "event_kind": "INTAKE_ACCEPTED",
+      "result_code": "DUPLICATE_IGNORED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:15.877Z"
+    },
+    {
+      "correlation_id": "v6-f648e6cb-24b0-4ff0-bbb9-774af3fb7bf1",
+      "event_kind": "OUTCOME_PUBLISHED",
+      "result_code": "WAITING_ZAPIER",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:15.870Z"
+    },
+    {
+      "correlation_id": "synthetic-response-1793833455389",
+      "event_kind": "INTAKE_ACCEPTED",
+      "result_code": "DRAFT_CREATED",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:04:15.863Z"
+    },
+    {
+      "correlation_id": "v6-f648e6cb-24b0-4ff0-bbb9-774af3fb7bf1",
+      "event_kind": "OUTCOME_QUEUED",
+      "result_code": "PERSISTED_TERMINAL",
+      "actor_id": null,
+      "occurred_at": "2026-11-04T23:01:18.728Z"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+openapi: 3.1.0
+info:
+  title: Hikyu V6 Local Workflow API
+  version: 0.1.0
+  description: Local feasibility runtime. LCNC integration must be verified separately. All requests contain synthetic data only.
+servers:
+  - url: http://127.0.0.1:8196
+security:
+  - RoleBearer: []
+paths:
+  /health:
+    get:
+      security: []
+      responses:
+        '200': {description: Workflow engine started}
+  /requests:
+    post:
+      description: Caller must be requester or connector. Connector must resolve requester_id from an authenticated LCNC session. business_id is stable for retries. Same ID and changed content returns 409.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [business_id, description]
+              properties:
+                business_id: {type: string, minLength: 1, maxLength: 80}
+                description: {type: string, minLength: 3, maxLength: 2000}
+                requester_id: {type: string, maxLength: 100, description: Required only for connector role}
+      responses:
+        '201': {description: Process created and AI invoked}
+        '200': {description: Idempotent replay of existing process}
+        '400': {description: Invalid input}
+        '401': {description: Missing authentication}
+        '403': {description: Incorrect role}
+        '409': {description: Same ID reused with changed content}
+        '500': {description: Operation failed; reconcile by business_id before retry}
+  /requests/{process_id}:
+    parameters:
+      - {name: process_id, in: path, required: true, schema: {type: string}}
+    get:
+      description: Reads durable engine state. Requester must own the record. No credentials returned.
+      responses:
+        '200':
+          description: Durable process projection
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Status'}
+        '403': {description: Ownership violation}
+        '404': {description: Unknown process}
+  /requests/{process_id}/decision:
+    parameters:
+      - {name: process_id, in: path, required: true, schema: {type: string}}
+    post:
+      description: Role and task checked server-side. Same actor cannot perform service review and independent final review. Expected version prevents duplicate or late decisions.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [expected_sequence, decision, comment]
+              properties:
+                expected_sequence: {type: integer, minimum: 1}
+                decision: {enum: [continue, return, reject, complete]}
+                comment: {type: string, minLength: 1, maxLength: 2000}
+                description: {type: string, maxLength: 2000, description: Required for requester correction}
+      responses:
+        '200': {description: Transition committed}
+        '400': {description: Invalid decision or input}
+        '403': {description: Role or ownership mismatch}
+        '409': {description: Stale task version or process already finished}
+components:
+  securitySchemes:
+    RoleBearer: {type: http, scheme: bearer, description: Test credentials are generated locally; never embed in LCNC frontend}
+  schemas:
+    Status:
+      type: object
+      required: [business_id, process_instance_id, stage, sequence, requester_id, ai_status, updated_at]
+      properties:
+        business_id: {type: string}
+        process_instance_id: {type: string}
+        stage: {enum: [manualTriage, agentReview, requesterCorrection, reviewerReview, supervisorReview, completed, rejected]}
+        sequence: {type: integer}
+        requester_id: {type: string}
+        ai_status: {enum: [succeeded, failed]}
+        ai_result: {type: [string, 'null'], description: JSON-encoded bounded classifier output, not an approval}
+        updated_at: {type: string, format: date-time}
+        last_actor: {type: [string, 'null']}
+        last_comment: {type: [string, 'null']}

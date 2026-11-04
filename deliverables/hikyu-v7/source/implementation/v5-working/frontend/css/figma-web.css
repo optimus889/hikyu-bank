@@ -1,0 +1,612 @@
+/* Figma Web prototype: shared tokens and accessible controls. */
+:root {
+  --figma-navy: #092b52;
+  --figma-blue: #155ea7;
+  --figma-bright: #2378c5;
+  --figma-ice: #e9f3fc;
+  --figma-canvas: #f5f8fc;
+  --figma-ink: #193b59;
+  --figma-muted: #596f83;
+  --figma-line: #cad9e6;
+  --figma-green: #087a5b;
+}
+
+body {
+  background: var(--figma-canvas);
+  color: var(--figma-ink);
+  font-family: Inter, Arial, sans-serif;
+}
+
+h1,
+h2,
+.brand-wordmark {
+  font-family: Inter, Arial, sans-serif;
+}
+
+:is(a, button, input, select, summary):focus-visible,
+.bank-dialog :focus-visible {
+  outline: 3px solid var(--figma-bright);
+  outline-offset: 3px;
+}
+
+:is(button, select, input:not([type="radio"]), .primary-button) {
+  min-height: 44px;
+}
+
+/* Separate sign-in and verification pages share a two-column shell. */
+.figma-auth-shell {
+  display: grid;
+  grid-template-columns: minmax(380px, 44%) minmax(0, 1fr);
+  min-height: 100dvh;
+  background: #fff;
+}
+
+.figma-auth-story {
+  display: flex;
+  flex-direction: column;
+  padding: 43px clamp(28px, 4vw, 55px) 32px;
+  background: var(--figma-navy);
+  color: #fff;
+}
+
+.figma-auth-story .bank-brand {
+  align-self: flex-start;
+  color: #fff;
+}
+
+.figma-auth-story .brand-lockup img,
+.bank-dashboard .brand-lockup img {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.brand-wordmark {
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: 0.03em;
+}
+
+.brand-wordmark > span {
+  font: 600 10px Inter, Arial, sans-serif;
+  letter-spacing: 0.11em;
+  margin-top: 4px;
+  color: #cee8fa;
+}
+
+.figma-auth-story-copy {
+  margin: auto 0;
+  max-width: 460px;
+}
+
+.figma-story-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: #184b7f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.figma-auth-story h2 {
+  margin-top: 26px;
+  font-size: clamp(36px, 3.5vw, 52px);
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+}
+
+.figma-auth-story-copy > p {
+  max-width: 350px;
+  margin-top: 18px;
+  color: #d5e5f4;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.figma-story-footer {
+  color: #bdd3e8;
+  font-size: 12px;
+}
+
+.figma-auth-main {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: none;
+  min-height: 100dvh;
+  padding: 48px clamp(28px, 6vw, 92px);
+}
+
+.figma-auth-content {
+  width: min(100%, 520px);
+}
+
+.figma-auth-content .auth-eyebrow {
+  color: var(--figma-blue);
+  font-weight: 700;
+}
+
+.figma-step {
+  margin: 10px 0 28px;
+  color: var(--figma-muted);
+  font-size: 13px;
+}
+
+.figma-auth-content .form-heading h1 {
+  color: var(--figma-navy);
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.figma-auth-content .form-heading > p:not(.identity-confirmed) {
+  color: var(--figma-muted);
+  font-size: 15px;
+}
+
+.figma-auth-content .bank-form {
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.figma-auth-content .bank-form label {
+  color: var(--figma-ink);
+  font-weight: 600;
+}
+
+.figma-auth-content .bank-form input:not([type="radio"]) {
+  min-height: 52px;
+  border: 1px solid var(--figma-line);
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+.figma-auth-content .password-field {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--figma-line);
+  border-radius: 7px;
+}
+
+.figma-auth-content .password-field input {
+  min-width: 0;
+  border: 0 !important;
+}
+
+.figma-auth-content .password-field button {
+  border: 0;
+  padding: 0 16px;
+  background: none;
+  color: var(--figma-blue);
+}
+
+.figma-auth-content .auth-primary,
+.figma-auth-content .auth-secondary {
+  min-height: 52px;
+  border-radius: 7px;
+  font-weight: 700;
+}
+
+.figma-auth-content .auth-primary {
+  background: var(--figma-blue);
+}
+
+.figma-auth-content .auth-secondary {
+  color: var(--figma-blue);
+  border: 1px solid var(--figma-blue);
+}
+
+.figma-auth-content .method-card {
+  min-height: 80px;
+  border-color: var(--figma-line);
+  border-radius: 8px;
+}
+
+.figma-auth-content .method-card:has(input:checked) {
+  border-color: var(--figma-blue);
+  background: var(--figma-ice);
+  box-shadow: inset 0 0 0 1px var(--figma-blue);
+}
+
+.figma-security-note {
+  margin-top: 30px;
+  padding: 15px 18px;
+  border: 1px solid #d7e6f3;
+  border-radius: 8px;
+  background: var(--figma-ice);
+  color: var(--figma-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Full-width navy navigation and a quieter dashboard canvas. */
+.bank-dashboard .sidebar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 78px;
+  padding: 12px max(24px, calc((100vw - 1300px) / 2));
+  border: 0;
+  background: var(--figma-navy);
+  color: #fff;
+  gap: 24px;
+}
+
+.bank-dashboard .brand {
+  color: #fff;
+  margin-right: auto;
+}
+
+.bank-dashboard nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+}
+
+.bank-dashboard nav a {
+  min-height: 44px;
+  padding: 11px 13px;
+  border: 0;
+  border-radius: 6px;
+  color: #c6d9e9;
+}
+
+.bank-dashboard nav a.active,
+.bank-dashboard nav a:hover {
+  border: 0;
+  border-radius: 6px;
+  background: #184b7f;
+  color: #fff;
+}
+
+.bank-dashboard .sidebar-bottom,
+.bank-dashboard .topbar > span:first-child {
+  display: none;
+}
+
+.bank-dashboard .topbar {
+  position: static;
+  justify-content: flex-end;
+  width: 100%;
+  min-height: 52px;
+  height: auto;
+  padding: 4px max(24px, calc((100vw - 1300px) / 2));
+  border: 0;
+  background: var(--figma-canvas);
+}
+
+.bank-dashboard .session-actions {
+  gap: 14px;
+}
+
+.bank-dashboard .demo-badge {
+  padding: 8px 13px;
+  border: 1px solid var(--figma-line);
+  border-radius: 18px;
+  background: var(--figma-ice);
+  color: var(--figma-blue);
+}
+
+.bank-dashboard #sign-out {
+  color: var(--figma-blue);
+}
+
+.bank-dashboard #app {
+  max-width: 1360px;
+  min-height: calc(100dvh - 207px);
+  padding: 48px 30px;
+}
+
+.bank-dashboard .page-heading {
+  margin-bottom: 28px;
+}
+
+.bank-dashboard .page-heading h1 {
+  color: var(--figma-navy);
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 700;
+}
+
+.bank-dashboard .page-heading p,
+.bank-dashboard .muted {
+  color: var(--figma-muted);
+}
+
+.bank-dashboard .overview-layout {
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 24px;
+}
+
+.bank-dashboard .overview-account {
+  min-height: 210px;
+  padding: 19px;
+  border: 1px solid var(--figma-line);
+  border-radius: 9px;
+}
+
+.bank-dashboard .account-card-top {
+  align-items: flex-start;
+  gap: 11px;
+  margin-bottom: 14px;
+}
+
+.bank-dashboard .account-symbol {
+  display: grid;
+  place-items: center;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--figma-ice);
+  color: var(--figma-blue);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.bank-dashboard .account-identity strong,
+.bank-dashboard .account-identity small {
+  display: block;
+}
+
+.bank-dashboard .account-identity strong {
+  padding-top: 2px;
+  font-size: 15px;
+}
+
+.bank-dashboard .account-identity small {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.bank-dashboard .account-amount {
+  margin: 10px 0 4px;
+  color: var(--figma-navy);
+  font-size: 29px;
+  font-weight: 700;
+}
+
+.bank-dashboard .account-caption {
+  margin-bottom: 15px;
+}
+
+.bank-dashboard .overview-alerts {
+  border-color: #d3e4f3;
+  background: var(--figma-ice);
+}
+
+.bank-dashboard .open-account-banner {
+  border-color: var(--figma-line);
+}
+
+.bank-dashboard .primary-button {
+  background: var(--figma-blue);
+  border-radius: 7px;
+}
+
+.bank-dashboard .filter-row {
+  gap: 18px;
+  border-color: var(--figma-line);
+}
+
+.bank-dashboard .filter-row label {
+  min-width: min(100%, 170px);
+  color: var(--figma-ink);
+  font-weight: 600;
+}
+
+.bank-dashboard .filter-row .search-wrap {
+  flex: 1;
+}
+
+.bank-dashboard .panel {
+  border-color: var(--figma-line);
+  border-radius: 9px;
+}
+
+.bank-dashboard .table-scroll td,
+.bank-dashboard .table-scroll th {
+  padding: 17px 22px;
+  border-color: #e6edf4;
+  font-size: 13px;
+}
+
+.bank-dashboard .table-scroll .date-cell,
+.bank-dashboard .table-scroll th:nth-child(2),
+.bank-dashboard .table-scroll td:nth-child(3),
+.bank-dashboard .table-scroll th:nth-child(3) {
+  display: table-cell;
+}
+
+.mobile-menu-button,
+.mobile-transactions {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .bank-dashboard .overview-accounts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .figma-auth-shell {
+    display: block;
+  }
+
+  .figma-auth-story {
+    min-height: 178px;
+    padding: 22px 22px;
+  }
+
+  .figma-auth-story-copy,
+  .figma-story-footer {
+    display: none;
+  }
+
+  .figma-auth-main {
+    display: block;
+    min-height: calc(100dvh - 178px);
+    padding: 36px max(18px, calc((100vw - 520px) / 2)) 60px;
+  }
+
+  .figma-auth-content {
+    width: 100%;
+  }
+
+  .bank-dashboard .overview-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .bank-dashboard .overview-alerts {
+    margin-top: 0;
+  }
+
+  .bank-dashboard .overview-accounts {
+    grid-template-columns: 1fr;
+  }
+
+  .bank-dashboard .overview-account {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 800px) {
+  .bank-dashboard .sidebar {
+    display: flex;
+    min-height: 70px;
+    padding: 14px 18px;
+    gap: 0;
+  }
+
+  .bank-dashboard .brand {
+    margin: 0 auto 0 0;
+  }
+
+  .bank-dashboard .brand-wordmark {
+    font-size: 22px;
+  }
+
+  .mobile-menu-button {
+    display: block;
+    min-width: 44px;
+    min-height: 44px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 25px;
+  }
+
+  .bank-dashboard nav {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    order: 3;
+    width: 100%;
+    margin: 0;
+    gap: 3px;
+    padding-top: 12px;
+  }
+
+  .bank-dashboard nav.is-open {
+    display: flex;
+  }
+
+  .bank-dashboard nav a {
+    width: 100%;
+  }
+
+  .bank-dashboard .topbar {
+    position: static;
+    height: auto;
+    padding: 8px 18px 0;
+    background: var(--figma-canvas);
+  }
+
+  .bank-dashboard .demo-badge {
+    background: #e9f3fc;
+    color: var(--figma-blue);
+    border-color: var(--figma-line);
+  }
+
+  .bank-dashboard #sign-out {
+    color: var(--figma-blue);
+  }
+
+  .bank-dashboard #app {
+    padding: 25px 18px 40px;
+  }
+
+  .bank-dashboard .filter-row {
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .bank-dashboard .filter-row label {
+    width: 100%;
+  }
+
+  .desktop-transactions {
+    display: none;
+  }
+
+  .mobile-transactions {
+    display: grid;
+    gap: 12px;
+    padding: 16px;
+    margin: 0;
+    list-style: none;
+    background: var(--figma-canvas);
+  }
+
+  .transaction-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 17px;
+    border: 1px solid var(--figma-line);
+    border-radius: 9px;
+    background: #fff;
+  }
+
+  .transaction-card-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .transaction-card-main strong,
+  .transaction-card-main small {
+    display: block;
+  }
+
+  .transaction-card-main strong {
+    font-size: 14px;
+  }
+
+  .transaction-card-main small {
+    margin-top: 5px;
+    color: var(--figma-muted);
+    font-size: 12px;
+  }
+
+  .transaction-card-amount {
+    margin-left: auto;
+    color: var(--figma-ink);
+    font-weight: 700;
+  }
+
+  .transaction-card-amount.positive {
+    color: var(--figma-green);
+  }
+}

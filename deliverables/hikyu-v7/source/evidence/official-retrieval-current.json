@@ -1,0 +1,18 @@
+[
+  {
+    "url": "https://zapier.com/pricing",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://help.zapier.com/hc/en-us/articles/8496181725453-Zapier-plans-and-pricing",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://docs.zapier.com/platform/build/auth",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "url": "https://northeastern.instructure.com/courses/264813/assignments/3374974",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  }
+]

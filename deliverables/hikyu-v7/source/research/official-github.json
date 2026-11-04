@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-03",
+  "results": [
+    {
+      "id": "n8n-readme",
+      "url": "https://raw.githubusercontent.com/n8n-io/n8n-docs/master/README.md",
+      "status": 200,
+      "bytes": 2849
+    },
+    {
+      "id": "n8n-community",
+      "url": "https://raw.githubusercontent.com/n8n-io/n8n-docs/master/docs/hosting/community-edition-features.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "n8n-license",
+      "url": "https://raw.githubusercontent.com/n8n-io/n8n-docs/master/docs/sustainable-use-license.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "n8n-hitl",
+      "url": "https://raw.githubusercontent.com/n8n-io/n8n-docs/master/docs/advanced-ai/human-in-the-loop-tools.md",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "flowable-bpmn",
+      "url": "https://raw.githubusercontent.com/flowable/flowable-engine/main/docs/userguide/src/en/bpmn/ch07b-BPMN-Constructs.adoc",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "flowable-rest",
+      "url": "https://raw.githubusercontent.com/flowable/flowable-engine/main/docs/userguide/src/en/bpmn/ch14-REST.adoc",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
+}

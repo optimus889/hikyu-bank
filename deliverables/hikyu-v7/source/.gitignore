@@ -1,0 +1,9 @@
+private/
+node_modules/
+target/
+.zapierapprc
+.env
+*.log
+build.zip
+__pycache__/
+.DS_Store

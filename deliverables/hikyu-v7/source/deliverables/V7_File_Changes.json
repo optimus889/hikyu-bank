@@ -1,0 +1,247 @@
+[
+  {
+    "path": ".gitignore",
+    "change": "Added",
+    "sha256": "3bba974c710deda91058aff6ccb2ff6d23458aa38276b52583f9a06d10822b39"
+  },
+  {
+    "path": "README.md",
+    "change": "Added",
+    "sha256": "beca8805ee529fb8e24c5b5fcd5161cc9736a6363c29352f7d1ae2ace32b4b71"
+  },
+  {
+    "path": "deliverables/Saltcorn_V7_Integration_Schema.json",
+    "change": "Added",
+    "sha256": "c0bdae310dee4297fb8d27d8c158eb44f818a42692d4162bb2594deb9090a692"
+  },
+  {
+    "path": "implementation/maven-settings.xml",
+    "change": "Added",
+    "sha256": "14abcaf346fbfff34ce81858e15f15b232b37a71912cc63d52a82181c984f656"
+  },
+  {
+    "path": "implementation/openapi.yaml",
+    "change": "Modified",
+    "sha256": "0ac920c1d5caf70d45489e00f8726f63242b645a2e7b3833308537277e088304"
+  },
+  {
+    "path": "implementation/prepare_v6.py",
+    "change": "Modified",
+    "sha256": "336612322efc22ab41058251d068a8122506550406fc079e87e471c0139370a4"
+  },
+  {
+    "path": "implementation/prepare_v7.py",
+    "change": "Added",
+    "sha256": "9885b62a8455beecd74d271029f274a06643ed0e5e16d9fe1ae5ac1097f7d2ae"
+  },
+  {
+    "path": "implementation/saltcorn/bootstrap.cjs",
+    "change": "Modified",
+    "sha256": "b32a2b6d1aaaa766c4251fe472f5a6494d7468da06dc8c0c055bc2e319ed8679"
+  },
+  {
+    "path": "implementation/saltcorn/capture-platform.cjs",
+    "change": "Modified",
+    "sha256": "feb980f5be5676f8630f03d4418f517e30da693f1f0a6c7756657a5401caadb5"
+  },
+  {
+    "path": "implementation/saltcorn/fault_submit.cjs",
+    "change": "Modified",
+    "sha256": "386056268588cc09b45e0b48f1bd645f5be5c0e5d0493381065cfdc714f8fb78"
+  },
+  {
+    "path": "implementation/saltcorn/hikyu-plugin/banking-view.js",
+    "change": "Modified",
+    "sha256": "dc6aa923887fd0564a98fecdfbab607367f952b723da16fd36be1d88185f747d"
+  },
+  {
+    "path": "implementation/saltcorn/hikyu-plugin/index.js",
+    "change": "Modified",
+    "sha256": "b1a18bad431ddc95783f8f20ce6049af73933e80a520b82a2ee4b450ab4f8544"
+  },
+  {
+    "path": "implementation/saltcorn/integration.cjs",
+    "change": "Modified",
+    "sha256": "59007623ae33700fe8269d10afb0f811933b2cf65351a2b12596f3f2ca7dbf48"
+  },
+  {
+    "path": "implementation/saltcorn/probe.cjs",
+    "change": "Modified",
+    "sha256": "f066b3a44d85830f55de58b562f931132eb52f630b91fdb62e06e3cb7a68b902"
+  },
+  {
+    "path": "implementation/saltcorn/run.cjs",
+    "change": "Modified",
+    "sha256": "e28da5916f539b37be5d316e49cc32003063b96f1629443bf7cb27ce2461db85"
+  },
+  {
+    "path": "implementation/saltcorn/sdk.cjs",
+    "change": "Modified",
+    "sha256": "73b1c671314b402fe3244e625869f596ea4ddcd4abd515fa960f4d4411b97d8e"
+  },
+  {
+    "path": "implementation/saltcorn/setup-banking.cjs",
+    "change": "Modified",
+    "sha256": "6d6db2bc9eda734b33ebf39e77903eed058ea2be69d3c9e5f5c7148ec46397e8"
+  },
+  {
+    "path": "implementation/saltcorn/setup-support.cjs",
+    "change": "Modified",
+    "sha256": "3d4fa3fb4cbf5dda001889026a3f9c116022ece1cdf9d0ccb5f89215e238bb43"
+  },
+  {
+    "path": "implementation/saltcorn/test_banking.cjs",
+    "change": "Modified",
+    "sha256": "db91ee3cc6b2e2ba9d98fae21a7ad39c8e5d15b966bcae6b7190ac7ad7ccca96"
+  },
+  {
+    "path": "implementation/saltcorn/test_csv.cjs",
+    "change": "Modified",
+    "sha256": "dc62da77b8c566ae894a90228790f7e8e97073aeb65802a3dff699952bc3c022"
+  },
+  {
+    "path": "implementation/saltcorn/test_e2e.cjs",
+    "change": "Modified",
+    "sha256": "700fd6b2e11d21b58b2f7b6bad2848d1aba3ce7746d695570c9b435a783d02d4"
+  },
+  {
+    "path": "implementation/saltcorn/test_resilience.cjs",
+    "change": "Modified",
+    "sha256": "76c57580d66873d78209755d694e390d915940ecbffd651a772c5efc3c3faeb3"
+  },
+  {
+    "path": "implementation/saltcorn/test_sla.cjs",
+    "change": "Modified",
+    "sha256": "e635bae8071a96f40bcdbcefda2cf789d5474b9fe0607c2258713f375e1b9d7a"
+  },
+  {
+    "path": "implementation/start-services.py",
+    "change": "Modified",
+    "sha256": "48863d8a3665f1e620ce2ac9af17360b50e3a9785b1e8eb8c729bbd887c724c4"
+  },
+  {
+    "path": "implementation/start-workflow.sh",
+    "change": "Modified",
+    "sha256": "1183e6ae9c7dbcb7bd01dfa68cc35b284a2e3ab7910496c83aca0e3e43104458"
+  },
+  {
+    "path": "implementation/test_ai_faults.py",
+    "change": "Modified",
+    "sha256": "00fad8c946e0ea5d9afe5522ada3fe87c5f430ab5bb21454a8fc2380e1a25db8"
+  },
+  {
+    "path": "implementation/test_sla.py",
+    "change": "Modified",
+    "sha256": "f4745ab7a2578287a0891233f3ee8327ab254a1303817712a2b6bebc15678553"
+  },
+  {
+    "path": "implementation/test_workflow_http.py",
+    "change": "Modified",
+    "sha256": "834dbff9dad7fbf5d47526eb9b99281b37ed7e3ea71a26a0ef0730f6d5f03e31"
+  },
+  {
+    "path": "implementation/v5_smoke.cjs",
+    "change": "Modified",
+    "sha256": "73c64790fbc61d8c21c39ca07d2bc11cbf4b74b2f088329e05e24da4717a1004"
+  },
+  {
+    "path": "implementation/v7/collect-evidence.cjs",
+    "change": "Added",
+    "sha256": "9fd8a2bd8b25ec59c119cfc816edfa56a5e608feb4ad2689ebe469ac5fad0e02"
+  },
+  {
+    "path": "implementation/v7/integration/contracts.cjs",
+    "change": "Added",
+    "sha256": "e0be16f97c640b0dac1ac8045da7db8a7ce9a837f70553a5667165754b8c21c4"
+  },
+  {
+    "path": "implementation/v7/integration/inbox.cjs",
+    "change": "Added",
+    "sha256": "051eff57d5f3e4b5d6ac59984aaafc686c01ee4a607ea5e6ff378b3cd18f1a4f"
+  },
+  {
+    "path": "implementation/v7/integration/outcomes.cjs",
+    "change": "Added",
+    "sha256": "02d3378fe44f85dd29e5bb4e51f6c07292cf61befa3012ff40f0d8035d41a41d"
+  },
+  {
+    "path": "implementation/v7/integration/relay-client.cjs",
+    "change": "Added",
+    "sha256": "589e3468f9771295fb9bf43bafca11a9398a853e6d0fd7ed7497d5b85aa1b581"
+  },
+  {
+    "path": "implementation/v7/integration/worker.cjs",
+    "change": "Added",
+    "sha256": "f0b3d72c8309c17c8021d1dad5bdc373143a67862f1e88e8414f9f786e699c87"
+  },
+  {
+    "path": "implementation/v7/plugin.cjs",
+    "change": "Added",
+    "sha256": "51a15e524a9c15dc42e695c42070fff9a37e275b9e01188dde4228340a28c3f1"
+  },
+  {
+    "path": "implementation/v7/relay/Code.gs",
+    "change": "Added",
+    "sha256": "cae51af32d37beda9d9ec81858d6e6090d9936d989754ddb25a5ec024b7afd17"
+  },
+  {
+    "path": "implementation/v7/relay/appsscript.json",
+    "change": "Added",
+    "sha256": "67f8bea425e811b7a59e6b6e361ad2b5c2ba6b309e6ba6c36424a91187b9b507"
+  },
+  {
+    "path": "implementation/v7/setup-v7.cjs",
+    "change": "Added",
+    "sha256": "3c7b08989a1eaa95efa94eb2b45f8250c28408a66ea15ecf9487e51560cf2db6"
+  },
+  {
+    "path": "implementation/v7/tests/package-lock.json",
+    "change": "Added",
+    "sha256": "a7e117799fa90c549b9e2b5ca56d46f6a3b43daf7a9d8bb3c3c9731e841fcfb1"
+  },
+  {
+    "path": "implementation/v7/tests/package.json",
+    "change": "Added",
+    "sha256": "16e67981cad15561a9d5d07f9ffa6f47229a97e49fccb509d51cf21417587b89"
+  },
+  {
+    "path": "implementation/v7/tests/relay-emulator.cjs",
+    "change": "Added",
+    "sha256": "b6fe28729124dc4ec0e545554eea8c9e07add05888b6f908b29fab518099493c"
+  },
+  {
+    "path": "implementation/v7/tests/run.cjs",
+    "change": "Added",
+    "sha256": "d52e7dc774a300beb64bcfa5ed2acfb6a7b0042af042ddd1e0c047109def7187"
+  },
+  {
+    "path": "implementation/v7/zapier/contracts.cjs",
+    "change": "Added",
+    "sha256": "e0be16f97c640b0dac1ac8045da7db8a7ce9a837f70553a5667165754b8c21c4"
+  },
+  {
+    "path": "implementation/v7/zapier/index.js",
+    "change": "Added",
+    "sha256": "3003c566e68531dd4f9945ec7ddff565c138cb5c40f1b26345588aebf5bf34f2"
+  },
+  {
+    "path": "implementation/v7/zapier/package-lock.json",
+    "change": "Added",
+    "sha256": "8d1f49a591f8b069b00344eb53aa40bfed7d8dd3e02fcbba21f1e588cec2ae7d"
+  },
+  {
+    "path": "implementation/v7/zapier/package.json",
+    "change": "Added",
+    "sha256": "aee5fdd8864e8295d18f6967672f93fe41bfb440dd310f01b54efaa65d7879c3"
+  },
+  {
+    "path": "implementation/workflow/classpath.txt",
+    "change": "Added",
+    "sha256": "e646197f68f8f07928765e1ddbc1045a13890609736715f87ce3fd9c24f9a436"
+  },
+  {
+    "path": "implementation/workflow/src/main/java/demo/WorkflowServer.java",
+    "change": "Modified",
+    "sha256": "f8f256325eb734bcb9517af2a5f92606ee1041f5172fda7e0932a33f2df8d98a"
+  }
+]

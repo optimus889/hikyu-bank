@@ -1,0 +1,1 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"><proxies><proxy><id>managed-proxy</id><active>true</active><protocol>http</protocol><host>proxy</host><port>8080</port><nonProxyHosts>localhost|127.0.0.1</nonProxyHosts></proxy></proxies></settings>

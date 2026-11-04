@@ -1,0 +1,1 @@
+const {init,db,User,state}=require('./sdk.cjs');(async()=>{await init();console.log('roles',await User.get_roles());console.log('types',Object.keys(state.getState().types));console.log('templates',Object.keys(state.getState().viewtemplates));console.log('actions',Object.keys(state.getState().actions));await db.close();})();

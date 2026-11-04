@@ -2,6 +2,8 @@
 
 Spring Boot serves both the web pages and REST API. Start the backend once; no separate frontend server is required.
 
+For the independent Saltcorn + Flowable + Zapier V7 delivery, see [Hikyu Bank V7](deliverables/hikyu-v7/README.md). It includes source, configuration and fresh local evidence; live Zapier/Google end-to-end acceptance remains pending.
+
 **For first-run testing, use [the separate demo database](#start-safely-with-a-separate-demo-database). The normal local/cloud launchers retain your existing database destinations and require approval before upgrading V4.**
 
 ## Requirements

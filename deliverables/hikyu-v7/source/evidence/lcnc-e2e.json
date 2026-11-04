@@ -1,0 +1,44 @@
+{
+  "kind": "Real local Saltcorn + Flowable + local ML integration; one operator switches independent synthetic accounts; not real multi-person testing",
+  "results": [
+    {
+      "test": "LCNC native submission and real runtime AI",
+      "status": "Pass",
+      "business_id": "v6-db728cf8-88cc-4650-b90f-789c9b57e7cd",
+      "row_id": "4"
+    },
+    {
+      "test": "Service agent hands task to reviewer",
+      "status": "Pass"
+    },
+    {
+      "test": "Final status written to the same LCNC row and retained after refresh",
+      "status": "Pass",
+      "row_id": "4"
+    },
+    {
+      "test": "Duplicate submission uses same persisted business record",
+      "status": "Pass"
+    },
+    {
+      "test": "Conflicting duplicate submission rejected",
+      "status": "Pass"
+    },
+    {
+      "test": "Blank required input rejected server-side",
+      "status": "Pass"
+    },
+    {
+      "test": "Cross-user transaction reference rejected; other user cannot see business record",
+      "status": "Pass"
+    },
+    {
+      "test": "Unauthorized role decision rejected",
+      "status": "Pass"
+    }
+  ],
+  "business_id": "v6-db728cf8-88cc-4650-b90f-789c9b57e7cd",
+  "row_id": "4",
+  "final_text": "v6-db728cf8-88cc-4650-b90f-789c9b57e7cd\n\nMy card is locked and purchases are blocked\n\nStatus: COMPLETED · Version 6 · Current role: none\n\nAI category: card_access · Confidence: 0.997822 · Model: synthetic-nb-v1\n\nProcess instance: 120 · Updated: Wed Nov 04 2026 23:06:26 GMT+0000 (Coordinated Universal Time)\n\nLatest comment: Independent synthetic review completed. No settled transaction was modified.",
+  "time": "2026-11-04T23:06:27.626Z"
+}

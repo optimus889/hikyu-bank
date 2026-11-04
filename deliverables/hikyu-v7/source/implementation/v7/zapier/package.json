@@ -1,0 +1,1 @@
+{"name":"hikyu-v7-private-relay","version":"1.0.0","private":true,"main":"index.js","engines":{"node":">=22"},"dependencies":{"zapier-platform-core":"19.3.0"},"devDependencies":{"zapier-platform-cli":"19.3.0"},"scripts":{"validate":"zapier-platform validate"}}

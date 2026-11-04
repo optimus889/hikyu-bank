@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:flowable="http://flowable.org/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="https://example.invalid/hikyu/v6">
+  <process id="transactionSupportReview" name="Transaction Support Review" isExecutable="true">
+    <startEvent id="start" name="Support request submitted"/>
+    <serviceTask id="classify" name="Classify synthetic request" flowable:delegateExpression="${triageDelegate}"/>
+    <boundaryEvent id="aiError" attachedToRef="classify"><errorEventDefinition errorRef="aiFailure"/></boundaryEvent>
+    <userTask id="manualTriage" name="Classify request manually" flowable:candidateGroups="service_agents"><extensionElements><flowable:taskListener event="create" delegateExpression="${stageListener}"/></extensionElements></userTask>
+    <userTask id="agentReview" name="Check transaction context" flowable:candidateGroups="service_agents"><extensionElements><flowable:taskListener event="create" delegateExpression="${stageListener}"/></extensionElements></userTask>
+    <exclusiveGateway id="agentDecision" default="agentContinue"/>
+    <userTask id="requesterCorrection" name="Provide missing information" flowable:assignee="${requesterId}"><extensionElements><flowable:taskListener event="create" delegateExpression="${stageListener}"/></extensionElements></userTask>
+    <userTask id="reviewerReview" name="Review support resolution" flowable:candidateGroups="reviewers"><extensionElements><flowable:taskListener event="create" delegateExpression="${stageListener}"/></extensionElements></userTask>
+    <boundaryEvent id="reviewTimeout" attachedToRef="reviewerReview"><timerEventDefinition><timeDuration>${reviewTimeout}</timeDuration></timerEventDefinition></boundaryEvent>
+    <userTask id="supervisorReview" name="Handle overdue review" flowable:candidateGroups="supervisors"><extensionElements><flowable:taskListener event="create" delegateExpression="${stageListener}"/></extensionElements></userTask>
+    <exclusiveGateway id="finalDecision" default="finalReject"/>
+    <endEvent id="completed" name="Completed"><extensionElements><flowable:executionListener event="start" delegateExpression="${endListener}"/></extensionElements></endEvent><endEvent id="rejected" name="Rejected"><extensionElements><flowable:executionListener event="start" delegateExpression="${endListener}"/></extensionElements></endEvent>
+    <sequenceFlow id="s1" sourceRef="start" targetRef="classify"/><sequenceFlow id="s2" sourceRef="classify" targetRef="agentReview"/>
+    <sequenceFlow id="s3" sourceRef="aiError" targetRef="manualTriage"/><sequenceFlow id="s4" sourceRef="manualTriage" targetRef="agentReview"/>
+    <sequenceFlow id="s5" sourceRef="agentReview" targetRef="agentDecision"/>
+    <sequenceFlow id="agentReturn" sourceRef="agentDecision" targetRef="requesterCorrection"><conditionExpression xsi:type="tFormalExpression"><![CDATA[${supportDecision == 'return'}]]></conditionExpression></sequenceFlow>
+    <sequenceFlow id="agentReject" sourceRef="agentDecision" targetRef="rejected"><conditionExpression xsi:type="tFormalExpression"><![CDATA[${supportDecision == 'reject'}]]></conditionExpression></sequenceFlow>
+    <sequenceFlow id="agentContinue" sourceRef="agentDecision" targetRef="reviewerReview"/>
+    <sequenceFlow id="s6" sourceRef="requesterCorrection" targetRef="classify"/>
+    <sequenceFlow id="s7" sourceRef="reviewerReview" targetRef="finalDecision"/>
+    <sequenceFlow id="s8" sourceRef="reviewTimeout" targetRef="supervisorReview"/>
+    <sequenceFlow id="s9" sourceRef="supervisorReview" targetRef="finalDecision"/>
+    <sequenceFlow id="finalComplete" sourceRef="finalDecision" targetRef="completed"><conditionExpression xsi:type="tFormalExpression"><![CDATA[${resolution == 'complete'}]]></conditionExpression></sequenceFlow>
+    <sequenceFlow id="finalReject" sourceRef="finalDecision" targetRef="rejected"/>
+  </process>
+  <error id="aiFailure" errorCode="AI_FAILURE"/>
+</definitions>

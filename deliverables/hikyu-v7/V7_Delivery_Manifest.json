@@ -1,0 +1,20 @@
+{
+  "artifact": "Hikyu_Bank_V7.zip",
+  "bytes": 8396982,
+  "sha256": "a31e0042511da699af8dac87ce87da71a1919a4fe6eb87efff8c9f7371b60543",
+  "zip_crc": "Pass",
+  "word_report_excluded": true,
+  "excluded_word_paths": [
+    "Hikyu_Bank_V7/docs/V7_Assignment_Report.docx"
+  ],
+  "recursive_archive_word_scan": "Pass",
+  "generated_secret_scan": "Pass",
+  "private_runtime_databases_and_dependencies_excluded": true,
+  "local_v7_checks": {
+    "Pass": 17,
+    "Fail": 0
+  },
+  "live_zapier_google_e2e": "Blocked; owner-side authorization, deployment and real runs still required",
+  "source_directory": "source",
+  "baseline_archive_sha256": "27db1ede1fcc8ee21cc9d4890bf6cfa0d14368d6e34affd617c14b058413b13a"
+}

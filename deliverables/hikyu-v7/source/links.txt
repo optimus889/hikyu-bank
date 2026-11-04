@@ -1,0 +1,10 @@
+Hikyu Bank Version 6 - links
+
+Source repository / delivery branch (GitHub, requires an authorized account):
+https://github.com/optimus889/hikyu-bank/tree/hikyu-v6-delivery
+
+LCNC platform (Saltcorn 1.6.2, self-hosted locally):  https://github.com/saltcorn/saltcorn
+iBPM engine (Flowable 7.1.0, self-hosted locally):    https://github.com/flowable/flowable-engine
+
+Note: the application runs locally (Saltcorn on port 8097, workflow API on port 8096).
+There is no public hosted URL. See README.txt to run it.

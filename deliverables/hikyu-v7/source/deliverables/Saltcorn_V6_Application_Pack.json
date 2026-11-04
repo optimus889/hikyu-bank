@@ -1,0 +1,4430 @@
+{
+  "tags": [],
+  "pages": [
+    {
+      "name": "accounts-cards",
+      "title": "Accounts & Cards",
+      "layout": {
+        "above": [
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<style>body{background:#f5f8fc;color:#0c2f53;font-family:Arial,sans-serif}.v6-nav{background:#0b2c50;color:white;padding:22px;display:flex;gap:22px;flex-wrap:wrap}.v6-nav a{color:#dce9f6;font-size:14px}.v6-panel{background:white;border:1px solid #cadcf0;border-radius:9px;padding:24px;margin:18px 0}.v6-title{font-size:36px;font-weight:700;margin-top:38px}table{background:white}.btn-primary{background:#195eaa;border-color:#195eaa}footer{margin-top:45px;color:#627c96;font-size:13px}</style><nav class=\"v6-nav\"><strong>HIKYU BANK</strong><a href=\"/page/overview\">Overview</a><a href=\"/page/transactions\">Transactions</a><a href=\"/page/pay-transfer\">Pay & Transfer</a><a href=\"/page/accounts-cards\">Accounts & Cards</a><a href=\"/page/insights\">Financial Insights</a><a href=\"/page/settings\">Settings</a><a href=\"/page/demo-tools\">Demo Tools</a><a href=\"/page/support-requests\">Support Requests</a></nav>"
+          },
+          {
+            "type": "view",
+            "view": "V6_Banking_accounts",
+            "block": true
+          },
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<footer>Hikyu Bank \u00b7 Simulation only \u00b7 No real banking transactions</footer>"
+          }
+        ]
+      },
+      "min_role": 80,
+      "attributes": null,
+      "description": "Hikyu V6 native editable LCNC page",
+      "fixed_states": {},
+      "root_page_for_roles": []
+    },
+    {
+      "name": "demo-tools",
+      "title": "Demo Tools",
+      "layout": {
+        "above": [
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<style>body{background:#f5f8fc;color:#0c2f53;font-family:Arial,sans-serif}.v6-nav{background:#0b2c50;color:white;padding:22px;display:flex;gap:22px;flex-wrap:wrap}.v6-nav a{color:#dce9f6;font-size:14px}.v6-panel{background:white;border:1px solid #cadcf0;border-radius:9px;padding:24px;margin:18px 0}.v6-title{font-size:36px;font-weight:700;margin-top:38px}table{background:white}.btn-primary{background:#195eaa;border-color:#195eaa}footer{margin-top:45px;color:#627c96;font-size:13px}</style><nav class=\"v6-nav\"><strong>HIKYU BANK</strong><a href=\"/page/overview\">Overview</a><a href=\"/page/transactions\">Transactions</a><a href=\"/page/pay-transfer\">Pay & Transfer</a><a href=\"/page/accounts-cards\">Accounts & Cards</a><a href=\"/page/insights\">Financial Insights</a><a href=\"/page/settings\">Settings</a><a href=\"/page/demo-tools\">Demo Tools</a><a href=\"/page/support-requests\">Support Requests</a></nav>"
+          },
+          {
+            "type": "view",
+            "view": "V6_Banking_purchase",
+            "block": true
+          },
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<footer>Hikyu Bank \u00b7 Simulation only \u00b7 No real banking transactions</footer>"
+          }
+        ]
+      },
+      "min_role": 80,
+      "attributes": null,
+      "description": "Hikyu V6 native editable LCNC page",
+      "fixed_states": {},
+      "root_page_for_roles": []
+    },
+    {
+      "name": "insights",
+      "title": "Financial Insights",
+      "layout": {
+        "above": [
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<style>body{background:#f5f8fc;color:#0c2f53;font-family:Arial,sans-serif}.v6-nav{background:#0b2c50;color:white;padding:22px;display:flex;gap:22px;flex-wrap:wrap}.v6-nav a{color:#dce9f6;font-size:14px}.v6-panel{background:white;border:1px solid #cadcf0;border-radius:9px;padding:24px;margin:18px 0}.v6-title{font-size:36px;font-weight:700;margin-top:38px}table{background:white}.btn-primary{background:#195eaa;border-color:#195eaa}footer{margin-top:45px;color:#627c96;font-size:13px}</style><nav class=\"v6-nav\"><strong>HIKYU BANK</strong><a href=\"/page/overview\">Overview</a><a href=\"/page/transactions\">Transactions</a><a href=\"/page/pay-transfer\">Pay & Transfer</a><a href=\"/page/accounts-cards\">Accounts & Cards</a><a href=\"/page/insights\">Financial Insights</a><a href=\"/page/settings\">Settings</a><a href=\"/page/demo-tools\">Demo Tools</a><a href=\"/page/support-requests\">Support Requests</a></nav>"
+          },
+          {
+            "type": "view",
+            "view": "V6_Banking_insights",
+            "block": true
+          },
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<footer>Hikyu Bank \u00b7 Simulation only \u00b7 No real banking transactions</footer>"
+          }
+        ]
+      },
+      "min_role": 80,
+      "attributes": null,
+      "description": "Hikyu V6 native editable LCNC page",
+      "fixed_states": {},
+      "root_page_for_roles": []
+    },
+    {
+      "name": "overview",
+      "title": "Overview",
+      "layout": {
+        "above": [
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<style>body{background:#f5f8fc;color:#0c2f53;font-family:Arial,sans-serif}.v6-nav{background:#0b2c50;color:white;padding:22px;display:flex;gap:22px;flex-wrap:wrap}.v6-nav a{color:#dce9f6;font-size:14px}.v6-panel{background:white;border:1px solid #cadcf0;border-radius:9px;padding:24px;margin:18px 0}.v6-title{font-size:36px;font-weight:700;margin-top:38px}table{background:white}.btn-primary{background:#195eaa;border-color:#195eaa}footer{margin-top:45px;color:#627c96;font-size:13px}</style><nav class=\"v6-nav\"><strong>HIKYU BANK</strong><a href=\"/page/overview\">Overview</a><a href=\"/page/transactions\">Transactions</a><a href=\"/page/pay-transfer\">Pay & Transfer</a><a href=\"/page/accounts-cards\">Accounts & Cards</a><a href=\"/page/insights\">Financial Insights</a><a href=\"/page/settings\">Settings</a><a href=\"/page/demo-tools\">Demo Tools</a><a href=\"/page/support-requests\">Support Requests</a></nav>"
+          },
+          {
+            "type": "view",
+            "view": "V6_Banking_overview",
+            "block": true
+          },
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<footer>Hikyu Bank \u00b7 Simulation only \u00b7 No real banking transactions</footer>"
+          }
+        ]
+      },
+      "min_role": 80,
+      "attributes": null,
+      "description": "Hikyu V6 native editable LCNC page",
+      "fixed_states": {},
+      "root_page_for_roles": []
+    },
+    {
+      "name": "pay-transfer",
+      "title": "Pay & Transfer",
+      "layout": {
+        "above": [
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<style>body{background:#f5f8fc;color:#0c2f53;font-family:Arial,sans-serif}.v6-nav{background:#0b2c50;color:white;padding:22px;display:flex;gap:22px;flex-wrap:wrap}.v6-nav a{color:#dce9f6;font-size:14px}.v6-panel{background:white;border:1px solid #cadcf0;border-radius:9px;padding:24px;margin:18px 0}.v6-title{font-size:36px;font-weight:700;margin-top:38px}table{background:white}.btn-primary{background:#195eaa;border-color:#195eaa}footer{margin-top:45px;color:#627c96;font-size:13px}</style><nav class=\"v6-nav\"><strong>HIKYU BANK</strong><a href=\"/page/overview\">Overview</a><a href=\"/page/transactions\">Transactions</a><a href=\"/page/pay-transfer\">Pay & Transfer</a><a href=\"/page/accounts-cards\">Accounts & Cards</a><a href=\"/page/insights\">Financial Insights</a><a href=\"/page/settings\">Settings</a><a href=\"/page/demo-tools\">Demo Tools</a><a href=\"/page/support-requests\">Support Requests</a></nav>"
+          },
+          {
+            "type": "view",
+            "view": "V6_Banking_pay",
+            "block": true
+          },
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<footer>Hikyu Bank \u00b7 Simulation only \u00b7 No real banking transactions</footer>"
+          }
+        ]
+      },
+      "min_role": 80,
+      "attributes": null,
+      "description": "Hikyu V6 native editable LCNC page",
+      "fixed_states": {},
+      "root_page_for_roles": []
+    },
+    {
+      "name": "settings",
+      "title": "Settings",
+      "layout": {
+        "above": [
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<style>body{background:#f5f8fc;color:#0c2f53;font-family:Arial,sans-serif}.v6-nav{background:#0b2c50;color:white;padding:22px;display:flex;gap:22px;flex-wrap:wrap}.v6-nav a{color:#dce9f6;font-size:14px}.v6-panel{background:white;border:1px solid #cadcf0;border-radius:9px;padding:24px;margin:18px 0}.v6-title{font-size:36px;font-weight:700;margin-top:38px}table{background:white}.btn-primary{background:#195eaa;border-color:#195eaa}footer{margin-top:45px;color:#627c96;font-size:13px}</style><nav class=\"v6-nav\"><strong>HIKYU BANK</strong><a href=\"/page/overview\">Overview</a><a href=\"/page/transactions\">Transactions</a><a href=\"/page/pay-transfer\">Pay & Transfer</a><a href=\"/page/accounts-cards\">Accounts & Cards</a><a href=\"/page/insights\">Financial Insights</a><a href=\"/page/settings\">Settings</a><a href=\"/page/demo-tools\">Demo Tools</a><a href=\"/page/support-requests\">Support Requests</a></nav>"
+          },
+          {
+            "type": "view",
+            "view": "V6_Banking_settings",
+            "block": true
+          },
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<footer>Hikyu Bank \u00b7 Simulation only \u00b7 No real banking transactions</footer>"
+          }
+        ]
+      },
+      "min_role": 80,
+      "attributes": null,
+      "description": "Hikyu V6 native editable LCNC page",
+      "fixed_states": {},
+      "root_page_for_roles": []
+    },
+    {
+      "name": "support-requests",
+      "title": "Support Requests",
+      "layout": {
+        "above": [
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<style>body{background:#f5f8fc;color:#0c2f53;font-family:Arial,sans-serif}.v6-nav{background:#0b2c50;color:white;padding:22px;display:flex;gap:22px;flex-wrap:wrap}.v6-nav a{color:#dce9f6;font-size:14px}.v6-panel{background:white;border:1px solid #cadcf0;border-radius:9px;padding:24px;margin:18px 0}.v6-title{font-size:36px;font-weight:700;margin-top:38px}table{background:white}.btn-primary{background:#195eaa;border-color:#195eaa}footer{margin-top:45px;color:#627c96;font-size:13px}</style><nav class=\"v6-nav\"><strong>HIKYU BANK</strong><a href=\"/page/overview\">Overview</a><a href=\"/page/transactions\">Transactions</a><a href=\"/page/pay-transfer\">Pay & Transfer</a><a href=\"/page/accounts-cards\">Accounts & Cards</a><a href=\"/page/insights\">Financial Insights</a><a href=\"/page/settings\">Settings</a><a href=\"/page/demo-tools\">Demo Tools</a><a href=\"/page/support-requests\">Support Requests</a></nav>"
+          },
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<h1 class=\"v6-title\">Transaction Support Review</h1><p>Request assistance with a transaction. AI provides a category; people decide the outcome.</p>"
+          },
+          {
+            "type": "view",
+            "view": "V6_Support_Workflow",
+            "block": true
+          },
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<footer>Hikyu Bank \u00b7 Simulation only \u00b7 No real banking transactions</footer>"
+          }
+        ]
+      },
+      "min_role": 80,
+      "attributes": null,
+      "description": "Hikyu V6 native editable LCNC page",
+      "fixed_states": {},
+      "root_page_for_roles": []
+    },
+    {
+      "name": "transactions",
+      "title": "Transactions",
+      "layout": {
+        "above": [
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<style>body{background:#f5f8fc;color:#0c2f53;font-family:Arial,sans-serif}.v6-nav{background:#0b2c50;color:white;padding:22px;display:flex;gap:22px;flex-wrap:wrap}.v6-nav a{color:#dce9f6;font-size:14px}.v6-panel{background:white;border:1px solid #cadcf0;border-radius:9px;padding:24px;margin:18px 0}.v6-title{font-size:36px;font-weight:700;margin-top:38px}table{background:white}.btn-primary{background:#195eaa;border-color:#195eaa}footer{margin-top:45px;color:#627c96;font-size:13px}</style><nav class=\"v6-nav\"><strong>HIKYU BANK</strong><a href=\"/page/overview\">Overview</a><a href=\"/page/transactions\">Transactions</a><a href=\"/page/pay-transfer\">Pay & Transfer</a><a href=\"/page/accounts-cards\">Accounts & Cards</a><a href=\"/page/insights\">Financial Insights</a><a href=\"/page/settings\">Settings</a><a href=\"/page/demo-tools\">Demo Tools</a><a href=\"/page/support-requests\">Support Requests</a></nav>"
+          },
+          {
+            "type": "view",
+            "view": "V6_Banking_transactions",
+            "block": true
+          },
+          {
+            "type": "blank",
+            "block": true,
+            "contents": "<footer>Hikyu Bank \u00b7 Simulation only \u00b7 No real banking transactions</footer>"
+          }
+        ]
+      },
+      "min_role": 80,
+      "attributes": null,
+      "description": "Hikyu V6 native editable LCNC page",
+      "fixed_states": {},
+      "root_page_for_roles": []
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "role": "admin"
+    },
+    {
+      "id": 100,
+      "role": "public"
+    },
+    {
+      "id": 80,
+      "role": "user"
+    },
+    {
+      "id": 40,
+      "role": "staff"
+    }
+  ],
+  "views": [
+    {
+      "name": "V6_accounts",
+      "slug": null,
+      "table": "accounts",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "List",
+      "configuration": {
+        "layout": {
+          "besides": [
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "account_type"
+              },
+              "header_label": "Type"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "show",
+                "field_name": "balance_cents"
+              },
+              "header_label": "Balance (cents)"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "name"
+              },
+              "header_label": "Name"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "status"
+              },
+              "header_label": "Status"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "suffix"
+              },
+              "header_label": "Last four digits"
+            }
+          ],
+          "list_columns": true
+        },
+        "columns": [
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "account_type"
+          },
+          {
+            "type": "Field",
+            "fieldview": "show",
+            "field_name": "balance_cents"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "name"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "status"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "suffix"
+          }
+        ],
+        "default_state": {
+          "_limit": 50
+        }
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_alerts",
+      "slug": null,
+      "table": "alerts",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "List",
+      "configuration": {
+        "layout": {
+          "besides": [
+            {
+              "contents": {
+                "type": "join_field",
+                "fieldview": "as_text",
+                "join_field": "account_id.id"
+              },
+              "header_label": "Account"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "alert_type"
+              },
+              "header_label": "Type"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "show",
+                "field_name": "amount_cents"
+              },
+              "header_label": "Threshold (cents)"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "channel"
+              },
+              "header_label": "Channel"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "show",
+                "field_name": "enabled"
+              },
+              "header_label": "Enabled"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "show",
+                "field_name": "scheduled_date"
+              },
+              "header_label": "Scheduled date"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "title"
+              },
+              "header_label": "Title"
+            }
+          ],
+          "list_columns": true
+        },
+        "columns": [
+          {
+            "type": "JoinField",
+            "fieldview": "as_text",
+            "join_field": "account_id.id"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "alert_type"
+          },
+          {
+            "type": "Field",
+            "fieldview": "show",
+            "field_name": "amount_cents"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "channel"
+          },
+          {
+            "type": "Field",
+            "fieldview": "show",
+            "field_name": "enabled"
+          },
+          {
+            "type": "Field",
+            "fieldview": "show",
+            "field_name": "scheduled_date"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "title"
+          }
+        ],
+        "default_state": {
+          "_limit": 50
+        }
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_Banking_accounts",
+      "slug": null,
+      "table": "accounts",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "Hikyu Banking",
+      "configuration": {
+        "mode": "accounts"
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_Banking_insights",
+      "slug": null,
+      "table": "accounts",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "Hikyu Banking",
+      "configuration": {
+        "mode": "insights"
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_Banking_overview",
+      "slug": null,
+      "table": "accounts",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "Hikyu Banking",
+      "configuration": {
+        "mode": "overview"
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_Banking_pay",
+      "slug": null,
+      "table": "accounts",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "Hikyu Banking",
+      "configuration": {
+        "mode": "pay"
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_Banking_purchase",
+      "slug": null,
+      "table": "accounts",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "Hikyu Banking",
+      "configuration": {
+        "mode": "purchase"
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_Banking_settings",
+      "slug": null,
+      "table": "accounts",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "Hikyu Banking",
+      "configuration": {
+        "mode": "settings"
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_Banking_transactions",
+      "slug": null,
+      "table": "accounts",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "Hikyu Banking",
+      "configuration": {
+        "mode": "transactions"
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_budgets",
+      "slug": null,
+      "table": "budgets",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "List",
+      "configuration": {
+        "layout": {
+          "besides": [
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "category"
+              },
+              "header_label": "Category"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "show",
+                "field_name": "limit_cents"
+              },
+              "header_label": "Limit (cents)"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "show",
+                "field_name": "month"
+              },
+              "header_label": "Month"
+            }
+          ],
+          "list_columns": true
+        },
+        "columns": [
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "category"
+          },
+          {
+            "type": "Field",
+            "fieldview": "show",
+            "field_name": "limit_cents"
+          },
+          {
+            "type": "Field",
+            "fieldview": "show",
+            "field_name": "month"
+          }
+        ],
+        "default_state": {
+          "_limit": 50
+        }
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_card_controls",
+      "slug": null,
+      "table": "card_controls",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "List",
+      "configuration": {
+        "layout": {
+          "besides": [
+            {
+              "contents": {
+                "type": "join_field",
+                "fieldview": "as_text",
+                "join_field": "account_id.id"
+              },
+              "header_label": "Account"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "show",
+                "field_name": "locked"
+              },
+              "header_label": "Locked"
+            }
+          ],
+          "list_columns": true
+        },
+        "columns": [
+          {
+            "type": "JoinField",
+            "fieldview": "as_text",
+            "join_field": "account_id.id"
+          },
+          {
+            "type": "Field",
+            "fieldview": "show",
+            "field_name": "locked"
+          }
+        ],
+        "default_state": {
+          "_limit": 50
+        }
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_notifications",
+      "slug": null,
+      "table": "notifications",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "List",
+      "configuration": {
+        "layout": {
+          "besides": [
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "body"
+              },
+              "header_label": "Message"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "show",
+                "field_name": "created_at"
+              },
+              "header_label": "Created at"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "show",
+                "field_name": "is_read"
+              },
+              "header_label": "Read"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "show",
+                "field_name": "resolved"
+              },
+              "header_label": "Resolved"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "title"
+              },
+              "header_label": "Title"
+            }
+          ],
+          "list_columns": true
+        },
+        "columns": [
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "body"
+          },
+          {
+            "type": "Field",
+            "fieldview": "show",
+            "field_name": "created_at"
+          },
+          {
+            "type": "Field",
+            "fieldview": "show",
+            "field_name": "is_read"
+          },
+          {
+            "type": "Field",
+            "fieldview": "show",
+            "field_name": "resolved"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "title"
+          }
+        ],
+        "default_state": {
+          "_limit": 50
+        }
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_saved_payees",
+      "slug": null,
+      "table": "saved_payees",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "List",
+      "configuration": {
+        "layout": {
+          "besides": [
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "alias"
+              },
+              "header_label": "Alias"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "identifier"
+              },
+              "header_label": "Recipient or biller identifier"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "kind"
+              },
+              "header_label": "Kind"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "reference"
+              },
+              "header_label": "Reference"
+            }
+          ],
+          "list_columns": true
+        },
+        "columns": [
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "alias"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "identifier"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "kind"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "reference"
+          }
+        ],
+        "default_state": {
+          "_limit": 50
+        }
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_support_requests",
+      "slug": null,
+      "table": "support_requests",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "List",
+      "configuration": {
+        "layout": {
+          "besides": [
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "ai_category"
+              },
+              "header_label": "AI category"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "business_id"
+              },
+              "header_label": "Business ID"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "current_role"
+              },
+              "header_label": "Current role"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "description"
+              },
+              "header_label": "Description"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "last_comment"
+              },
+              "header_label": "Latest processing comment"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "outcome"
+              },
+              "header_label": "Outcome"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "show",
+                "field_name": "sequence"
+              },
+              "header_label": "State version"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "state"
+              },
+              "header_label": "Status"
+            },
+            {
+              "contents": {
+                "type": "join_field",
+                "fieldview": "as_text",
+                "join_field": "transaction_id.id"
+              },
+              "header_label": "Transaction"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "show",
+                "field_name": "updated_at"
+              },
+              "header_label": "Updated at"
+            }
+          ],
+          "list_columns": true
+        },
+        "columns": [
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "ai_category"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "business_id"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "current_role"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "description"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "last_comment"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "outcome"
+          },
+          {
+            "type": "Field",
+            "fieldview": "show",
+            "field_name": "sequence"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "state"
+          },
+          {
+            "type": "JoinField",
+            "fieldview": "as_text",
+            "join_field": "transaction_id.id"
+          },
+          {
+            "type": "Field",
+            "fieldview": "show",
+            "field_name": "updated_at"
+          }
+        ],
+        "default_state": {
+          "_limit": 50
+        }
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_Support_Workflow",
+      "slug": null,
+      "table": "support_requests",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "Hikyu Support Review",
+      "configuration": {},
+      "exttable_name": null,
+      "default_render_page": null
+    },
+    {
+      "name": "V6_transactions",
+      "slug": null,
+      "table": "transactions",
+      "min_role": 80,
+      "attributes": null,
+      "description": "",
+      "viewtemplate": "List",
+      "configuration": {
+        "layout": {
+          "besides": [
+            {
+              "contents": {
+                "type": "join_field",
+                "fieldview": "as_text",
+                "join_field": "account_id.id"
+              },
+              "header_label": "Account"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "show",
+                "field_name": "amount_cents"
+              },
+              "header_label": "Amount (cents)"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "category"
+              },
+              "header_label": "Category"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "kind"
+              },
+              "header_label": "Kind"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "name"
+              },
+              "header_label": "Name"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "as_text",
+                "field_name": "note"
+              },
+              "header_label": "Note"
+            },
+            {
+              "contents": {
+                "type": "field",
+                "fieldview": "show",
+                "field_name": "posted_date"
+              },
+              "header_label": "Posted date"
+            }
+          ],
+          "list_columns": true
+        },
+        "columns": [
+          {
+            "type": "JoinField",
+            "fieldview": "as_text",
+            "join_field": "account_id.id"
+          },
+          {
+            "type": "Field",
+            "fieldview": "show",
+            "field_name": "amount_cents"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "category"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "kind"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "name"
+          },
+          {
+            "type": "Field",
+            "fieldview": "as_text",
+            "field_name": "note"
+          },
+          {
+            "type": "Field",
+            "fieldview": "show",
+            "field_name": "posted_date"
+          }
+        ],
+        "default_state": {
+          "_limit": 50
+        }
+      },
+      "exttable_name": null,
+      "default_render_page": null
+    }
+  ],
+  "config": {
+    "site_name": "Hikyu Bank V6",
+    "menu_items": [
+      {
+        "href": "",
+        "icon": "fas fa-table",
+        "text": "Tables",
+        "type": "Admin Page",
+        "label": "Tables",
+        "style": "",
+        "title": "",
+        "target": "_self",
+        "tooltip": "",
+        "in_modal": false,
+        "location": "Standard",
+        "max_role": "1",
+        "min_role": 1,
+        "shortcut": "",
+        "admin_page": "Tables",
+        "target_blank": false,
+        "disable_on_mobile": true
+      },
+      {
+        "href": "",
+        "icon": "fas fa-eye",
+        "text": "Views",
+        "type": "Admin Page",
+        "label": "Views",
+        "style": "",
+        "title": "",
+        "target": "_self",
+        "tooltip": "",
+        "in_modal": false,
+        "location": "Standard",
+        "max_role": "1",
+        "min_role": 1,
+        "shortcut": "",
+        "admin_page": "Views",
+        "target_blank": false,
+        "disable_on_mobile": true
+      },
+      {
+        "href": "",
+        "icon": "far fa-file",
+        "text": "Pages",
+        "type": "Admin Page",
+        "label": "Pages",
+        "style": "",
+        "title": "",
+        "target": "_self",
+        "tooltip": "",
+        "in_modal": false,
+        "location": "Standard",
+        "max_role": "1",
+        "min_role": 1,
+        "shortcut": "",
+        "admin_page": "Pages",
+        "target_blank": false,
+        "disable_on_mobile": true
+      },
+      {
+        "href": "",
+        "icon": "fas fa-wrench",
+        "text": "Settings",
+        "type": "Header",
+        "label": "Settings",
+        "style": "",
+        "title": "",
+        "target": "_self",
+        "tooltip": "",
+        "location": "Standard",
+        "max_role": "1",
+        "min_role": 1,
+        "subitems": [
+          {
+            "href": "",
+            "icon": "fas fa-tools",
+            "text": "About application",
+            "type": "Admin Page",
+            "label": "About application",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": "1",
+            "shortcut": "",
+            "admin_page": "About application",
+            "target_blank": false,
+            "disable_on_mobile": false
+          },
+          {
+            "href": "",
+            "icon": "fas fa-cubes",
+            "text": "Modules",
+            "type": "Admin Page",
+            "label": "Modules",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": "1",
+            "shortcut": "",
+            "admin_page": "Modules",
+            "target_blank": false,
+            "disable_on_mobile": false
+          },
+          {
+            "href": "",
+            "icon": "fas fa-users-cog",
+            "text": "Users and security",
+            "type": "Admin Page",
+            "label": "Users and security",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": "1",
+            "shortcut": "",
+            "admin_page": "Users and security",
+            "target_blank": false,
+            "disable_on_mobile": false
+          },
+          {
+            "href": "",
+            "icon": "fas fa-compass",
+            "text": "Site structure",
+            "type": "Admin Page",
+            "label": "Site structure",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": 1,
+            "shortcut": "",
+            "admin_page": "Site structure",
+            "target_blank": false,
+            "disable_on_mobile": false
+          },
+          {
+            "href": "",
+            "icon": "fas fa-images",
+            "text": "Files",
+            "type": "Admin Page",
+            "label": "Files",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": 1,
+            "shortcut": "",
+            "admin_page": "Files",
+            "target_blank": false,
+            "disable_on_mobile": false
+          },
+          {
+            "href": "",
+            "icon": "fas fa-calendar-check",
+            "text": "Events",
+            "type": "Admin Page",
+            "label": "Events",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": 1,
+            "shortcut": "",
+            "admin_page": "Events",
+            "target_blank": false,
+            "disable_on_mobile": false
+          },
+          {
+            "href": "",
+            "icon": "fas fa-list",
+            "text": "All entities",
+            "type": "Admin Page",
+            "label": "All entities",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": "1",
+            "shortcut": "Alt+n",
+            "admin_page": "Entities",
+            "target_blank": false,
+            "disable_on_mobile": false
+          }
+        ],
+        "user_menu_header": false,
+        "disable_on_mobile": true
+      },
+      {
+        "href": "",
+        "icon": "fas fa-user-plus",
+        "text": "Sign up",
+        "type": "User Page",
+        "label": "Sign up",
+        "style": "",
+        "title": "",
+        "target": "_self",
+        "tooltip": "",
+        "in_modal": false,
+        "location": "Standard",
+        "max_role": "100",
+        "min_role": "100",
+        "shortcut": "",
+        "user_page": "Signup",
+        "target_blank": false,
+        "disable_on_mobile": true
+      },
+      {
+        "href": "",
+        "icon": "fas fa-sign-in-alt",
+        "text": "Login",
+        "type": "User Page",
+        "label": "Login",
+        "style": "",
+        "title": "",
+        "target": "_self",
+        "tooltip": "",
+        "in_modal": false,
+        "location": "Standard",
+        "max_role": "100",
+        "min_role": "100",
+        "shortcut": "",
+        "user_page": "Login",
+        "target_blank": false,
+        "disable_on_mobile": true
+      },
+      {
+        "href": "",
+        "icon": "far fa-user",
+        "text": "User",
+        "type": "Header",
+        "label": "User",
+        "style": "",
+        "title": "",
+        "target": "_self",
+        "tooltip": "",
+        "in_modal": false,
+        "location": "Standard",
+        "max_role": "1",
+        "min_role": "80",
+        "subitems": [
+          {
+            "href": "",
+            "icon": "fas fa-user-cog",
+            "text": "User settings",
+            "type": "User Page",
+            "label": "User settings",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": "80",
+            "shortcut": "",
+            "user_page": "User settings",
+            "target_blank": false,
+            "disable_on_mobile": true
+          },
+          {
+            "href": "",
+            "icon": "far fa-bell",
+            "text": "Notifications",
+            "type": "User Page",
+            "label": "Notifications",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": "80",
+            "shortcut": "",
+            "user_page": "Notifications",
+            "target_blank": false,
+            "disable_on_mobile": false
+          },
+          {
+            "href": "",
+            "icon": "fas fa-sign-out-alt",
+            "text": "Logout",
+            "type": "User Page",
+            "label": "Logout",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": "80",
+            "shortcut": "",
+            "user_page": "Logout",
+            "target_blank": false,
+            "disable_on_mobile": true
+          }
+        ],
+        "user_menu_header": true,
+        "disable_on_mobile": true
+      }
+    ],
+    "allow_signup": false,
+    "layout_by_role": {},
+    "min_role_upload": 80,
+    "home_page_by_role": {
+      "1": "overview",
+      "40": "support-requests",
+      "80": "overview",
+      "100": ""
+    },
+    "min_role_apikeygen": 1,
+    "unrolled_menu_items": [
+      {
+        "href": "",
+        "icon": "fas fa-table",
+        "text": "Tables",
+        "type": "Admin Page",
+        "label": "Tables",
+        "style": "",
+        "title": "",
+        "target": "_self",
+        "tooltip": "",
+        "in_modal": false,
+        "location": "Standard",
+        "max_role": "1",
+        "min_role": 1,
+        "shortcut": "",
+        "admin_page": "Tables",
+        "target_blank": false,
+        "disable_on_mobile": true
+      },
+      {
+        "href": "",
+        "icon": "fas fa-eye",
+        "text": "Views",
+        "type": "Admin Page",
+        "label": "Views",
+        "style": "",
+        "title": "",
+        "target": "_self",
+        "tooltip": "",
+        "in_modal": false,
+        "location": "Standard",
+        "max_role": "1",
+        "min_role": 1,
+        "shortcut": "",
+        "admin_page": "Views",
+        "target_blank": false,
+        "disable_on_mobile": true
+      },
+      {
+        "href": "",
+        "icon": "far fa-file",
+        "text": "Pages",
+        "type": "Admin Page",
+        "label": "Pages",
+        "style": "",
+        "title": "",
+        "target": "_self",
+        "tooltip": "",
+        "in_modal": false,
+        "location": "Standard",
+        "max_role": "1",
+        "min_role": 1,
+        "shortcut": "",
+        "admin_page": "Pages",
+        "target_blank": false,
+        "disable_on_mobile": true
+      },
+      {
+        "href": "",
+        "icon": "fas fa-wrench",
+        "text": "Settings",
+        "type": "Header",
+        "label": "Settings",
+        "style": "",
+        "title": "",
+        "target": "_self",
+        "tooltip": "",
+        "location": "Standard",
+        "max_role": "1",
+        "min_role": 1,
+        "subitems": [
+          {
+            "href": "",
+            "icon": "fas fa-tools",
+            "text": "About application",
+            "type": "Admin Page",
+            "label": "About application",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": "1",
+            "shortcut": "",
+            "admin_page": "About application",
+            "target_blank": false,
+            "disable_on_mobile": false
+          },
+          {
+            "href": "",
+            "icon": "fas fa-cubes",
+            "text": "Modules",
+            "type": "Admin Page",
+            "label": "Modules",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": "1",
+            "shortcut": "",
+            "admin_page": "Modules",
+            "target_blank": false,
+            "disable_on_mobile": false
+          },
+          {
+            "href": "",
+            "icon": "fas fa-users-cog",
+            "text": "Users and security",
+            "type": "Admin Page",
+            "label": "Users and security",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": "1",
+            "shortcut": "",
+            "admin_page": "Users and security",
+            "target_blank": false,
+            "disable_on_mobile": false
+          },
+          {
+            "href": "",
+            "icon": "fas fa-compass",
+            "text": "Site structure",
+            "type": "Admin Page",
+            "label": "Site structure",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": 1,
+            "shortcut": "",
+            "admin_page": "Site structure",
+            "target_blank": false,
+            "disable_on_mobile": false
+          },
+          {
+            "href": "",
+            "icon": "fas fa-images",
+            "text": "Files",
+            "type": "Admin Page",
+            "label": "Files",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": 1,
+            "shortcut": "",
+            "admin_page": "Files",
+            "target_blank": false,
+            "disable_on_mobile": false
+          },
+          {
+            "href": "",
+            "icon": "fas fa-calendar-check",
+            "text": "Events",
+            "type": "Admin Page",
+            "label": "Events",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": 1,
+            "shortcut": "",
+            "admin_page": "Events",
+            "target_blank": false,
+            "disable_on_mobile": false
+          },
+          {
+            "href": "",
+            "icon": "fas fa-list",
+            "text": "All entities",
+            "type": "Admin Page",
+            "label": "All entities",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": "1",
+            "shortcut": "Alt+n",
+            "admin_page": "Entities",
+            "target_blank": false,
+            "disable_on_mobile": false
+          }
+        ],
+        "user_menu_header": false,
+        "disable_on_mobile": true
+      },
+      {
+        "href": "",
+        "icon": "fas fa-user-plus",
+        "text": "Sign up",
+        "type": "User Page",
+        "label": "Sign up",
+        "style": "",
+        "title": "",
+        "target": "_self",
+        "tooltip": "",
+        "in_modal": false,
+        "location": "Standard",
+        "max_role": "100",
+        "min_role": "100",
+        "shortcut": "",
+        "user_page": "Signup",
+        "target_blank": false,
+        "disable_on_mobile": true
+      },
+      {
+        "href": "",
+        "icon": "fas fa-sign-in-alt",
+        "text": "Login",
+        "type": "User Page",
+        "label": "Login",
+        "style": "",
+        "title": "",
+        "target": "_self",
+        "tooltip": "",
+        "in_modal": false,
+        "location": "Standard",
+        "max_role": "100",
+        "min_role": "100",
+        "shortcut": "",
+        "user_page": "Login",
+        "target_blank": false,
+        "disable_on_mobile": true
+      },
+      {
+        "href": "",
+        "icon": "far fa-user",
+        "text": "User",
+        "type": "Header",
+        "label": "User",
+        "style": "",
+        "title": "",
+        "target": "_self",
+        "tooltip": "",
+        "in_modal": false,
+        "location": "Standard",
+        "max_role": "1",
+        "min_role": "80",
+        "subitems": [
+          {
+            "href": "",
+            "icon": "fas fa-user-cog",
+            "text": "User settings",
+            "type": "User Page",
+            "label": "User settings",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": "80",
+            "shortcut": "",
+            "user_page": "User settings",
+            "target_blank": false,
+            "disable_on_mobile": true
+          },
+          {
+            "href": "",
+            "icon": "far fa-bell",
+            "text": "Notifications",
+            "type": "User Page",
+            "label": "Notifications",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": "80",
+            "shortcut": "",
+            "user_page": "Notifications",
+            "target_blank": false,
+            "disable_on_mobile": false
+          },
+          {
+            "href": "",
+            "icon": "fas fa-sign-out-alt",
+            "text": "Logout",
+            "type": "User Page",
+            "label": "Logout",
+            "style": "",
+            "title": "",
+            "target": "_self",
+            "tooltip": "",
+            "in_modal": false,
+            "location": "Standard",
+            "max_role": "1",
+            "min_role": "80",
+            "shortcut": "",
+            "user_page": "Logout",
+            "target_blank": false,
+            "disable_on_mobile": true
+          }
+        ],
+        "user_menu_header": true,
+        "disable_on_mobile": true
+      }
+    ],
+    "search_use_websearch": true,
+    "twofa_policy_by_role": {},
+    "exttables_min_role_read": {}
+  },
+  "models": [],
+  "tables": [
+    {
+      "name": "users",
+      "fields": [
+        {
+          "name": "email",
+          "type": "String",
+          "label": "Email",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": false
+        },
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "role_id",
+          "type": "Integer",
+          "label": "Role",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": null
+    },
+    {
+      "name": "user_profiles",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Owner",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "source_v5_id",
+          "type": "String",
+          "label": "Source V5 ID",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "username",
+          "type": "String",
+          "label": "Username",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "first_name",
+          "type": "String",
+          "label": "First name",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "last_name",
+          "type": "String",
+          "label": "Last name",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "pin_hash",
+          "type": "String",
+          "label": "Private PIN hash",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_read": 1,
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "masked_phone",
+          "type": "String",
+          "label": "Masked phone",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "masked_email",
+          "type": "String",
+          "label": "Masked email",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "auth_version",
+          "type": "Integer",
+          "label": "Authentication version",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    },
+    {
+      "name": "accounts",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Owner",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "source_v5_id",
+          "type": "String",
+          "label": "Source V5 ID",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "account_type",
+          "type": "String",
+          "label": "Type",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "options": "checking,savings,credit,loan,investment",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "label": "Name",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "suffix",
+          "type": "String",
+          "label": "Last four digits",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "balance_cents",
+          "type": "Integer",
+          "label": "Balance (cents)",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "String",
+          "label": "Status",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "options": "active,pending,closed",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "credit_limit_cents",
+          "type": "Integer",
+          "label": "Credit limit (cents)",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "minimum_due_cents",
+          "type": "Integer",
+          "label": "Minimum due (cents)",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "due_date",
+          "type": "Date",
+          "label": "Due date",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    },
+    {
+      "name": "transactions",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Owner",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "source_v5_id",
+          "type": "String",
+          "label": "Source V5 ID",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "account_id",
+          "type": "Key",
+          "label": "Account",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "accounts"
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "label": "Name",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "category",
+          "type": "String",
+          "label": "Category",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "posted_date",
+          "type": "Date",
+          "label": "Posted date",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "amount_cents",
+          "type": "Integer",
+          "label": "Amount (cents)",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "kind",
+          "type": "String",
+          "label": "Kind",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "options": "income,expense,transfer,peer_transfer,credit_payment",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "icon",
+          "type": "String",
+          "label": "Icon",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "note",
+          "type": "String",
+          "label": "Note",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "transfer_id",
+          "type": "String",
+          "label": "Transfer ID",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "peer_payment_id",
+          "type": "String",
+          "label": "Peer payment ID",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "operation_id",
+          "type": "String",
+          "label": "Operation ID",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    },
+    {
+      "name": "alerts",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Owner",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "account_id",
+          "type": "Key",
+          "label": "Account",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "accounts"
+        },
+        {
+          "name": "alert_type",
+          "type": "String",
+          "label": "Type",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "options": "low_balance,large_transaction,savings_goal,payment_due,scheduled",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "label": "Title",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "channel",
+          "type": "String",
+          "label": "Channel",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "options": "Email,SMS,In-app,Calendar",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "amount_cents",
+          "type": "Integer",
+          "label": "Threshold (cents)",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "scheduled_date",
+          "type": "Date",
+          "label": "Scheduled date",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "enabled",
+          "type": "Bool",
+          "label": "Enabled",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    },
+    {
+      "name": "notifications",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Recipient",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "account_id",
+          "type": "Key",
+          "label": "Account",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "accounts"
+        },
+        {
+          "name": "title",
+          "type": "String",
+          "label": "Title",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "body",
+          "type": "String",
+          "label": "Message",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "Date",
+          "label": "Created at",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "source",
+          "type": "String",
+          "label": "Source",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "is_read",
+          "type": "Bool",
+          "label": "Read",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "resolved",
+          "type": "Bool",
+          "label": "Resolved",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "event_key",
+          "type": "String",
+          "label": "Event key",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    },
+    {
+      "name": "user_preferences",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Owner",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email"
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "low_balance_enabled",
+          "type": "Bool",
+          "label": "Low balance alerts",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "large_transfer_enabled",
+          "type": "Bool",
+          "label": "Large transfer alerts",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    },
+    {
+      "name": "transfers",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Owner",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "source_account_id",
+          "type": "Key",
+          "label": "Source account",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "accounts"
+        },
+        {
+          "name": "target_account_id",
+          "type": "Key",
+          "label": "Target account",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "accounts"
+        },
+        {
+          "name": "amount_cents",
+          "type": "Integer",
+          "label": "Amount (cents)",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "note",
+          "type": "String",
+          "label": "Note",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "idempotency_key",
+          "type": "String",
+          "label": "Request key",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "request_hash",
+          "type": "String",
+          "label": "Request hash",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "Date",
+          "label": "Created at",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    },
+    {
+      "name": "peer_payments",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Sender",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "recipient_id",
+          "type": "Key",
+          "label": "Recipient",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "source_account_id",
+          "type": "Key",
+          "label": "Source account",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "accounts"
+        },
+        {
+          "name": "target_account_id",
+          "type": "Key",
+          "label": "Target account",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "accounts"
+        },
+        {
+          "name": "amount_cents",
+          "type": "Integer",
+          "label": "Amount (cents)",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "note",
+          "type": "String",
+          "label": "Note",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "idempotency_key",
+          "type": "String",
+          "label": "Request key",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "request_hash",
+          "type": "String",
+          "label": "Request hash",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "Date",
+          "label": "Created at",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    },
+    {
+      "name": "payment_verifications",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Owner",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "session_id",
+          "type": "String",
+          "label": "Session binding",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_read": 1,
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "fingerprint",
+          "type": "String",
+          "label": "Request fingerprint",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_read": 1,
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "code_hash",
+          "type": "String",
+          "label": "Private code hash",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_read": 1,
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "method",
+          "type": "String",
+          "label": "Method",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "options": "sms,email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "expires_at",
+          "type": "Date",
+          "label": "Expires at",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "attempts",
+          "type": "Integer",
+          "label": "Attempts",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "consumed",
+          "type": "Bool",
+          "label": "Consumed",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "Date",
+          "label": "Created at",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_read": 1,
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    },
+    {
+      "name": "saved_payees",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Owner",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "kind",
+          "type": "String",
+          "label": "Kind",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "options": "peer,biller",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "identifier",
+          "type": "String",
+          "label": "Recipient or biller identifier",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "alias",
+          "type": "String",
+          "label": "Alias",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "reference",
+          "type": "String",
+          "label": "Reference",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "deleted",
+          "type": "Bool",
+          "label": "Deleted",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    },
+    {
+      "name": "card_controls",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Owner",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "account_id",
+          "type": "Key",
+          "label": "Account",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "accounts"
+        },
+        {
+          "name": "locked",
+          "type": "Bool",
+          "label": "Locked",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    },
+    {
+      "name": "budgets",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Owner",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "month",
+          "type": "Date",
+          "label": "Month",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "category",
+          "type": "String",
+          "label": "Category",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "limit_cents",
+          "type": "Integer",
+          "label": "Limit (cents)",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    },
+    {
+      "name": "financial_operations",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Owner",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "kind",
+          "type": "String",
+          "label": "Kind",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "options": "purchase,repayment,bill",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "source_account_id",
+          "type": "Key",
+          "label": "Source account",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "accounts"
+        },
+        {
+          "name": "target_account_id",
+          "type": "Key",
+          "label": "Target account",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "accounts"
+        },
+        {
+          "name": "payee_id",
+          "type": "Key",
+          "label": "Payee",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "saved_payees"
+        },
+        {
+          "name": "amount_cents",
+          "type": "Integer",
+          "label": "Amount (cents)",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "merchant",
+          "type": "String",
+          "label": "Merchant",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "category",
+          "type": "String",
+          "label": "Category",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "note",
+          "type": "String",
+          "label": "Note",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "idempotency_key",
+          "type": "String",
+          "label": "Request key",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "request_hash",
+          "type": "String",
+          "label": "Request hash",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "Date",
+          "label": "Created at",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    },
+    {
+      "name": "alert_events",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Owner",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "operation_id",
+          "type": "String",
+          "label": "Operation ID",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "alert_id",
+          "type": "Key",
+          "label": "Alert",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "alerts"
+        },
+        {
+          "name": "event_kind",
+          "type": "String",
+          "label": "Event kind",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    },
+    {
+      "name": "support_requests",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Integer",
+          "label": "ID",
+          "stored": false,
+          "refname": "",
+          "required": true,
+          "is_unique": true,
+          "attributes": {},
+          "calculated": false,
+          "expression": null,
+          "description": "",
+          "primary_key": true
+        },
+        {
+          "name": "owner_id",
+          "type": "Key",
+          "label": "Requester",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "email",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "users"
+        },
+        {
+          "name": "business_id",
+          "type": "String",
+          "label": "Business ID",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "transaction_id",
+          "type": "Key",
+          "label": "Transaction",
+          "stored": false,
+          "refname": "id",
+          "reftype": "Integer",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "summary_field": "id",
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false,
+          "reftable_name": "transactions"
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "label": "Description",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "process_instance_id",
+          "type": "String",
+          "label": "Process instance ID",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "state",
+          "type": "String",
+          "label": "Status",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "sequence",
+          "type": "Integer",
+          "label": "State version",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "ai_category",
+          "type": "String",
+          "label": "AI category",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "ai_confidence",
+          "type": "String",
+          "label": "AI confidence",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "ai_model_version",
+          "type": "String",
+          "label": "AI model version",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "current_role",
+          "type": "String",
+          "label": "Current role",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "Date",
+          "label": "Created at",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "updated_at",
+          "type": "Date",
+          "label": "Updated at",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "outcome",
+          "type": "String",
+          "label": "Outcome",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "last_comment",
+          "type": "String",
+          "label": "Latest processing comment",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "integration_error",
+          "type": "String",
+          "label": "Integration error",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "request_hash",
+          "type": "String",
+          "label": "Private request hash",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_read": 1,
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "retry_attempts",
+          "type": "Integer",
+          "label": "Retry attempts",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_read": 1,
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        },
+        {
+          "name": "next_retry_at",
+          "type": "Date",
+          "label": "Next retry",
+          "stored": false,
+          "refname": "",
+          "required": false,
+          "is_unique": false,
+          "attributes": {
+            "min_role_read": 1,
+            "min_role_write": 1
+          },
+          "calculated": false,
+          "expression": null,
+          "description": null,
+          "primary_key": false
+        }
+      ],
+      "versioned": false,
+      "constraints": [],
+      "description": "",
+      "provider_cfg": null,
+      "has_sync_info": false,
+      "is_user_group": false,
+      "min_role_read": 1,
+      "provider_name": null,
+      "min_role_write": 1,
+      "ownership_formula": null,
+      "ownership_field_name": "owner_id"
+    }
+  ],
+  "library": [],
+  "plugins": [
+    {
+      "name": "base",
+      "source": "npm",
+      "version": "latest",
+      "location": "@saltcorn/base-plugin",
+      "configuration": null,
+      "deploy_private_key": null
+    },
+    {
+      "name": "sbadmin2",
+      "source": "npm",
+      "version": "latest",
+      "location": "@saltcorn/sbadmin2",
+      "configuration": null,
+      "deploy_private_key": null
+    },
+    {
+      "name": "hikyu-v6-local",
+      "source": "local",
+      "version": "0.1.0",
+      "location": "/workspace/hikyu-v6/implementation/saltcorn/hikyu-plugin",
+      "configuration": null,
+      "deploy_private_key": null
+    }
+  ],
+  "triggers": [],
+  "code_pages": [],
+  "event_logs": [],
+  "page_groups": [],
+  "model_instances": []
+}

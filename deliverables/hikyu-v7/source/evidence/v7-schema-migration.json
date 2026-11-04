@@ -1,0 +1,13 @@
+{
+  "tables": [
+    "support_inbox",
+    "v7_case_sync",
+    "v7_outbox",
+    "v7_receipts",
+    "v7_audit"
+  ],
+  "financial_tables_changed": false,
+  "core_workflow_changed": false,
+  "default_external_connection_enabled": false,
+  "time": "2026-11-04T22:58:53.311Z"
+}

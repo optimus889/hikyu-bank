@@ -1,0 +1,18 @@
+services:
+  database:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: hikyu_bank_test
+      POSTGRES_USER: v6_demo
+      POSTGRES_PASSWORD: ${V6_DB_PASSWORD:?Set a private V6_DB_PASSWORD}
+    ports:
+      - "127.0.0.1:${V6_DB_PORT:-55436}:5432"
+    volumes:
+      - v6_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U v6_demo -d hikyu_bank_test"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  v6_data:

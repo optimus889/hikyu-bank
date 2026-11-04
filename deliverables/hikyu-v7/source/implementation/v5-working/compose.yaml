@@ -1,0 +1,22 @@
+services:
+  database:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: ${HIKYU_DB_NAME:-hikyu_bank}
+      POSTGRES_USER: ${HIKYU_DB_USER:-hikyu}
+      POSTGRES_PASSWORD: ${HIKYU_DB_PASSWORD:-hikyu_local_demo}
+    ports:
+      - "127.0.0.1:${HIKYU_DB_PORT:-5432}:5432"
+    volumes:
+      - hikyu_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+volumes:
+  hikyu_postgres_data:
+    external: true
+    name: hikyu-bank-project_hikyu_postgres_data

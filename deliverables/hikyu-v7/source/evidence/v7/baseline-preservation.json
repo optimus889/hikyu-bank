@@ -1,0 +1,18 @@
+[
+  {
+    "path": "implementation/workflow/src/main/resources/transaction-support.bpmn20.xml",
+    "unchanged": true
+  },
+  {
+    "path": "implementation/saltcorn/banking.cjs",
+    "identical_after_runtime_path_relocation": true
+  },
+  {
+    "path": "implementation/saltcorn/hikyu-plugin/banking-view.js",
+    "identical_after_runtime_path_relocation": true
+  },
+  {
+    "path": "implementation/saltcorn/integration.cjs",
+    "identical_after_runtime_path_relocation": true
+  }
+]
