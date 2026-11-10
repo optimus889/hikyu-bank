@@ -1,5 +1,7 @@
 # Hikyu Bank V7 Delivery
 
+The retained source directory now contains the incremental [V8 update](../hikyu-v8/README.md). This original V7 ZIP and its checksum remain unchanged; V7 test/report claims below are historical.
+
 This is the independent V7 increment based only on the newly supplied `Version6_MingyuFan.zip`. The Word report is excluded from both this directory and the V7 ZIP at the owner's request. The English Markdown assignment report is included.
 
 - [Runnable source and startup instructions](source/README.md)

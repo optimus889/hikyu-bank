@@ -1,0 +1,9 @@
+{
+  "english_words": 172,
+  "accepted_range": [
+    100,
+    200
+  ],
+  "original_assignment_unit_independently_verified": false,
+  "owner_supplied_topic": "Explain how prompt engineering affected AI-generated code quality and the coding workflow."
+}

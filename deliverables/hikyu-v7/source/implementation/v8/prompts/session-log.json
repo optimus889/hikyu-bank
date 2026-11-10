@@ -1,0 +1,54 @@
+{
+  "baseline_commit": "f1271f24330cf8aad0fe5f8dc43834ea49d3800a",
+  "records": [
+    {
+      "prompt": "implementation/v8/prompts/UC1-initial.md",
+      "recorded_before_generation_at": "2026-11-10T16:04:40.317343+00:00",
+      "sha256": "717d73b83d2f52ceb804b9199d123a794aba16512a3bf1582103e08519cf2119",
+      "generator": "Coding assistant in this conversation; no separate model/API runtime call",
+      "phase": "Initial prompt recorded before source generation"
+    },
+    {
+      "prompt": "implementation/v8/prompts/UC2-initial.md",
+      "recorded_before_generation_at": "2026-11-10T16:04:40.317343+00:00",
+      "sha256": "c6136cb386c9d03ff94b643912f10acea3026aa214c0e09eeb0cdab7e07f4dce",
+      "generator": "Coding assistant in this conversation; no separate model/API runtime call",
+      "phase": "Initial prompt recorded before source generation"
+    },
+    {
+      "prompt": "implementation/v8/prompts/UC3-initial.md",
+      "recorded_before_generation_at": "2026-11-10T16:04:40.317343+00:00",
+      "sha256": "0961879662d9c1418085de02ab072ccdeba1145b8cdf38019356f837117e60c4",
+      "generator": "Coding assistant in this conversation; no separate model/API runtime call",
+      "phase": "Initial prompt recorded before source generation"
+    },
+    {
+      "prompt": "implementation/v8/prompts/UC1-followup.md",
+      "recorded_before_generation_at": "2026-11-10T16:22:16.879330+00:00",
+      "sha256": "0ff11ac4883f12fd4d7e0ef68ce9b001bdfee2b883c5e8f1f517c902881b53ef",
+      "generator": "Coding assistant in this conversation; no separate model/API runtime call",
+      "phase": "Follow-up based on actual test/review evidence; recorded before revision"
+    },
+    {
+      "prompt": "implementation/v8/prompts/UC2-followup.md",
+      "recorded_before_generation_at": "2026-11-10T16:22:16.879330+00:00",
+      "sha256": "60e346f8d60a8f1220e885b7eeefe21d2a4c02f3e2aeafa9cdb0b94f5da37f26",
+      "generator": "Coding assistant in this conversation; no separate model/API runtime call",
+      "phase": "Follow-up based on actual test/review evidence; recorded before revision"
+    },
+    {
+      "prompt": "implementation/v8/prompts/UC3-followup.md",
+      "recorded_before_generation_at": "2026-11-10T16:22:16.879330+00:00",
+      "sha256": "7313f0046a58f7c5b312e6e55a028ee1b60eb31c39c0b54d28528a9b17ada1a8",
+      "generator": "Coding assistant in this conversation; no separate model/API runtime call",
+      "phase": "Follow-up based on actual test/review evidence; recorded before revision"
+    },
+    {
+      "prompt": "implementation/v8/prompts/UC3-focus-followup.md",
+      "recorded_before_generation_at": "2026-11-10T16:25:10.627886+00:00",
+      "sha256": "6c16dffff927bf2bf0c5423d22c0d23d00a5e1e4ad820e147a09049ff271d472",
+      "phase": "Additional follow-up after actual round-2 focus failure",
+      "generator": "Coding assistant in this conversation"
+    }
+  ]
+}

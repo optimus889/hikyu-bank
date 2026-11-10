@@ -1,0 +1,59 @@
+FAIL Source content is escaped and metadata is readable: locator.waitFor: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-v8-root]') to be visible[22m
+
+FAIL Draft required and trimmed-length validation is linked and server-consistent: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-inbox
+Call log:
+[2m  - navigating to "http://127.0.0.1:8297/page/support-inbox", waiting until "load"[22m
+
+FAIL API failure keeps edited inputs and displays a readable English error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-inbox
+Call log:
+[2m  - navigating to "http://127.0.0.1:8297/page/support-inbox", waiting until "load"[22m
+
+FAIL Repeated enhancement binding produces one POST and no polling: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-inbox
+Call log:
+[2m  - navigating to "http://127.0.0.1:8297/page/support-inbox", waiting until "load"[22m
+
+FAIL Pending draft blocks duplicate clicks and submits to actual Flowable: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-inbox
+Call log:
+[2m  - navigating to "http://127.0.0.1:8297/page/support-inbox", waiting until "load"[22m
+
+FAIL Native permissions, transaction ownership and CSRF remain enforced: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/auth/login
+Call log:
+[2m  - navigating to "http://127.0.0.1:8297/auth/login", waiting until "load"[22m
+
+FAIL Progress reflects real return and rejection branches after refresh: Cannot read properties of undefined (reading 'id')
+FAIL All branch states, unknown state and missing history render safely in native browser: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-requests
+Call log:
+[2m  - navigating to "http://127.0.0.1:8297/page/support-requests", waiting until "load"[22m
+
+FAIL Synchronization filters and counts are limited to authorized loaded records: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/auth/login
+Call log:
+[2m  - navigating to "http://127.0.0.1:8297/auth/login", waiting until "load"[22m
+
+FAIL Replay authorization and backend failure keep real business state: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-inbox
+Call log:
+[2m  - navigating to "http://127.0.0.1:8297/page/support-inbox", waiting until "load"[22m
+
+FAIL Refresh failure is visible and preserves the current monitor: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/auth/login
+Call log:
+[2m  - navigating to "http://127.0.0.1:8297/auth/login", waiting until "load"[22m
+
+FAIL Stale refresh cannot overwrite a newer replay result: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/auth/login
+Call log:
+[2m  - navigating to "http://127.0.0.1:8297/auth/login", waiting until "load"[22m
+
+FAIL Desktop/mobile, long content and keyboard focus are usable: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-inbox
+Call log:
+[2m  - navigating to "http://127.0.0.1:8297/page/support-inbox", waiting until "load"[22m
+
+FAIL Manual refresh keeps filter/search selections and shows truthful receipt provenance: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/auth/login
+Call log:
+[2m  - navigating to "http://127.0.0.1:8297/auth/login", waiting until "load"[22m
+
+FAIL Repeated page entry produces no unhandled JavaScript errors: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-inbox
+Call log:
+[2m  - navigating to "http://127.0.0.1:8297/page/support-inbox", waiting until "load"[22m
+
+PASS Financial records are unchanged by all support UI operations
+Results: 1 Pass, 15 Fail

@@ -1,0 +1,14 @@
+const {e,time}=require('./common.cjs');
+const STAGES={
+SUBMITTED:{label:'Submission recorded',description:'The application is waiting for the workflow projection. No review completion is implied.',kind:'pending'},
+MANUAL_TRIAGE:{label:'Manual triage',description:'A service agent must handle the classification or routing exception before service review.',kind:'attention'},
+SERVICE_REVIEW:{label:'Service review',description:'The assigned agent can send this case to independent review, return it for more information, or reject it.',kind:'active'},
+RETURNED:{label:'Returned for information',description:'The requester can revise the description and resubmit. Classification and review may be repeated.',kind:'attention'},
+REVIEWER_REVIEW:{label:'Independent reviewer review',description:'The reviewer can complete or reject the case. An overdue review can escalate to a supervisor.',kind:'active'},
+ESCALATED:{label:'Supervisor review (escalated)',description:'A supervisor can complete or reject the case. The current interface does not expose a timestamped escalation cause.',kind:'attention'},
+COMPLETED:{label:'Completed',description:'The application has persisted a completed business outcome. External synchronization is tracked separately.',kind:'final'},
+REJECTED:{label:'Rejected',description:'The application has persisted a rejected business outcome. Earlier branch visits are not available here.',kind:'rejected'}
+};
+function model(r){const known=Object.prototype.hasOwnProperty.call(STAGES,r.state);return {...(known?STAGES[r.state]:{label:'Unrecognized stage',description:'Completion cannot be confirmed for this state. Refresh or ask an authorized staff member to check the record.',kind:'unknown'}),known,state:String(r.state??'Not available')};}
+function render(r){const m=model(r),final=['final','rejected'].includes(m.kind);return `<section class="v8-progress" data-v8-progress="${e(r.business_id)}" data-stage="${e(m.state)}" data-stage-kind="${e(m.kind)}" aria-label="Recorded case progress"><h4>Recorded case progress</h4><p class="v8-note">Only request creation and the latest stored stage are available. Earlier stage history and branch visits are not exposed; no intermediate completion is inferred.</p><ol class="v8-timeline"><li><strong>Recorded: request created</strong><p>${time(r.created_at)}</p></li><li aria-current="step"><span class="v8-badge ${m.kind==='final'?'v8-final':m.kind==='rejected'?'v8-danger':m.kind==='attention'?'v8-attention':''}">${final?'Final outcome':'Current stage'}: ${e(m.label)}</span><p>Stored state: <strong>${e(m.state)}</strong> · Version ${e(r.sequence??'Not available')}</p><p>${e(m.description)}</p><p>Latest stored update: ${time(r.updated_at)}</p><p>Current stored role: ${e(r.current_role||'Not available')}</p><p>Latest stored comment: ${e(r.last_comment||'Not available')}</p></li></ol></section>`;}
+module.exports={STAGES,model,render};

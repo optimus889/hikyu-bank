@@ -1,0 +1,44 @@
+{
+  "kind": "Real local Saltcorn + Flowable + local ML integration; one operator switches independent synthetic accounts; not real multi-person testing",
+  "results": [
+    {
+      "test": "LCNC native submission and real runtime AI",
+      "status": "Pass",
+      "business_id": "v6-6f25f11d-e8ed-4a28-9db9-6b6f4d1b1f78",
+      "row_id": "572"
+    },
+    {
+      "test": "Service agent hands task to reviewer",
+      "status": "Pass"
+    },
+    {
+      "test": "Final status written to the same LCNC row and retained after refresh",
+      "status": "Pass",
+      "row_id": "572"
+    },
+    {
+      "test": "Duplicate submission uses same persisted business record",
+      "status": "Pass"
+    },
+    {
+      "test": "Conflicting duplicate submission rejected",
+      "status": "Pass"
+    },
+    {
+      "test": "Blank required input rejected server-side",
+      "status": "Pass"
+    },
+    {
+      "test": "Cross-user transaction reference rejected; other user cannot see business record",
+      "status": "Pass"
+    },
+    {
+      "test": "Unauthorized role decision rejected",
+      "status": "Pass"
+    }
+  ],
+  "business_id": "v6-6f25f11d-e8ed-4a28-9db9-6b6f4d1b1f78",
+  "row_id": "572",
+  "final_text": "v6-6f25f11d-e8ed-4a28-9db9-6b6f4d1b1f78\n\nMy card is locked and purchases are blocked\n\nStatus: COMPLETED · Version 6 · Current role: none\n\nAI category: card_access · Confidence: 0.997822 · Model: synthetic-nb-v1\n\nProcess instance: 7728 · Updated: Tue Nov 10 2026 16:29:53 GMT+0000 (Coordinated Universal Time)\n\nLatest comment: Independent synthetic review completed. No settled transaction was modified.\n\nRecorded case progress\n\nOnly request creation and the latest stored stage are available. Earlier stage history and branch visits are not exposed; no intermediate completion is inferred.\n\nRecorded: request created\n\n2026-11-10 16:29:49.498Z\n\nFinal outcome: Completed\n\nStored state: COMPLETED · Version 6\n\nThe application has persisted a completed business outcome. External synchronization is tracked separately.\n\nLatest stored update: 2026-11-10 16:29:53.765Z\n\nCurrent stored role: none\n\nLatest stored comment: Independent synthetic review completed. No settled transaction was modified.",
+  "time": "2026-11-10T16:29:55.992Z"
+}

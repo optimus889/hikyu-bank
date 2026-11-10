@@ -1,5 +1,5 @@
 const {sc,init,db,Table,Field,View,Page,User,state}=require('./sdk.cjs');const fs=require('fs'),crypto=require('crypto');
-const root='/workspace/hikyu-v7/work';
+const root=require("path").resolve(__dirname, '../..');
 (async()=>{await init();
 const accountPath=root+'/private/saltcorn-accounts.json';let users=fs.existsSync(accountPath)?JSON.parse(fs.readFileSync(accountPath)):[];
 if(!users.length){for(const [key,role_id] of [['builder',1],['requester',80],['other_requester',80],['service_agent',40],['reviewer',40],['supervisor',40]]){const email=key+'.v7@example.invalid';const password='V7-'+crypto.randomBytes(24).toString('hex');const u=await User.create({email,password,role_id});if(!u.id)throw new Error('User creation failed');users.push({key,id:u.id,email,password,role_id});}fs.writeFileSync(accountPath,JSON.stringify(users,null,2),{mode:0o600});}

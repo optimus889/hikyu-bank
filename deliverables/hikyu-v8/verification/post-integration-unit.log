@@ -1,0 +1,22 @@
+✔ Progress: SUBMITTED (2.97439ms)
+✔ Progress: MANUAL_TRIAGE (0.224087ms)
+✔ Progress: SERVICE_REVIEW (0.165119ms)
+✔ Progress: RETURNED (0.208025ms)
+✔ Progress: REVIEWER_REVIEW (0.187328ms)
+✔ Progress: ESCALATED (0.146158ms)
+✔ Progress: COMPLETED (0.146478ms)
+✔ Progress: REJECTED (0.19289ms)
+✔ Unknown state stays neutral and escapes all text (0.435221ms)
+✔ Missing and invalid timestamps never become epoch or invented history (0.564505ms)
+✔ Draft renderer keeps native CSRF, versions, field labels, limits and escaping (0.58736ms)
+✔ Monitor states scope and receipt provenance honestly; ordinary user has no replay (0.506059ms)
+✔ Scoped stylesheet never declares an unqualified body selector (0.548402ms)
+✔ Valid creation with missing current timestamp displays only sourced time (0.202494ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 89.866729

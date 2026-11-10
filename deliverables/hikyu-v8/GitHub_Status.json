@@ -1,0 +1,15 @@
+{
+  "observed_at": "2026-11-10T16:53:39.727846+00:00",
+  "repository": "optimus889/hikyu-bank",
+  "feature_branch": "feature/v8-prompt-engineering-ui",
+  "target_branch": "main",
+  "source_commit": "ecbbc93b97030024503de337c2c29d64d049bb07",
+  "feature_source_push": "Confirmed",
+  "pr_creation": "Blocked",
+  "pr_url": null,
+  "merge_status": "Not merged",
+  "actual_error": "Post \"https://api.github.com/graphql\": Forbidden",
+  "required_next_action": "Apply environment network permission for api.github.com and verify GitHub API authorization, then create the PR and merge only after repository protections/checks/reviews permit. Do not bypass with a direct main push.",
+  "public_pr_creation_entry": "https://github.com/optimus889/hikyu-bank/pull/new/feature/v8-prompt-engineering-ui",
+  "entry_is_not_an_actual_pr": true
+}

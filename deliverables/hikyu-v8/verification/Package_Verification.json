@@ -1,0 +1,30 @@
+{
+  "time": "2026-11-10T16:47:45.867Z",
+  "source_commit": "ecbbc93b97030024503de337c2c29d64d049bb07",
+  "kind": "Fresh V8 ZIP extraction, full dependency/schema/build preparation, separate Docker database and regenerated credentials, real native Chromium pages",
+  "bootstrap": "Pass",
+  "included_source_hashes_after_setup": "Pass",
+  "pages": [
+    {
+      "page": "support-inbox",
+      "status": "Pass"
+    },
+    {
+      "page": "support-requests",
+      "status": "Pass"
+    },
+    {
+      "page": "case-synchronization",
+      "status": "Pass"
+    }
+  ],
+  "unhandled_js_errors": 0,
+  "favicon": "Pass",
+  "ports": {
+    "app": 8397,
+    "workflow": 8396,
+    "database": 55596
+  },
+  "external_connection_enabled": false,
+  "real_external_platform_execution": "Not tested"
+}

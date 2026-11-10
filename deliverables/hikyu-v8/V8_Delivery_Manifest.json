@@ -1,0 +1,46 @@
+{
+  "source_commit": "ecbbc93b97030024503de337c2c29d64d049bb07",
+  "baseline_commit": "f1271f24330cf8aad0fe5f8dc43834ea49d3800a",
+  "repository": "optimus889/hikyu-bank",
+  "feature_branch": "feature/v8-prompt-engineering-ui",
+  "source_files": 417,
+  "archives": [
+    {
+      "file": "Hikyu_Bank_V8.zip",
+      "bytes": 8020535,
+      "sha256": "96fd1a39b7400c466c96e9031348fd25a8de28da3ee2caad7de93718cdf75fad",
+      "crc": "Pass",
+      "path_safety": "Pass",
+      "entries": 418
+    },
+    {
+      "file": "Hikyu_Bank_V8_Changes.zip",
+      "bytes": 6330146,
+      "sha256": "f1ea1041444e7a23afd1ae9dcf9fbe263786ca96977893466ae67407b857431a",
+      "crc": "Pass",
+      "path_safety": "Pass",
+      "entries": 208
+    }
+  ],
+  "old_archives_and_runtime_files_excluded": true,
+  "git_merge_state": "Not merged; this task could not create a PR because GitHub GraphQL access was Forbidden",
+  "full_source_matches_source_commit": true,
+  "changes_package_is_complete_application": false,
+  "verification": {
+    "v8_unit": 14,
+    "v8_browser": 18,
+    "actual_engine_branches": 2,
+    "related_native": 8,
+    "related_http": 9,
+    "related_v7_contract_emulator": 17,
+    "flowable_build_tests": 6,
+    "real_zapier_google": "Not tested",
+    "fresh_zip_bootstrap": "Pass; separate ports/database, generated credentials and actual browser pages",
+    "post_commit_browser": 18,
+    "changes_target_file_equivalence": "Pass"
+  },
+  "package_verification": "verification/Package_Verification.json",
+  "source_commit_verification": "verification/source-commit-verification.json",
+  "pr_url": null,
+  "github_status": "GitHub_Status.json"
+}

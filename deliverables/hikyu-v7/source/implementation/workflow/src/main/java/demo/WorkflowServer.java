@@ -9,7 +9,7 @@ public class WorkflowServer {
  record Identity(String id,String role){}
  static class HttpFailure extends RuntimeException {final int code;HttpFailure(int c,String m){super(m);code=c;}}
  public static void main(String[] args)throws Exception{
-  root=Path.of(System.getenv().getOrDefault("V6_ROOT","/workspace/hikyu-v7/work"));
+  root=Path.of(System.getenv().getOrDefault("V6_ROOT",Path.of("").toAbsolutePath().resolve("../..").normalize().toString()));
   JsonNode cfg=JSON.readTree(Files.readString(Path.of(System.getenv().getOrDefault("V6_TOKENS_PATH",root+"/private/roles.json"))));
   cfg.forEach(x->tokens.put(x.get("token").asText(),new Identity(x.get("id").asText(),x.get("role").asText())));
   JavaDelegate triage=x->{
@@ -21,13 +21,13 @@ public class WorkflowServer {
     String output=new String(p.getInputStream().readAllBytes(),java.nio.charset.StandardCharsets.UTF_8);JsonNode result=JSON.readTree(output);
     if(p.exitValue()!=0||!result.has("category")||!result.has("confidence")||!result.path("model_version").asText().equals("synthetic-nb-v1")||!result.path("known_tokens").isIntegralNumber()||result.path("known_tokens").asInt()<0||!result.path("needs_human_review").asBoolean()||!Set.of("card_access","payment_tracking","general_support","unclassified").contains(result.path("category").asText())||!result.path("confidence").isNumber()||result.path("confidence").asDouble()<0||result.path("confidence").asDouble()>1)throw new IOException("Invalid model output");
     x.setVariable("aiStatus","succeeded");x.setVariable("aiInput",input);x.setVariable("aiResult",output);
-    Files.writeString(root.resolve("evidence/ai-live-"+runId+"-"+x.getProcessInstanceId()+"-"+UUID.randomUUID()+".json"),JSON.writeValueAsString(Map.of("engine_run_id",runId,"process_instance_id",x.getProcessInstanceId(),"input",JSON.readTree(input),"output",result,"time",java.time.Instant.now().toString())));
+    Files.writeString(Path.of(System.getenv().getOrDefault("HIKYU_EVIDENCE_DIR",root+"/evidence")).resolve("ai-live-"+runId+"-"+x.getProcessInstanceId()+"-"+UUID.randomUUID()+".json"),JSON.writeValueAsString(Map.of("engine_run_id",runId,"process_instance_id",x.getProcessInstanceId(),"input",JSON.readTree(input),"output",result,"time",java.time.Instant.now().toString())));
    }catch(Exception ex){x.setVariable("aiStatus","failed");throw new BpmnError("AI_FAILURE");}
   };
   var pc=ProcessEngineConfiguration.createStandaloneProcessEngineConfiguration().setJdbcUrl("jdbc:h2:file:"+root+"/private/workflow;DB_CLOSE_ON_EXIT=FALSE").setJdbcUsername("sa").setJdbcPassword("").setDatabaseSchemaUpdate("true").setAsyncExecutorActivate(true);
   pc.setBeans(Map.of("triageDelegate",triage,"stageListener",(org.flowable.task.service.delegate.TaskListener)t->{Object n=t.getVariable("sequence");t.setVariable("sequence",n==null?1L:((Number)n).longValue()+1);t.setVariable("stateUpdatedAt",java.time.Instant.now().toString());},"endListener",(org.flowable.engine.delegate.ExecutionListener)x->{Object n=x.getVariable("sequence");x.setVariable("sequence",n==null?1L:((Number)n).longValue()+1);x.setVariable("stateUpdatedAt",java.time.Instant.now().toString());}));engine=pc.buildProcessEngine();
   engine.getRepositoryService().createDeployment().name("Hikyu V6 Transaction Support Review").enableDuplicateFiltering().addClasspathResource("transaction-support.bpmn20.xml").deploy();
-  HttpServer server=HttpServer.create(new InetSocketAddress("127.0.0.1",8196),0);server.createContext("/",WorkflowServer::handle);server.setExecutor(Executors.newFixedThreadPool(4));server.start();
+  HttpServer server=HttpServer.create(new InetSocketAddress("127.0.0.1",Integer.parseInt(System.getenv().getOrDefault("HIKYU_WORKFLOW_PORT","8196"))),0);server.createContext("/",WorkflowServer::handle);server.setExecutor(Executors.newFixedThreadPool(4));server.start();
   Runtime.getRuntime().addShutdownHook(new Thread(()->{server.stop(0);engine.close();}));System.out.println("V6 workflow API started on loopback port 8096; engine_run_id="+runId);
  }
  static synchronized void handle(HttpExchange h)throws IOException{

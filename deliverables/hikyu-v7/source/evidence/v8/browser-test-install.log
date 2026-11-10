@@ -1,0 +1,14 @@
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, open '/workspace/hikyu-v8/repository/deliverables/hikyu-v7/source/implementation/v7/tests/node_modules/playwright-core/lib/vite/traceViewer/index.html'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat '/workspace/hikyu-v8/repository/deliverables/hikyu-v7/source/implementation/v7/tests/node_modules/playwright-core/lib/vite/traceViewer'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat '/workspace/hikyu-v8/repository/deliverables/hikyu-v7/source/implementation/v7/tests/node_modules/playwright-core/lib'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat '/workspace/hikyu-v8/repository/deliverables/hikyu-v7/source/implementation/v7/tests/node_modules/playwright-core/lib'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat '/workspace/hikyu-v8/repository/deliverables/hikyu-v7/source/implementation/v7/tests/node_modules/playwright-core/lib'
+npm error code EROFS
+npm error syscall open
+npm error path /home/agent/.npm/_cacache/tmp/f7f13009
+npm error errno -30
+npm error rofs EROFS: read-only file system, open '/home/agent/.npm/_cacache/tmp/f7f13009'
+npm error rofs Often virtualized file systems, or other file systems
+npm error rofs that don't support symlinks, give this error.
+npm error Log files were not written due to an error writing to the directory: /home/agent/.npm/_logs
+npm error You can rerun the command with `--loglevel=verbose` to see the logs in your terminal

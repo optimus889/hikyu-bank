@@ -1,0 +1,162 @@
+{
+  "time": "2026-11-10T16:17:07.766Z",
+  "round": "round-1",
+  "kind": "Actual local native application browser tests. HTTP errors/delays and synthetic display fixtures are labelled per test. No real Zapier/Google execution.",
+  "results": [
+    {
+      "name": "Source content is escaped and metadata is readable",
+      "status": "Fail",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Persist a claimed synthetic draft with markup; open native Inbox",
+      "expected": "Text is displayed without executing markup; source/status/time/labels present",
+      "error": "locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-v8-root]') to be visible\u001b[22m\n",
+      "duration_ms": 31149
+    },
+    {
+      "name": "Draft required and trimmed-length validation is linked and server-consistent",
+      "status": "Fail",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Submit empty transaction, blank text, 2/3/2000/2001 trimmed characters; observe POST count",
+      "expected": "Invalid fields have associated errors; valid boundaries reach API; invalid values create no POST",
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-inbox\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8297/page/support-inbox\", waiting until \"load\"\u001b[22m\n",
+      "duration_ms": 20
+    },
+    {
+      "name": "API failure keeps edited inputs and displays a readable English error",
+      "status": "Fail",
+      "kind": "Actual browser with deliberately intercepted HTTP 500; no real external failure",
+      "steps": "Inject one HTTP 500 after entering synthetic values",
+      "expected": "Inputs remain unchanged and the pending state clears with error feedback",
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-inbox\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8297/page/support-inbox\", waiting until \"load\"\u001b[22m\n",
+      "duration_ms": 47
+    },
+    {
+      "name": "Repeated enhancement binding produces one POST and no polling",
+      "status": "Fail",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Execute controller three extra times, submit once against a 409 fixture, then wait idle",
+      "expected": "One request only; no controller-generated background polling",
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-inbox\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8297/page/support-inbox\", waiting until \"load\"\u001b[22m\n",
+      "duration_ms": 22
+    },
+    {
+      "name": "Pending draft blocks duplicate clicks and submits to actual Flowable",
+      "status": "Fail",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Delay one actual POST, attempt a second native form submit, then let server complete",
+      "expected": "One POST, disabled pending controls, one persisted support link and refreshed SUBMITTED card",
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-inbox\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8297/page/support-inbox\", waiting until \"load\"\u001b[22m\n",
+      "duration_ms": 20
+    },
+    {
+      "name": "Native permissions, transaction ownership and CSRF remain enforced",
+      "status": "Fail",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Use another account and forged posts for assignment, foreign transaction and missing CSRF",
+      "expected": "Other user cannot see draft; backend rejects 403; CSRF omission rejected",
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/auth/login\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8297/auth/login\", waiting until \"load\"\u001b[22m\n",
+      "duration_ms": 211
+    },
+    {
+      "name": "Progress reflects real return and rejection branches after refresh",
+      "status": "Fail",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Agent returns the real case; requester resubmits; agent rejects; reload each stage",
+      "expected": "RETURNED and REJECTED appear as persisted states with no invented intermediate history",
+      "error": "Cannot read properties of undefined (reading 'id')",
+      "duration_ms": 0
+    },
+    {
+      "name": "All branch states, unknown state and missing history render safely in native browser",
+      "status": "Fail",
+      "kind": "Actual native browser with explicit persisted UI fixtures; these fixtures do not claim engine branch execution",
+      "steps": "Insert clearly labelled display-only persisted fixtures for all state codes plus unknown; read native page",
+      "expected": "Eight states and unknown handled; no fake history, dates or universal linear path; unknown is not final",
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-requests\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8297/page/support-requests\", waiting until \"load\"\u001b[22m\n",
+      "duration_ms": 96
+    },
+    {
+      "name": "Synchronization filters and counts are limited to authorized loaded records",
+      "status": "Fail",
+      "kind": "Actual browser/DB with explicitly synthetic sync-display fixtures; not external synchronization evidence",
+      "steps": "Create 104 local display fixtures with separate owners and varied sync states; inspect staff and requester views",
+      "expected": "Staff loads 100 maximum, sums equal loaded count; requester cannot see other owner records; filtering/empty states work",
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/auth/login\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8297/auth/login\", waiting until \"load\"\u001b[22m\n",
+      "duration_ms": 1323
+    },
+    {
+      "name": "Replay authorization and backend failure keep real business state",
+      "status": "Fail",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Ordinary user forges replay; staff action receives injected 503",
+      "expected": "Backend denies ordinary user and staff sees an error without changing terminal business state",
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-inbox\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8297/page/support-inbox\", waiting until \"load\"\u001b[22m\n",
+      "duration_ms": 46
+    },
+    {
+      "name": "Refresh failure is visible and preserves the current monitor",
+      "status": "Fail",
+      "kind": "Actual browser with explicit local HTTP failure injection",
+      "steps": "Fail one user-requested page refresh while records are loaded",
+      "expected": "Failure feedback shown; existing cards and filters retained",
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/auth/login\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8297/auth/login\", waiting until \"load\"\u001b[22m\n",
+      "duration_ms": 409
+    },
+    {
+      "name": "Stale refresh cannot overwrite a newer replay result",
+      "status": "Fail",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Hold an old real GET response, replay the failed case, then release old response",
+      "expected": "One replay; latest card remains PENDING; stale response cannot restore FAILED",
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/auth/login\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8297/auth/login\", waiting until \"load\"\u001b[22m\n",
+      "duration_ms": 362
+    },
+    {
+      "name": "Desktop/mobile, long content and keyboard focus are usable",
+      "status": "Fail",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Inspect a fresh claimed draft and long monitor data at 375px and desktop; tab through controls",
+      "expected": "No page horizontal overflow, labels/errors associated, visible keyboard focus, scoped audit scrolling",
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-inbox\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8297/page/support-inbox\", waiting until \"load\"\u001b[22m\n",
+      "duration_ms": 90
+    },
+    {
+      "name": "Manual refresh keeps filter/search selections and shows truthful receipt provenance",
+      "status": "Fail",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Filter to SYNCED, refresh actual native view, inspect recorded-receipt note",
+      "expected": "Selections persist; records do not claim verified live Zapier/Google execution",
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/auth/login\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8297/auth/login\", waiting until \"load\"\u001b[22m\n",
+      "duration_ms": 374
+    },
+    {
+      "name": "Repeated page entry produces no unhandled JavaScript errors",
+      "status": "Fail",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Enter each integrated page repeatedly in authenticated sessions",
+      "expected": "Zero pageerror events and no unexpected non-injected console errors",
+      "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8297/page/support-inbox\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:8297/page/support-inbox\", waiting until \"load\"\u001b[22m\n",
+      "duration_ms": 41
+    },
+    {
+      "name": "Financial records are unchanged by all support UI operations",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Compare original account and transaction rows after all cases",
+      "expected": "Every original account balance and transaction value is identical",
+      "actual": "Assertions satisfied",
+      "duration_ms": 21
+    }
+  ],
+  "page_errors": [],
+  "console_errors": [
+    {
+      "role": "requester",
+      "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "role": "requester",
+      "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ]
+}

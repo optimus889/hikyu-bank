@@ -1,0 +1,119 @@
+{
+  "time": "2026-11-10T16:31:29.718Z",
+  "kind": "Local actual Saltcorn + PostgreSQL + Flowable + classifier; relay executes delivered Apps Script with emulated Google services. No real Zapier/Google E2E. One operator uses separate accounts.",
+  "results": [
+    {
+      "test": "Relay authentication, client scope and signed-envelope replay protection",
+      "status": "Pass",
+      "kind": "Local Apps Script contract emulator; no Google or Zapier execution"
+    },
+    {
+      "test": "Actual loopback transport outage is logged and recovers without creating a draft",
+      "status": "Pass",
+      "kind": "Real local HTTP connection failure; external services emulated"
+    },
+    {
+      "test": "Mapped normalized intake creates exactly one durable unverified draft",
+      "status": "Pass",
+      "kind": "Real local PostgreSQL write through app worker + emulated relay; not Zapier intake E2E",
+      "detail": {
+        "draft_id": 21,
+        "case_id": "v6-2684f94c-31cd-43d2-a818-4f970664112b",
+        "source_event_id": "synthetic-response-1794328280734"
+      }
+    },
+    {
+      "test": "Delivered Zapier action and polling functions execute their mapped contracts",
+      "status": "Pass",
+      "kind": "Local Zapier source-function execution with intercepted HTTP transport; not a Zap editor or cloud run"
+    },
+    {
+      "test": "Duplicate source event is idempotent; changed payload conflicts",
+      "status": "Pass",
+      "kind": "Local Saltcorn/PostgreSQL/Flowable test; one-person role simulation"
+    },
+    {
+      "test": "Blank/missing required fields, invalid dates and external identity binding are rejected",
+      "status": "Pass",
+      "kind": "Local Saltcorn/PostgreSQL/Flowable test; one-person role simulation"
+    },
+    {
+      "test": "Staff assignment, cross-user isolation and requester claim use native authenticated sessions",
+      "status": "Pass",
+      "kind": "Local Saltcorn/PostgreSQL/Flowable test; one-person role simulation"
+    },
+    {
+      "test": "Only own transaction can be bound; a stale draft version is rejected",
+      "status": "Pass",
+      "kind": "Local Saltcorn/PostgreSQL/Flowable test; one-person role simulation"
+    },
+    {
+      "test": "Claimed draft submits to original Flowable and actual runtime classifier",
+      "status": "Pass",
+      "kind": "Local Saltcorn/PostgreSQL/Flowable test; one-person role simulation",
+      "detail": {
+        "case_id": "v6-2684f94c-31cd-43d2-a818-4f970664112b",
+        "process_instance_id": "7822",
+        "ai_category": "card_access"
+      }
+    },
+    {
+      "test": "Nonterminal records cannot publish outcomes",
+      "status": "Pass",
+      "kind": "Local Saltcorn/PostgreSQL/Flowable test; one-person role simulation"
+    },
+    {
+      "test": "Service-agent to reviewer handoff and terminal write-back survive browser refresh",
+      "status": "Pass",
+      "kind": "Local Saltcorn/PostgreSQL/Flowable test; one-person role simulation",
+      "detail": {
+        "case_id": "v6-2684f94c-31cd-43d2-a818-4f970664112b",
+        "state": "COMPLETED",
+        "sequence": 6
+      }
+    },
+    {
+      "test": "Persisted terminal outcome publishes a minimal durable event only once",
+      "status": "Pass",
+      "kind": "Local Saltcorn/PostgreSQL/Flowable test; one-person role simulation"
+    },
+    {
+      "test": "External write failure is visible while business state remains completed",
+      "status": "Pass",
+      "kind": "Real local app + delivered Apps Script running on emulated Google storage; not external failure proof",
+      "detail": {
+        "case_id": "v6-2684f94c-31cd-43d2-a818-4f970664112b",
+        "business_state": "COMPLETED",
+        "sync_status": "FAILED",
+        "error_code": "EXTERNAL_WRITE_FAILED"
+      }
+    },
+    {
+      "test": "Authorized replay recovers with one external row and durable synchronization receipt",
+      "status": "Pass",
+      "kind": "Local Saltcorn/PostgreSQL/Flowable test; one-person role simulation",
+      "detail": {
+        "case_id": "v6-2684f94c-31cd-43d2-a818-4f970664112b",
+        "state_version": 6,
+        "synced_at": "2026-11-10T16:31:28.950Z",
+        "external_record_id": "ExternalCases:v6-2684f94c-31cd-43d2-a818-4f970664112b",
+        "external_system": "LOCAL CONTRACT EMULATOR, not Google Sheets"
+      }
+    },
+    {
+      "test": "Stale events cannot overwrite a newer external row; mismatched receipts rejected",
+      "status": "Pass",
+      "kind": "Local Saltcorn/PostgreSQL/Flowable test; one-person role simulation"
+    },
+    {
+      "test": "Only recoverable transport errors schedule retries",
+      "status": "Pass",
+      "kind": "Local Saltcorn/PostgreSQL/Flowable test; one-person role simulation"
+    },
+    {
+      "test": "Original transaction and account/balance records remain unchanged",
+      "status": "Pass",
+      "kind": "Local Saltcorn/PostgreSQL/Flowable test; one-person role simulation"
+    }
+  ]
+}

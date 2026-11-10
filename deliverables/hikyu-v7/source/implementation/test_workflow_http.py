@@ -1,9 +1,9 @@
 import unittest,urllib.request,urllib.error,json,pathlib,uuid
-ROOT=pathlib.Path('/workspace/hikyu-v7/work'); roles={r['id']:r for r in json.loads((ROOT/'private/roles.json').read_text())}; events=[]
+ROOT=pathlib.Path(__file__).resolve().parent.parent; roles={r['id']:r for r in json.loads((ROOT/'private/roles.json').read_text())}; events=[]
 def call(actor,path,data=None):
  h={'Content-Type':'application/json'}
  if actor: h['Authorization']='Bearer '+roles[actor]['token']
- req=urllib.request.Request('http://127.0.0.1:8196'+path,data=None if data is None else json.dumps(data).encode(),headers=h)
+ req=urllib.request.Request(('http://127.0.0.1:'+str(json.loads((ROOT/'private/v8-runtime.json').read_text()).get('workflow_port',8196)))+path,data=None if data is None else json.dumps(data).encode(),headers=h)
  try:
   r=urllib.request.urlopen(req,timeout=15); code=r.status; body=json.load(r)
  except urllib.error.HTTPError as e: code=e.code;body=json.load(e)

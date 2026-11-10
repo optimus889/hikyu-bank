@@ -1,0 +1,5 @@
+Real Flowable 7.1.0 embedded engine; single-person synthetic role simulation
+Process instance: 4
+Completed actors: [service.alpha, reviewer.beta]
+End: completed
+Bubble/Budibase not connected in this test.

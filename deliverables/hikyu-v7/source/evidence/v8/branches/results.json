@@ -1,0 +1,30 @@
+{
+  "time": "2026-11-10T16:26:28.169Z",
+  "results": [
+    {
+      "name": "Actual manual triage branch after malformed classifier output",
+      "status": "Pass",
+      "kind": "Actual local Flowable + native browser; controlled fault/SLA test; synthetic roles simulated by one operator",
+      "detail": {
+        "case_id": "v6-067ff411-3496-4fef-803c-817525123b60",
+        "process_instance_id": "2501",
+        "manual_route": "Malformed classifier output injected through V6_AI_SCRIPT in the actual child process; no successful AI output claimed",
+        "result": "SERVICE_REVIEW"
+      }
+    },
+    {
+      "name": "Actual review timeout escalates to supervisor and completes persistently",
+      "status": "Pass",
+      "kind": "Actual local Flowable + native browser; controlled fault/SLA test; synthetic roles simulated by one operator",
+      "detail": {
+        "case_id": "v6-257fb716-74ff-4160-96d0-18ac6115bfc3",
+        "process_instance_id": "5001",
+        "escalated_version": 5,
+        "test_sla": "PT2S",
+        "normal_sla_restored": "PT24H",
+        "kind": "Actual timer boundary execution; no invented stage history displayed"
+      }
+    }
+  ],
+  "real_external_execution": false
+}

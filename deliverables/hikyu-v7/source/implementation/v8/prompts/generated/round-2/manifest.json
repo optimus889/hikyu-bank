@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-11-10T16:23:30.480597+00:00",
+  "generation": "Revised output based on the recorded follow-up prompts and actual browser/review findings",
+  "files": [
+    {
+      "path": "implementation/v8/ui/common.cjs",
+      "sha256": "6a6e202319fbe23e4bdcf18fc4e83be4e9c6d9e88f98106447232dbb02dd995c"
+    },
+    {
+      "path": "implementation/v8/ui/styles.css",
+      "sha256": "e131bba2de46163548edd2a2f087526d249c664ed1af586d39304afd3da2e7fc"
+    },
+    {
+      "path": "implementation/v8/ui/controller.js",
+      "sha256": "ef2e5fe65880a6a85cbfc7654a6d18f326e36ceb98c3b49710f554953a4fb17d"
+    },
+    {
+      "path": "implementation/v8/ui/progress.cjs",
+      "sha256": "3e69c88439e5b1cf7f6104351ddcde22f8f7306d8073ea67c4b3b82fe359e5ca"
+    },
+    {
+      "path": "implementation/v8/ui/inbox.cjs",
+      "sha256": "745117bc5d8f974159c9165cc84abf19efd6ba59f5e531971de0416e1a4ad0e0"
+    },
+    {
+      "path": "implementation/v8/ui/monitor.cjs",
+      "sha256": "35b1d82459b2707dc15fb52f38d44ad9a2e65a0279e958c10817700bfea2bbc6"
+    },
+    {
+      "path": "implementation/v8/ui/favicon.svg",
+      "sha256": "6370b0e6f08e657ce11fd5b96f59dcd58fe42734f98410be84c5c3a29ac8a207"
+    },
+    {
+      "path": "implementation/v7/plugin.cjs",
+      "sha256": "2f80fadc566d2f4e89d16528fcd6ef6ee5b3e1db8b22ab1c16c1c0ff8954ed22"
+    },
+    {
+      "path": "implementation/saltcorn/hikyu-plugin/index.js",
+      "sha256": "2949f817f4bb9193efccb0b92eceaf317780cbcbfb1f10d845dc255cd2f06ad5"
+    }
+  ]
+}

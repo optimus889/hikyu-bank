@@ -1,0 +1,2 @@
+96fd1a39b7400c466c96e9031348fd25a8de28da3ee2caad7de93718cdf75fad  Hikyu_Bank_V8.zip
+f1ea1041444e7a23afd1ae9dcf9fbe263786ca96977893466ae67407b857431a  Hikyu_Bank_V8_Changes.zip

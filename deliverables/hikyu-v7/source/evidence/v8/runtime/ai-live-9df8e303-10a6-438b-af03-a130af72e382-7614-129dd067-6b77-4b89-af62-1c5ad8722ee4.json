@@ -1,0 +1,1 @@
+{"output":{"category":"payment_tracking","confidence":0.971948,"needs_human_review":true,"model_version":"synthetic-nb-v1","known_tokens":5},"time":"2026-11-10T16:28:33.484554321Z","input":{"description":"Where is my payment receipt"},"process_instance_id":"7614","engine_run_id":"9df8e303-10a6-438b-af03-a130af72e382"}

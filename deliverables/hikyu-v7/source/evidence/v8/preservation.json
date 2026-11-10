@@ -1,0 +1,8 @@
+{
+  "bpmn_unchanged": true,
+  "bpmn_sha256": "de7f7d7182f3e00b5bb76263c07381f05ec1d4db3f19a77209947f148aacca31",
+  "business_adapter_changes": "Root and configurable loopback URL only; server role/ownership/version logic preserved",
+  "financial_logic_changes": "Runtime path resolution only; no financial UI or transaction logic changes",
+  "external_zapier_google_execution": "Not tested; remains incomplete",
+  "database_migration": "No V8 business schema migration"
+}

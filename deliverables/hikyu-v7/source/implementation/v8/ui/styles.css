@@ -1,0 +1,43 @@
+.hikyu-v8{--v8-ink:#16314d;--v8-muted:#435c73;--v8-border:#c2d2df;--v8-blue:#0758a4;--v8-error:#a22020;color:var(--v8-ink);max-width:1200px;margin:auto;font-size:1rem;line-height:1.5;min-width:0}
+.hikyu-v8 *{box-sizing:border-box}
+.hikyu-v8 .v8-nav{display:flex;flex-wrap:wrap;gap:.6rem 1.25rem;margin:0 0 1rem}
+.hikyu-v8 .v8-card,.hikyu-v8 .v8-progress{border:1px solid var(--v8-border);border-radius:12px;padding:1.25rem;margin:1rem 0;background:#fff;min-width:0}
+.hikyu-v8 .v8-card h2,.hikyu-v8 .v8-card h3{font-size:1.25rem;overflow-wrap:anywhere}
+.hikyu-v8 .v8-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:.75rem 1.25rem;margin:1rem 0}
+.hikyu-v8 .v8-meta dt{font-weight:600;color:var(--v8-muted);font-size:.9rem}
+.hikyu-v8 .v8-meta dd{margin:0;overflow-wrap:anywhere}
+.hikyu-v8 .v8-description{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;background:#f4f7fa;border-radius:6px}
+.hikyu-v8 .v8-fields{display:grid;grid-template-columns:minmax(180px,1fr) minmax(0,2fr);gap:1rem;align-items:start}
+.hikyu-v8 .v8-field label{display:block;font-weight:600;margin:.4rem 0}
+.hikyu-v8 .v8-field input,.hikyu-v8 .v8-field select,.hikyu-v8 .v8-field textarea{width:100%;max-width:100%;padding:.65rem;border:1px solid #7c91a5;border-radius:5px;color:var(--v8-ink);background:white;font:inherit}
+.hikyu-v8 .v8-field textarea{min-height:9rem;resize:vertical}
+.hikyu-v8 .v8-helper,.hikyu-v8 .v8-counter{display:block;font-size:.9rem;color:var(--v8-muted);margin:.3rem 0}
+.hikyu-v8 .v8-field-error{color:var(--v8-error);font-weight:600;overflow-wrap:anywhere;min-height:1.4em}
+.hikyu-v8 [aria-invalid=true]{border:2px solid var(--v8-error)}
+.hikyu-v8 :is(a,button,input,select,textarea,[tabindex]):focus-visible{outline:3px solid #9b4100;outline-offset:3px;box-shadow:0 0 0 2px white}
+.hikyu-v8 .v8-submit,.hikyu-v8 .v8-refresh{min-height:44px;padding:.65rem 1rem;white-space:normal;margin:.5rem 0}
+.hikyu-v8 button:disabled{cursor:wait;opacity:.7}
+.hikyu-v8 .v8-badge{display:inline-block;border:1px solid #6a7e91;border-radius:6px;padding:.2rem .5rem;font-weight:600;overflow-wrap:anywhere}
+.hikyu-v8 .v8-final{background:#e6f3eb;border-color:#367651}
+.hikyu-v8 .v8-attention{background:#fff2d8;border-color:#90621d}
+.hikyu-v8 .v8-danger{background:#ffeded;border-color:#a22020}
+.hikyu-v8 .v8-note{background:#eef5fc;border-left:4px solid #0758a4;padding:.75rem;overflow-wrap:anywhere}
+.hikyu-v8 .v8-warning{background:#fff2d8;border-left:4px solid #90621d;padding:.75rem;overflow-wrap:anywhere}
+.hikyu-v8 .v8-form-feedback:not(:empty),.hikyu-v8 .v8-page-feedback:not(:empty){padding:.75rem;margin:.7rem 0;border:1px solid #7c91a5;border-radius:5px;overflow-wrap:anywhere}
+.hikyu-v8 [data-feedback-kind=error]{border-color:var(--v8-error)!important;color:var(--v8-error);background:#fff4f4}
+.hikyu-v8 [data-feedback-kind=success]{border-color:#367651!important;background:#edf8f0}
+.hikyu-v8 .v8-controls{display:flex;flex-wrap:wrap;gap:1rem;align-items:end}
+.hikyu-v8 .v8-controls .v8-field{flex:1 1 220px;min-width:0}
+.hikyu-v8 .v8-summary{display:flex;flex-wrap:wrap;gap:.5rem 1rem;padding:.75rem 0}
+.hikyu-v8 .v8-summary span{padding:.3rem .5rem;border:1px solid var(--v8-border);border-radius:5px}
+.hikyu-v8 .v8-error-summary,.hikyu-v8 .v8-case-id{overflow-wrap:anywhere;word-break:normal}
+.hikyu-v8 .v8-table-scroll{overflow:auto;max-width:100%;border:1px solid var(--v8-border)}
+.hikyu-v8 .v8-table-scroll table{width:100%;border-collapse:collapse;min-width:580px}
+.hikyu-v8 .v8-table-scroll th,.hikyu-v8 .v8-table-scroll td{text-align:left;padding:.6rem;border-bottom:1px solid var(--v8-border);overflow-wrap:anywhere;max-width:350px}
+.hikyu-v8 .v8-timeline{padding-left:1.4rem;border-left:3px solid var(--v8-border);margin-left:.5rem;list-style:none}
+.hikyu-v8 .v8-timeline li{position:relative;margin:1rem 0;overflow-wrap:anywhere}
+.hikyu-v8 .v8-timeline li:before{content:'•';position:absolute;left:-1.75rem;top:-.2rem;font-size:1.6rem;background:#fff}
+.hikyu-v8 .v8-progress h4{font-size:1.1rem;margin:.3rem 0}
+.hikyu-v8 [hidden]{display:none!important}
+@media(max-width:600px){.hikyu-v8 .v8-fields{grid-template-columns:1fr}.hikyu-v8 .v8-card,.hikyu-v8 .v8-progress{padding:.85rem}.hikyu-v8 .v8-controls{display:block}.hikyu-v8 .v8-submit,.hikyu-v8 .v8-refresh{width:100%}.hikyu-v8 h1{font-size:1.8rem}.hikyu-v8 .v8-meta{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.hikyu-v8 *{scroll-behavior:auto}}

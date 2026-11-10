@@ -43,7 +43,7 @@ async function session(role) {
     }),
     p = await ctx.newPage(),
     a = accounts.find((x) => x.key === role);
-  await p.goto("http://127.0.0.1:8197/auth/login");
+  await p.goto((require("../../v8/runtime.cjs").APP_URL+'/auth/login'));
   await p.locator("[name=email]").fill(a.email);
   await p.locator("[name=password]").fill(a.password);
   await p.locator("button[type=submit],input[type=submit]").first().click();
@@ -53,7 +53,7 @@ async function session(role) {
 }
 async function inboxPage(role) {
   const p = await session(role);
-  await p.goto("http://127.0.0.1:8197/page/support-inbox");
+  await p.goto((require("../../v8/runtime.cjs").APP_URL+'/page/support-inbox'));
   return p;
 }
 async function post(p, data, view = "V7_inbox") {
@@ -481,7 +481,7 @@ const user = (key) => accounts.find((a) => a.key === key);
           ["reviewer", "complete"],
         ]) {
           const p = await session(role);
-          await p.goto("http://127.0.0.1:8197/page/support-requests");
+          await p.goto((require("../../v8/runtime.cjs").APP_URL+'/page/support-requests'));
           const a = p.locator(
             'article[data-business-id="' + caseRow.business_id + '"]',
           );
@@ -495,7 +495,7 @@ const user = (key) => accounts.find((a) => a.key === key);
           await p.waitForURL("**/page/support-requests");
         }
         const p = await session("requester");
-        await p.goto("http://127.0.0.1:8197/page/support-requests");
+        await p.goto((require("../../v8/runtime.cjs").APP_URL+'/page/support-requests'));
         await p.reload();
         assert.match(
           await p
@@ -575,7 +575,7 @@ const user = (key) => accounts.find((a) => a.key === key);
           "COMPLETED",
         );
         const p = await session("service_agent");
-        await p.goto("http://127.0.0.1:8197/page/case-synchronization");
+        await p.goto((require("../../v8/runtime.cjs").APP_URL+'/page/case-synchronization'));
         await p.screenshot({ path: evidence + "/03-sync-failure.png" });
         return {
           case_id: caseRow.business_id,
@@ -629,7 +629,7 @@ const user = (key) => accounts.find((a) => a.key === key);
           1,
         );
         const p = await session("requester");
-        await p.goto("http://127.0.0.1:8197/page/case-synchronization");
+        await p.goto((require("../../v8/runtime.cjs").APP_URL+'/page/case-synchronization'));
         await p.reload();
         assert.equal(
           await p

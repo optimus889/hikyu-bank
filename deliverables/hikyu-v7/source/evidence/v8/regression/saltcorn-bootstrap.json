@@ -1,0 +1,75 @@
+{
+  "platform": "Saltcorn",
+  "version": "1.6.2",
+  "tables": [
+    "user_profiles",
+    "accounts",
+    "transactions",
+    "alerts",
+    "notifications",
+    "user_preferences",
+    "transfers",
+    "peer_payments",
+    "payment_verifications",
+    "saved_payees",
+    "card_controls",
+    "budgets",
+    "financial_operations",
+    "alert_events",
+    "support_requests"
+  ],
+  "nativeViews": [
+    "V6_accounts",
+    "V6_transactions",
+    "V6_alerts",
+    "V6_notifications",
+    "V6_saved_payees",
+    "V6_card_controls",
+    "V6_budgets",
+    "V6_support_requests"
+  ],
+  "nativePages": [
+    "overview",
+    "transactions",
+    "pay-transfer",
+    "accounts-cards",
+    "insights",
+    "settings",
+    "demo-tools",
+    "support-requests"
+  ],
+  "roles": [
+    {
+      "key": "builder",
+      "id": 1,
+      "role_id": 1
+    },
+    {
+      "key": "requester",
+      "id": 2,
+      "role_id": 80
+    },
+    {
+      "key": "other_requester",
+      "id": 3,
+      "role_id": 80
+    },
+    {
+      "key": "service_agent",
+      "id": 4,
+      "role_id": 40
+    },
+    {
+      "key": "reviewer",
+      "id": 5,
+      "role_id": 40
+    },
+    {
+      "key": "supervisor",
+      "id": 6,
+      "role_id": 40
+    }
+  ],
+  "status": "Native schema and read views created; write workflows require separate validation",
+  "time": "2026-11-10T16:12:59.821Z"
+}
