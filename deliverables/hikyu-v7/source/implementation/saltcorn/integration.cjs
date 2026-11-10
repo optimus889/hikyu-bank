@@ -1,12 +1,12 @@
 const fs=require('fs'),crypto=require('crypto');const {db,Table}=require('./sdk.cjs');
-const ROOT='/workspace/hikyu-v7/work';
+const ROOT=require("path").resolve(__dirname, '../..');
 const STAGES={manualTriage:'MANUAL_TRIAGE',agentReview:'SERVICE_REVIEW',requesterCorrection:'RETURNED',reviewerReview:'REVIEWER_REVIEW',supervisorReview:'ESCALATED',completed:'COMPLETED',rejected:'REJECTED'};
 const ROLES={manualTriage:'service_agent',agentReview:'service_agent',requesterCorrection:'requester',reviewerReview:'reviewer',supervisorReview:'supervisor',completed:'none',rejected:'none'};
 class Failure extends Error{constructor(code,msg){super(msg);this.code=code;}}
 function actor(user){if(!user?.id)throw new Failure(401,'Please sign in.');const a=JSON.parse(fs.readFileSync(ROOT+'/private/saltcorn-accounts.json')).find(a=>a.id===user.id);if(!a)throw new Failure(403,'No workflow role is assigned.');return a;}
 function token(id){const r=JSON.parse(fs.readFileSync(ROOT+'/private/roles.json')).find(r=>r.id===id);if(!r)throw new Failure(403,'Workflow identity is not configured.');return r.token;}
 async function wf(path,data,identity='connector.local'){
- let r;try{r=await fetch('http://127.0.0.1:8196'+path,{method:data?'POST':'GET',headers:{Authorization:'Bearer '+token(identity),'Content-Type':'application/json'},body:data?JSON.stringify(data):undefined,signal:AbortSignal.timeout(10000)});}catch{throw new Failure(503,'Workflow connection unavailable; retry is scheduled.');}
+ let r;try{r=await fetch((process.env.HIKYU_WORKFLOW_URL||'http://127.0.0.1:8196')+path,{method:data?'POST':'GET',headers:{Authorization:'Bearer '+token(identity),'Content-Type':'application/json'},body:data?JSON.stringify(data):undefined,signal:AbortSignal.timeout(10000)});}catch{throw new Failure(503,'Workflow connection unavailable; retry is scheduled.');}
  const out=await r.json();if(!r.ok)throw new Failure(r.status,out.error||'Workflow request failed.');return out;
 }
 async function apply(id,s){

@@ -6,6 +6,8 @@ For the independent Saltcorn + Flowable + Zapier V7 delivery, see [Hikyu Bank V7
 
 **For first-run testing, use [the separate demo database](#start-safely-with-a-separate-demo-database). The normal local/cloud launchers retain your existing database destinations and require approval before upgrading V4.**
 
+For the prompt-engineering UI increment, see [Hikyu Bank V8](deliverables/hikyu-v8/README.md). The existing Saltcorn source is updated incrementally; the V7 download is preserved.
+
 ## Requirements
 
 - JDK 17 or later, including `java` and `javac`.

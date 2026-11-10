@@ -1,0 +1,2 @@
+{"processInstanceId":"4","input":{"description":"My card is locked and purchases are blocked"},"output":{"category": "card_access", "confidence": 0.997822, "needs_human_review": true, "model_version": "synthetic-nb-v1", "known_tokens": 8}
+}

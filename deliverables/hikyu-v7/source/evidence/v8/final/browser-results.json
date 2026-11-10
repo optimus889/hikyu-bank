@@ -1,0 +1,232 @@
+{
+  "time": "2026-11-10T16:32:18.063Z",
+  "round": "final",
+  "kind": "Actual local native application browser tests. HTTP errors/delays and synthetic display fixtures are labelled per test. No real Zapier/Google execution.",
+  "results": [
+    {
+      "name": "Source content is escaped and metadata is readable",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Persist a claimed synthetic draft with markup; open native Inbox",
+      "expected": "Text is displayed without executing markup; source/status/time/labels present",
+      "actual": {
+        "draft_id": 23,
+        "case_id": "v6-2091bf98-9e15-4704-b67f-222aaec83c62"
+      },
+      "duration_ms": 1297
+    },
+    {
+      "name": "Draft required and trimmed-length validation is linked and server-consistent",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Submit empty transaction, blank text, 2/3/2000/2001 trimmed characters; observe POST count",
+      "expected": "Invalid fields have associated errors; valid boundaries reach API; invalid values create no POST",
+      "actual": "Assertions satisfied",
+      "duration_ms": 880
+    },
+    {
+      "name": "API failure keeps edited inputs and displays a readable English error",
+      "status": "Pass",
+      "kind": "Actual browser with deliberately intercepted HTTP 500; no real external failure",
+      "steps": "Inject one HTTP 500 after entering synthetic values",
+      "expected": "Inputs remain unchanged and the pending state clears with error feedback",
+      "actual": "Assertions satisfied",
+      "duration_ms": 326
+    },
+    {
+      "name": "Repeated enhancement binding produces one POST and no polling",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Execute controller three extra times, submit once against a 409 fixture, then wait idle",
+      "expected": "One request only; no controller-generated background polling",
+      "actual": "Assertions satisfied",
+      "duration_ms": 888
+    },
+    {
+      "name": "Pending draft blocks duplicate clicks and submits to actual Flowable",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Delay one actual POST, attempt a second native form submit, then let server complete",
+      "expected": "One POST, disabled pending controls, one persisted support link and refreshed SUBMITTED card",
+      "actual": {
+        "case_id": "v6-2091bf98-9e15-4704-b67f-222aaec83c62",
+        "process_instance_id": "7902"
+      },
+      "duration_ms": 779
+    },
+    {
+      "name": "Native permissions, transaction ownership and CSRF remain enforced",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Use another account and forged posts for assignment, foreign transaction and missing CSRF",
+      "expected": "Other user cannot see draft; backend rejects 403; CSRF omission rejected",
+      "actual": "Assertions satisfied",
+      "duration_ms": 903
+    },
+    {
+      "name": "Progress reflects real return and rejection branches after refresh",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Agent returns the real case; requester resubmits; agent rejects; reload each stage",
+      "expected": "RETURNED and REJECTED appear as persisted states with no invented intermediate history",
+      "actual": {
+        "case_id": "v6-2091bf98-9e15-4704-b67f-222aaec83c62",
+        "kind": "Actual Flowable return/resubmission/rejection, one-person role simulation"
+      },
+      "duration_ms": 614
+    },
+    {
+      "name": "All branch states, unknown state and missing history render safely in native browser",
+      "status": "Pass",
+      "kind": "Actual native browser with explicit persisted UI fixtures; these fixtures do not claim engine branch execution",
+      "steps": "Insert clearly labelled display-only persisted fixtures for all state codes plus unknown; read native page",
+      "expected": "Eight states and unknown handled; no fake history, dates or universal linear path; unknown is not final",
+      "actual": "Assertions satisfied",
+      "duration_ms": 239
+    },
+    {
+      "name": "Synchronization filters and counts are limited to authorized loaded records",
+      "status": "Pass",
+      "kind": "Actual browser/DB with explicitly synthetic sync-display fixtures; not external synchronization evidence",
+      "steps": "Create 104 local display fixtures with separate owners and varied sync states; inspect staff and requester views",
+      "expected": "Staff loads 100 maximum, sums equal loaded count; requester cannot see other owner records; filtering/empty states work",
+      "actual": {
+        "staff_loaded": 100,
+        "scope": "At most 100 authorized rows; local fixture statuses, no external runs"
+      },
+      "duration_ms": 4554
+    },
+    {
+      "name": "Replay authorization and backend failure keep real business state",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Ordinary user forges replay; staff action receives injected 503",
+      "expected": "Backend denies ordinary user and staff sees an error without changing terminal business state",
+      "actual": "Assertions satisfied",
+      "duration_ms": 582
+    },
+    {
+      "name": "Refresh failure is visible and preserves the current monitor",
+      "status": "Pass",
+      "kind": "Actual browser with explicit local HTTP failure injection",
+      "steps": "Fail one user-requested page refresh while records are loaded",
+      "expected": "Failure feedback shown; existing cards and filters retained",
+      "actual": "Assertions satisfied",
+      "duration_ms": 528
+    },
+    {
+      "name": "Stale refresh cannot overwrite a newer replay result",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Hold an old real GET response, replay the failed case, then release old response",
+      "expected": "One replay; latest card remains PENDING; stale response cannot restore FAILED",
+      "actual": "Assertions satisfied",
+      "duration_ms": 1275
+    },
+    {
+      "name": "Desktop/mobile, long content and keyboard focus are usable",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Inspect a fresh claimed draft and long monitor data at 375px and desktop; tab through controls",
+      "expected": "No page horizontal overflow, labels/errors associated, visible keyboard focus, scoped audit scrolling",
+      "actual": "Assertions satisfied",
+      "duration_ms": 694
+    },
+    {
+      "name": "Keyboard focus is retained after a successful claim and monitor refresh",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Claim an assigned draft with the keyboard, then activate monitor refresh",
+      "expected": "Focus moves to the updated card or its first editable field; refreshed monitor retains refresh control focus",
+      "actual": "Assertions satisfied",
+      "duration_ms": 508
+    },
+    {
+      "name": "Support progress remains within a narrow mobile viewport",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Open persisted progress records at 375px",
+      "expected": "Case identifiers and progress metadata wrap without document-wide horizontal scrolling",
+      "actual": "Assertions satisfied",
+      "duration_ms": 263
+    },
+    {
+      "name": "Manual refresh keeps filter/search selections and shows truthful receipt provenance",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Filter to SYNCED, refresh actual native view, inspect recorded-receipt note",
+      "expected": "Selections persist; records do not claim verified live Zapier/Google execution",
+      "actual": "Assertions satisfied",
+      "duration_ms": 368
+    },
+    {
+      "name": "Repeated page entry produces no unhandled JavaScript errors",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Enter each integrated page repeatedly in authenticated sessions",
+      "expected": "Zero pageerror events and no unexpected non-injected console errors",
+      "actual": {
+        "page_errors": 0,
+        "expected_fault_injection_console_errors": 9
+      },
+      "duration_ms": 982
+    },
+    {
+      "name": "Financial records are unchanged by all support UI operations",
+      "status": "Pass",
+      "kind": "Actual local native browser + PostgreSQL/Flowable, synthetic accounts, one-person role simulation",
+      "steps": "Compare original account and transaction rows after all cases",
+      "expected": "Every original account balance and transaction value is identical",
+      "actual": "Assertions satisfied",
+      "duration_ms": 6
+    }
+  ],
+  "page_errors": [],
+  "console_errors": [
+    {
+      "role": "requester",
+      "message": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "url": "http://127.0.0.1:8297/view/V7_inbox"
+    },
+    {
+      "role": "requester",
+      "message": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "url": "http://127.0.0.1:8297/view/V7_inbox"
+    },
+    {
+      "role": "requester",
+      "message": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+      "url": "http://127.0.0.1:8297/view/V7_inbox"
+    },
+    {
+      "role": "requester",
+      "message": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+      "url": "http://127.0.0.1:8297/view/V7_inbox"
+    },
+    {
+      "role": "other_requester",
+      "message": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+      "url": "http://127.0.0.1:8297/view/V7_inbox"
+    },
+    {
+      "role": "other_requester",
+      "message": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+      "url": "http://127.0.0.1:8297/view/V7_inbox"
+    },
+    {
+      "role": "requester",
+      "message": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+      "url": "http://127.0.0.1:8297/view/V7_sync"
+    },
+    {
+      "role": "service_agent",
+      "message": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "url": "http://127.0.0.1:8297/view/V7_sync"
+    },
+    {
+      "role": "service_agent",
+      "message": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "url": "http://127.0.0.1:8297/page/case-synchronization"
+    }
+  ]
+}

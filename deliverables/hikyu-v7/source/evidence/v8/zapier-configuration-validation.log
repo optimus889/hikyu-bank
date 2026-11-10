@@ -1,0 +1,9 @@
+Validating project locally
+[90mNo structural errors found during validation routine.[39m
+This project is structurally sound!
+┌─────────────────────────────────────────────────────────┐
+│         zapier-platform-cli update check failed         │
+│           Try running with sudo or get access           │
+│          to the local update config store via           │
+│ sudo chown -R $USER:$(id -gn $USER) /home/agent/.config │
+└─────────────────────────────────────────────────────────┘

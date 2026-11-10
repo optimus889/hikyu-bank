@@ -1,0 +1,1026 @@
+{
+  "baseline_commit": "f1271f24330cf8aad0fe5f8dc43834ea49d3800a",
+  "files": [
+    {
+      "path": "README.md",
+      "change": "M",
+      "sha256": "23a48ec9ad62ec214c6683a770cf8ac4490d32ab1168e5137791fe03d234ebcf"
+    },
+    {
+      "path": "deliverables/hikyu-v7/README.md",
+      "change": "M",
+      "sha256": "2a4bf9555770797e431abd25eaf9af41da58cf3342c9b7dcbc3a2c1a258dcd31"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/.env.example",
+      "change": "A",
+      "sha256": "f0c45f3f4f8db7f5122036061e7448e425c69f2791d72d07976668a31271f92e"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/README.md",
+      "change": "M",
+      "sha256": "95835bee81d914f069056e07371b86e024ea414dd466063c67b4326bd47280a4"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/docs/V8_Assignment_Report.md",
+      "change": "A",
+      "sha256": "ec9270e7545005e4c2254b91a647ba718a79124452f3b10dbb3da5a633cd8ae0"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/docs/V8_Prompt_Log.md",
+      "change": "A",
+      "sha256": "b658c1c0ef571f7722c75a76c8b48486f09d0d579ba90dece631dc664254ada7"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/docs/V8_Reflection.md",
+      "change": "A",
+      "sha256": "ff1a2811e62537a613547117dab0334d4ebb2031cc7ed1ff3a0ad8bfe1774def"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/docs/V8_Setup_and_Demo_Guide.md",
+      "change": "A",
+      "sha256": "f1e21c872c328d9c971aa1cb3a5bc58ff1b989372ef8c465f93348937aaa981a"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/docs/V8_Test_Results.md",
+      "change": "A",
+      "sha256": "d35e50149736f34eb865294ed9900d04b404e16ec3005e09e093f322331e4e24"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/baseline-comparison.json",
+      "change": "A",
+      "sha256": "a3d7c04c4e603f26b9e94dd0fd138e72af08f4bc609fc680b73be19519999705"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/baseline-provenance.json",
+      "change": "A",
+      "sha256": "51e43b045db9c1016ee3459dbe7d6ea31ce3b600032b10aa5284df0e962649cc"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/branches.log",
+      "change": "A",
+      "sha256": "cc5a2fc1c6d61da140137dc0580135a52e82ed2cc2bee4751adc90760a6d5feb"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/branches/completed-after-escalation.png",
+      "change": "A",
+      "sha256": "5b9d95b01329d19bfd9bc6195d3267dc389d952dc47fd48fa554cb8210ee48d0"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/branches/manual-triage.png",
+      "change": "A",
+      "sha256": "b394834180b87f161891677c429461202f1e95e8e3a419da4ae453d4f9063d55"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/branches/results.json",
+      "change": "A",
+      "sha256": "9b76edc3862a86e5d9e91e0a551fc159ae9aa4b9c659ad7870bb7b8a29c80083"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/branches/timeout-escalated.png",
+      "change": "A",
+      "sha256": "d60157db956486e9bf08f1d38fd94bf8aca5edacef2fed53cee4254ebabae3d8"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/browser-final.log",
+      "change": "A",
+      "sha256": "0eb7cfcec0a3870f532243537f6589caf1df57ce3f309ac231a08c314fba1d06"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/browser-round1-boundaries.log",
+      "change": "A",
+      "sha256": "5bb76c10227098d8db47157e076d1d3e18323036b7fbdeaf74c6120d5fbe8237"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/browser-round1-integrated.log",
+      "change": "A",
+      "sha256": "3b66bf000ec8e21f160ac95b5672a3a25483cc87d802de71e97589cc4e7800fa"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/browser-round1.log",
+      "change": "A",
+      "sha256": "be9e1bb0d1d95837b158d1357765f6cbf5a01f0219a4d1949b2932acaadc002f"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/browser-round2.log",
+      "change": "A",
+      "sha256": "e442fef59124af5b3d86946d65e930b32024e73036c62b99e664d5fa8cc4635a"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/browser-round3.log",
+      "change": "A",
+      "sha256": "0eb7cfcec0a3870f532243537f6589caf1df57ce3f309ac231a08c314fba1d06"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/browser-test-install-retry.log",
+      "change": "A",
+      "sha256": "6a96cc478eaa5dafa6d44d82adad8e3dbf06c6d941cadcb87de25ae1ef5459fb"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/browser-test-install.log",
+      "change": "A",
+      "sha256": "61ee347c1f67219d62c716ce2f312de6c2c564c5314577360b91b9f7e129a268"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/capture.log",
+      "change": "A",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/final/01-inbox-desktop.png",
+      "change": "A",
+      "sha256": "ced256e0b8f5583705ef83ab81f761cc2bb7200c8049c30c53f90551a2290694"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/final/02-input-retained-after-error.png",
+      "change": "A",
+      "sha256": "80e057bd4e5400c152e53ae37b4b57c37b5c8e7d5344281c9968f7d05f792740"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/final/03-persisted-rejected-progress.png",
+      "change": "A",
+      "sha256": "a209688c13ac2afba8f31b8d7bc136a87495189eb2199936b5582b4fc2f9a5f1"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/final/04-unknown-progress-fallback.png",
+      "change": "A",
+      "sha256": "8ee07cb9e08fec6390170fe64070e3f40bce6a58a76d43350ec930e1986af5a7"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/final/05-sync-monitor-desktop.png",
+      "change": "A",
+      "sha256": "fa9b6a0451cc27995664e0ed2c815793d0195798f57d2a52ef3d62c0b6069514"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/final/06-replay-refresh-race.png",
+      "change": "A",
+      "sha256": "9c629ae6495bbfdfd6ceab5a3b37e10cbaa096710d44a42cc69f11b769fee999"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/final/07-inbox-mobile.png",
+      "change": "A",
+      "sha256": "a9bacad23ceab30dbfbe20fb687303e40865baadcb90bad15c2fbc772af390a0"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/final/08-sync-mobile-long-content.png",
+      "change": "A",
+      "sha256": "16ece077072918f5f1609145c74b057217f1a6a5aa996f5edd9db98fe9382c71"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/final/09-progress-mobile.png",
+      "change": "A",
+      "sha256": "cafce2ee44fabfb86cee23ee3bb8f8d7e8d04cfd0ff5bca5dadd6d39e60e304e"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/final/browser-results.json",
+      "change": "A",
+      "sha256": "d356ef96688f88a6bbe539c7c167343df352c1346f938915c69938f640466400"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/final/capture-metadata.json",
+      "change": "A",
+      "sha256": "313f928a440aeeb50177552f70138a4b758401777cc3ca174b7862f057e086a8"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/final/inbox-card-desktop.png",
+      "change": "A",
+      "sha256": "78d1dfe9b0d7d8b6bde26fbc620dbf03634162dcc0516fa676723211b53542a0"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/final/inbox-form-mobile.png",
+      "change": "A",
+      "sha256": "dbaefd41bede19f862770d9a12239338a99a174da920007fb2773dd5e3a35687"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/plugin-reload.log",
+      "change": "A",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/preservation.json",
+      "change": "A",
+      "sha256": "ca0acd4f0a07e85401810962364641d3bb841fcf80ab3f01ac1c146cead7ac02"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/reflection-length.json",
+      "change": "A",
+      "sha256": "a521a2f2ba881a739a588e5feee7f735cbbbb472a0c6137933168046faacc260"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/lcnc-completed-refresh-card.png",
+      "change": "A",
+      "sha256": "78d5ecfc45ca666bcba205de52c58c7c9d8190bc6bf28c3030a9355e6b6c1866"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/lcnc-completed-refresh.png",
+      "change": "A",
+      "sha256": "012fc94701209722fe96086f545f4a81dabd7b3b3fab5073f7720a5c378441ee"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/lcnc-e2e.json",
+      "change": "A",
+      "sha256": "7b829cd6c82ca93046f6919e3485f5943b7517bd7fb5a2861870c733f89afade"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/lcnc-request-submitted-card.png",
+      "change": "A",
+      "sha256": "38c50a81776ed8be30ac097b52ca41bb56c54af7a1f939a776c34bb19101acae"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/lcnc-request-submitted.png",
+      "change": "A",
+      "sha256": "92267d948440c65ce923dc7782bdea0effd210f911fa82f63afec565d62b02f6"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/lcnc-reviewer-handoff-card.png",
+      "change": "A",
+      "sha256": "4182dd7fb7e72c4a70a5e48769a2563ade9f95930118526a1d917b9d4b2980e1"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/lcnc-reviewer-handoff.png",
+      "change": "A",
+      "sha256": "67035fe69643793ffa6ece66b163b6d15da137243ae0d573fba6878622ff5ad0"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/persistence-probe.json",
+      "change": "A",
+      "sha256": "7a369b6cd1140c66c10ecb4fbdf500a0893c68378a3139a7fb60155f7e492f6e"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/saltcorn-bootstrap.json",
+      "change": "A",
+      "sha256": "f04639a5cfd3abc5f79c46a9f5049ce9a9390c8380f03f810242f7b326f4ddc9"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/v7-results.json",
+      "change": "A",
+      "sha256": "8193457678e19a43a33d74dfdd7f1839e53d012e2e311af42e7509057a92291e"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/v7-schema-migration.json",
+      "change": "A",
+      "sha256": "69c6815baf6959f3bdcf0187fbaadc181044d9a667cd523c7ac772a3f9a4e763"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/v7/01-inbox-claimed.png",
+      "change": "A",
+      "sha256": "8e5dfcb550152a9bc23314d3e7a71af9806945310a137d076ae6dc50e019a0a6"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/v7/02-flowable-completed.png",
+      "change": "A",
+      "sha256": "a3aaff730398bb93977201e13c52c9dd0b918ed70458b53e8035ead8270a94b3"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/v7/03-sync-failure.png",
+      "change": "A",
+      "sha256": "c7b1a78d531157d8fcf9bbbf24cc01ca969a24c92cdba6841da958f688e4d653"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/v7/04-sync-recovered-local.png",
+      "change": "A",
+      "sha256": "07af8ca84784fca87785b44b46ad59c96c8b9f2c85fd6d95be23bbc97da3dd97"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/regression/workflow-http-events.json",
+      "change": "A",
+      "sha256": "2b75445e960c850895f1057ca4c2cea4fed99110273ee496483f96142d672c4f"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-boundaries/01-inbox-desktop.png",
+      "change": "A",
+      "sha256": "f06421c4787e0e7883a1a63410fdfd2f3a3975d000d8448b680ad1f0fc05104f"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-boundaries/02-input-retained-after-error.png",
+      "change": "A",
+      "sha256": "79e0fce679738927f5bb4708f3bf684de5fefe1239a91087e558504e5ce662c5"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-boundaries/03-persisted-rejected-progress.png",
+      "change": "A",
+      "sha256": "7a2cf143158a6757f9c7ec3218e17c2d0c7b196363bec5c9fd138844456c5ab6"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-boundaries/04-unknown-progress-fallback.png",
+      "change": "A",
+      "sha256": "b9502719a90e165c37e7677c487eec8ba0a226e45382b1db8818ba6fe76502b7"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-boundaries/05-sync-monitor-desktop.png",
+      "change": "A",
+      "sha256": "0b771c15ed034ed11abffcf377bed3fe4645eb544f207df6d80c173dfdebc659"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-boundaries/06-replay-refresh-race.png",
+      "change": "A",
+      "sha256": "1a9873a11fc4b344950861adebbacee53c4f320b9fcebe8457a58731001b2def"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-boundaries/07-inbox-mobile.png",
+      "change": "A",
+      "sha256": "9af37003e93a0f445260c9f0f928f734077a6279f39ecca10e917c9fda39f530"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-boundaries/08-sync-mobile-long-content.png",
+      "change": "A",
+      "sha256": "a45a0156e67d585c71ce75b0e76a7351a772f3b66d52c300c5250dd38588b247"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-boundaries/09-progress-mobile.png",
+      "change": "A",
+      "sha256": "cafce2ee44fabfb86cee23ee3bb8f8d7e8d04cfd0ff5bca5dadd6d39e60e304e"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-boundaries/browser-results.json",
+      "change": "A",
+      "sha256": "bb4d055a07b115f2fc409d720a19946e2f9d4fdd160b176dcdbbe2d6fd25c700"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-integrated/01-inbox-desktop.png",
+      "change": "A",
+      "sha256": "9808431b8dc9e13fa7548633c31dbb7a0867b3a1f56fbb6fe8bba1fc0fc25df3"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-integrated/02-input-retained-after-error.png",
+      "change": "A",
+      "sha256": "25fc50dcce841bcdcf63a519e1c31fe998c8c13ab3e5e37f5d9c00cbd4f4d70c"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-integrated/03-persisted-rejected-progress.png",
+      "change": "A",
+      "sha256": "247a3ac2a9fc05ed4f25d29af27925be6e396818b984aee866a00c04e235f614"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-integrated/05-sync-monitor-desktop.png",
+      "change": "A",
+      "sha256": "0f13a2b78111691bb868fd57f5bfaef6779e2c72eee69d25273f7e5e233a2b74"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-integrated/06-replay-refresh-race.png",
+      "change": "A",
+      "sha256": "330b79d314de192b06abde5ae916e168701599be2bd02fc09fc22b0b8cf34cec"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-integrated/07-inbox-mobile.png",
+      "change": "A",
+      "sha256": "d352822a6c27d439b45be3ed101739b094424e6897a5d99dd6759ae68fe7aaf2"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-integrated/08-sync-mobile-long-content.png",
+      "change": "A",
+      "sha256": "da7a8f2abbac66db6c79d18c1d26dc93c8a46e88db9ce4e4f0081f00e5048e2f"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1-integrated/browser-results.json",
+      "change": "A",
+      "sha256": "8d8913f11eb55a2a3bcad9970594628ab8d62308a6f130010dd08dc70b02a7d3"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-1/browser-results.json",
+      "change": "A",
+      "sha256": "11a343161daf2026fa2032543ff418e8ef47ca931837f1c999f2463b714ed393"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-2/01-inbox-desktop.png",
+      "change": "A",
+      "sha256": "a2c2f0dffcb9773daeabe9ef15762212acda5877c99d2dbaeb691947a7e297b5"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-2/02-input-retained-after-error.png",
+      "change": "A",
+      "sha256": "33d9ab8b6955303443ea3515cee62823770b3350e2a2e67a5ba644a5ad20b0d4"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-2/03-persisted-rejected-progress.png",
+      "change": "A",
+      "sha256": "5e1623955e4ae9627b80970e52a6a3c7b17f8ee41dc149170ce6e89b791941b2"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-2/04-unknown-progress-fallback.png",
+      "change": "A",
+      "sha256": "073997cc97ddd354de4013bbf0fdc2ffd692add71bba1d17301c99154648e457"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-2/05-sync-monitor-desktop.png",
+      "change": "A",
+      "sha256": "ba416d8f58d07cd117d01027419ebe765937c8de0232079e06d8a92408b80f28"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-2/06-replay-refresh-race.png",
+      "change": "A",
+      "sha256": "54e7fa8e24bee8b3acee2e8ddcd086ed93c015ee5b1863357203431025661fc5"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-2/07-inbox-mobile.png",
+      "change": "A",
+      "sha256": "b8b3143e79d63ff9c77aedf7895aa314f8ae7332d623cc7f13c99366621b6aed"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-2/08-sync-mobile-long-content.png",
+      "change": "A",
+      "sha256": "faea3e2ee997484e8403525dbe8e3554e895ee08110e96cdbbb888d1e5193494"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-2/09-progress-mobile.png",
+      "change": "A",
+      "sha256": "cafce2ee44fabfb86cee23ee3bb8f8d7e8d04cfd0ff5bca5dadd6d39e60e304e"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-2/browser-results.json",
+      "change": "A",
+      "sha256": "2c4a42e8e81db153fc855860641191a7203dea177dc2af1981b94d28ce9eb26b"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-3/01-inbox-desktop.png",
+      "change": "A",
+      "sha256": "61cde6413a3caccbde9fd20a11844db6d817ed8348f2d00216bfc48af8213783"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-3/02-input-retained-after-error.png",
+      "change": "A",
+      "sha256": "2e7432846566d9cf1a8ae42e25af9e72bc6333b575fe9e4eddec5e044e05d5d4"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-3/03-persisted-rejected-progress.png",
+      "change": "A",
+      "sha256": "d1c958bef9066685072b55518e5d0be0935346455258c56332eadd515399b852"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-3/04-unknown-progress-fallback.png",
+      "change": "A",
+      "sha256": "c5cfb26f94eb90c69595b447fab7ed71cec11fae8225f736761636f43d95cbe6"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-3/05-sync-monitor-desktop.png",
+      "change": "A",
+      "sha256": "527a47a6312f6e8b0e954ea8f848750c97847591d6aefb48cf88b9f6e2cf60bc"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-3/06-replay-refresh-race.png",
+      "change": "A",
+      "sha256": "fc672d9e0d475549942d5a4b6d8e252326072ab2338cf0d1cfc54ef122552511"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-3/07-inbox-mobile.png",
+      "change": "A",
+      "sha256": "8220f277c0c0d8001e9b9c7948145faa19a1318e08fb9e9728d04d68610a7cd1"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-3/08-sync-mobile-long-content.png",
+      "change": "A",
+      "sha256": "9b85c3a7129de80eac8c20c3cf1af8a16c069b7b6eb5c5b3dca6864baa343007"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-3/09-progress-mobile.png",
+      "change": "A",
+      "sha256": "cafce2ee44fabfb86cee23ee3bb8f8d7e8d04cfd0ff5bca5dadd6d39e60e304e"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/round-3/browser-results.json",
+      "change": "A",
+      "sha256": "33dd0cbc0434401eb7ac4e925c966ca70b78a66bbcda424ca374467db8bdd5af"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-923ce3b0-2271-4dbc-8fb6-b815cf37d604-110-a96fd6c1-5fa4-45cc-9f76-a4a452a8ebac.json",
+      "change": "A",
+      "sha256": "108c94add62b8dfb2b0efaed70f7ff74a13c5f43eefa39edbba9f10496b54c22"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-923ce3b0-2271-4dbc-8fb6-b815cf37d604-110-c39c9dfa-e3ad-4ee8-ba6f-558fe3f972d2.json",
+      "change": "A",
+      "sha256": "5e5d350134e210a7dbec4741fec70b52e26f7cc03f73de772018f12b85d584c6"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-923ce3b0-2271-4dbc-8fb6-b815cf37d604-163-9b62d7bd-1b71-4035-bb2b-248f8437283f.json",
+      "change": "A",
+      "sha256": "ad417e7d9909421ccd905dde2f84c31635412fecaaf1484f33530f1e49736298"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-923ce3b0-2271-4dbc-8fb6-b815cf37d604-163-c37fbc19-db85-4ea6-b397-74c1bd700f94.json",
+      "change": "A",
+      "sha256": "feab3be4476423a1e97b8f6f6ab6d16864d855168cc3b678a13d90ccae66b295"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-923ce3b0-2271-4dbc-8fb6-b815cf37d604-4-67e224d2-e7a9-4fd3-894a-2e201730d712.json",
+      "change": "A",
+      "sha256": "410b1cd49e60114c67226fcb9950ac113b6cf1b7e076948f2bebb9a30faa0e50"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-923ce3b0-2271-4dbc-8fb6-b815cf37d604-4-76c43d2a-6c6a-4d40-860d-9321ca4c8454.json",
+      "change": "A",
+      "sha256": "5b8251db433ac460f80a4ba41b5967e5b7298288b927aa23ea42b68fb2e70734"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-923ce3b0-2271-4dbc-8fb6-b815cf37d604-57-465ca427-dec0-47aa-b705-46fdf35e50eb.json",
+      "change": "A",
+      "sha256": "af318f9e3cc40810d89e450bd58003ea8ba45a0e714af26c5d2b3f4b74282b92"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-923ce3b0-2271-4dbc-8fb6-b815cf37d604-57-887c3b6c-9bdb-4dfe-ad1b-84d9f0c74768.json",
+      "change": "A",
+      "sha256": "7d62fc8ded5166a982fb4f6458944a5d7a4036f30afcea084baa587ac32cea45"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9620c86c-361a-4c4e-beab-1feb8f791b33-5001-c3be6626-1405-4d50-8269-70893a0f7ea9.json",
+      "change": "A",
+      "sha256": "6d072305100ca5dbbf8307eeeaff1f09edbfd0df12804e8b30c678cd5f9e9dc9"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9df8e303-10a6-438b-af03-a130af72e382-7501-2e327ac8-6771-4e5e-9c5c-de8a57a9180f.json",
+      "change": "A",
+      "sha256": "691272c6fa392ff3104b40cecf1de5ce57d0ab112ce66a9392dc36378fcc9537"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9df8e303-10a6-438b-af03-a130af72e382-7523-b0a91319-8647-4669-87aa-d89e37a58f99.json",
+      "change": "A",
+      "sha256": "96bbc1a7b67337bb9a9e642e9de31cb9a858878f70db7e316b54a910dabf096f"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9df8e303-10a6-438b-af03-a130af72e382-7545-68f4b7f2-d0c2-4901-b050-f58d2e214780.json",
+      "change": "A",
+      "sha256": "88532053f1928612fa8864c29e52f3b17bbc081df5755233d3c829756024c25a"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9df8e303-10a6-438b-af03-a130af72e382-7592-2f1e5a91-85a6-4d98-bea1-a9ee8577f6be.json",
+      "change": "A",
+      "sha256": "6a508ac6e2ea4c1cc1342f9dc0f09137c085642fad49275468f1672c03394f2c"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9df8e303-10a6-438b-af03-a130af72e382-7614-129dd067-6b77-4b89-af62-1c5ad8722ee4.json",
+      "change": "A",
+      "sha256": "380d61a40b98a3208ee26e65a8d02c2c6d4489f97841a91a6443d85f34e04032"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9df8e303-10a6-438b-af03-a130af72e382-7614-a449fa77-b1ce-4d6e-88df-1f1f4a0363ef.json",
+      "change": "A",
+      "sha256": "bee5e9c22a480ea1d712d27991e99c0b132f5eb8438888913a7618c8d8bd9ce7"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9df8e303-10a6-438b-af03-a130af72e382-7667-174d01f9-6523-4104-9020-1199635aef00.json",
+      "change": "A",
+      "sha256": "e796ed9e7866f055d9cb0f4ea727e7fbe20aa3dfb4d45db9dcc938f12ed77a5a"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9df8e303-10a6-438b-af03-a130af72e382-7706-3afd8edc-255b-4121-9889-80fe4826fbaf.json",
+      "change": "A",
+      "sha256": "3389290bfd70b32c85fa73ebb162614507cf6033d724a8dc4ad3d32ef0f3f181"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9df8e303-10a6-438b-af03-a130af72e382-7728-b9064e06-5279-4f65-8955-0358cb6bcbe4.json",
+      "change": "A",
+      "sha256": "3d848977c50eaf6256f95419ffb999e8e4a12b5f8d3c9843824feb06dfd1d55f"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9df8e303-10a6-438b-af03-a130af72e382-7775-f9501f27-215d-4ef8-81b1-4e5aa1f3f1f7.json",
+      "change": "A",
+      "sha256": "2c4e72339267df0bed01ef67d0fe2edb06f79c537b59be3457eaa3645b8185c3"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9df8e303-10a6-438b-af03-a130af72e382-7822-a3a9a2a0-cfce-47a3-9764-a8bf084bdf19.json",
+      "change": "A",
+      "sha256": "5aaceb7358541735f573e1f74199dcdd6a1b7f2ac3bbb9779cc6c2d5e7eb1195"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9df8e303-10a6-438b-af03-a130af72e382-7869-5d0d9e69-8b9f-43ab-b904-a758ee9f4d64.json",
+      "change": "A",
+      "sha256": "ae1c8a347e8db345bc8bc26504ae2fc2b4cf8611cc800e63d023cc577e52295d"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9df8e303-10a6-438b-af03-a130af72e382-7902-054622dc-c188-4a6c-bbfa-e5a4529b2c49.json",
+      "change": "A",
+      "sha256": "0793ccadbf30b93752939a2a3bc5e4f39698b97c860c18ef2ef4bcd47784c698"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-live-9df8e303-10a6-438b-af03-a130af72e382-7902-c0cc3c08-5117-403f-9700-453ec93e5b47.json",
+      "change": "A",
+      "sha256": "f574c7bf544d8e5d579d7281fd2085f1cd86fcf21e09e991433b989731fcc1a5"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-runtime-6f41b3ba-6b0f-4a06-be46-594743f12243-4-8dbc8f2b-0c90-46a9-9c85-ee6be995aa8a.json",
+      "change": "A",
+      "sha256": "09ba10e3f282c0286b761897b9a3dcb4c1191eab2cc83877b1ea6ae06c22cca6"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-runtime-b56ef572-33fe-4c96-a53f-8f4dce456516-4-15618e3b-db07-498b-af17-88f2caabdf5c.json",
+      "change": "A",
+      "sha256": "09ba10e3f282c0286b761897b9a3dcb4c1191eab2cc83877b1ea6ae06c22cca6"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-runtime-c93ef3b6-af91-4e7c-bf19-fb2c1dfc7bf6-4-12fa9764-085f-4ddd-b504-8d84c715d209.json",
+      "change": "A",
+      "sha256": "755531f73a3447efddc2aeae01859a4277e610dd53b97257611cc1c3687d956e"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-runtime-c93ef3b6-af91-4e7c-bf19-fb2c1dfc7bf6-4-76620c35-dcb0-4496-8706-5cfaa7626e3f.json",
+      "change": "A",
+      "sha256": "09ba10e3f282c0286b761897b9a3dcb4c1191eab2cc83877b1ea6ae06c22cca6"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-runtime-e0ee26e3-a7c9-41aa-9f67-d231965434d6-4-e6b146db-dace-424a-9b11-727a032a44f4.json",
+      "change": "A",
+      "sha256": "09ba10e3f282c0286b761897b9a3dcb4c1191eab2cc83877b1ea6ae06c22cca6"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/ai-runtime-e97a13d5-4b74-4bb4-a793-a7c4b5640c04-4-4260efc9-5561-463a-8ebf-a6bb429ecedc.json",
+      "change": "A",
+      "sha256": "09ba10e3f282c0286b761897b9a3dcb4c1191eab2cc83877b1ea6ae06c22cca6"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/runtime/workflow-success.txt",
+      "change": "A",
+      "sha256": "d663228aacf4a5a04329615c0fb928760111414397ff96e6a0ba5f41d569cf2c"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/setup-retry.log",
+      "change": "A",
+      "sha256": "c1ce7f9ada4f43c2dc671b49f5f2c91bcb2099051d86863bfa99cd6a13e2696c"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/setup.log",
+      "change": "A",
+      "sha256": "1a16979a621fae761c6e4f6cac66a83ad097203a1fc78521ea04165af1790d39"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/unit-final.log",
+      "change": "A",
+      "sha256": "7614cef7147fa1026744f61c1e1e4e75c3a0e546160e9238108f8da5b517d0f0"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/unit-round1.log",
+      "change": "A",
+      "sha256": "b28db92388b6db10ed06e70bc8f0bdfa700560a4eb84c5ba15a2f2904b4688b9"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/unit-round2.log",
+      "change": "A",
+      "sha256": "bde3b8d92b93fb53efe4c4f29946e001150608b917290ed431576eadf9d890e2"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/v7-http-regression.log",
+      "change": "A",
+      "sha256": "00c715e356a21985e9547f968fd09373b8564ff6e675550482838a1db375ec99"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/v7-integration-regression.log",
+      "change": "A",
+      "sha256": "a621999f011aaf7e8a3f3dbbac9cf64e4fb6e5793f2763144383dbae7de5f7c4"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/v7-ui-regression.log",
+      "change": "A",
+      "sha256": "bdd41cc00a552f603718abc9a38869202731c632caf99c168c57cc5c98b50b19"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/workflow-engine-tests.xml",
+      "change": "A",
+      "sha256": "8d13240ef3d1c25cec7d622707d2fa63dc32de899b5b0d4db6bcee09a5bada5e"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/zapier-configuration-validation.log",
+      "change": "A",
+      "sha256": "bf851afafa2e7412ba5dc061a80f6e766f94edf241ee674c35cc1bfea6230621"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/evidence/v8/zapier-sdk-install.log",
+      "change": "A",
+      "sha256": "8443796722b919fbfe92e6045119701c453e6daf43ea2c3d1285b8a5edad2c07"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/prepare_v6.py",
+      "change": "M",
+      "sha256": "a70babd172fbadd3d69596b10e7a189d8d842c2bdf81b531c89a869e4c4f3f25"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/prepare_v8.py",
+      "change": "A",
+      "sha256": "a4c0d7bc0ec7a403796ab678997c990f684e50f8ec34975b756368448e217353"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/bootstrap.cjs",
+      "change": "M",
+      "sha256": "37a30076ad21e4fc8f39f26f2618df4e08dc2c006e2be7ba7e83992ca312be25"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/capture-platform.cjs",
+      "change": "M",
+      "sha256": "81f09269ece232545c27ea8e7379fdf459f34143c6528522c152763ef996b294"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/fault_submit.cjs",
+      "change": "M",
+      "sha256": "977ad7a547539559949ad38a85724883a6b84573593218262ac3b2794762495f"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/hikyu-plugin/banking-view.js",
+      "change": "M",
+      "sha256": "c1c58dd76927acab8cfdf3379cb5e0d1af09192b52d092fb7ad444089c7270c6"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/hikyu-plugin/index.js",
+      "change": "M",
+      "sha256": "2949f817f4bb9193efccb0b92eceaf317780cbcbfb1f10d845dc255cd2f06ad5"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/integration.cjs",
+      "change": "M",
+      "sha256": "5df48f95911cc78bf18e615c385cbb7e08e9a49f266961d9bd693f02403d8f0e"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/probe.cjs",
+      "change": "M",
+      "sha256": "6bfd1b8f05c9eee570f50420b196f4a867f20a37a72771f8721f169727fd11b6"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/run.cjs",
+      "change": "M",
+      "sha256": "2b7813f0e5b905be601f632c3c1ce08a5492b0aa686fecffb15aaafab877676e"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/sdk.cjs",
+      "change": "M",
+      "sha256": "5c2193ad7c41efc2f97db1f141048b5a51f700e181eeddc4015fb6498cd687ca"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/setup-banking.cjs",
+      "change": "M",
+      "sha256": "b6c0d4f1f94283536825b5b8b584e9eb570cee7e57b9c6a3adffe5e9947665be"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/setup-support.cjs",
+      "change": "M",
+      "sha256": "4628301962fe656ea98e46171b382993472f19554c485723a7f19fd76deec04c"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/test_banking.cjs",
+      "change": "M",
+      "sha256": "e093433948e42997052470a41ef078419222b381724da5714cce49e2a03ec265"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/test_csv.cjs",
+      "change": "M",
+      "sha256": "48d25ea7205087cfe3fd23a0c0b1ed47a551e36db969ac04efa5e7ae4aa13e4f"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/test_e2e.cjs",
+      "change": "M",
+      "sha256": "af40519f120471b0f4bf55f83ed2e55a24d4418a1cd0390e8befa418690e45ec"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/test_resilience.cjs",
+      "change": "M",
+      "sha256": "07e770242936fc88b7d9edb3c8ad806b2175d13a98ada770bb278510c6d4fbfa"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/saltcorn/test_sla.cjs",
+      "change": "M",
+      "sha256": "c0316583b7e4fad95dcd1a0433802ba1618a86ad8107367350344e7f4c47db21"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/start-services.py",
+      "change": "M",
+      "sha256": "652440e7a93755320346057284806147a69db1eba136b96a85f36f642159b030"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/test_workflow_http.py",
+      "change": "M",
+      "sha256": "20282041a39b24451984d06143dc90d7a63c3a678c064103dec31d1b7fcf740e"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v7/plugin.cjs",
+      "change": "M",
+      "sha256": "b5fce0cdea8168d52cf4f7d658d2ab49de6875d8850c9a81b26a2e2b9f799003"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v7/tests/run.cjs",
+      "change": "M",
+      "sha256": "95e76ca147ef0055c33870a7caf08a79008eb10d8ca0097222d38ba7f7dd929a"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/UC1-followup.md",
+      "change": "A",
+      "sha256": "0ff11ac4883f12fd4d7e0ef68ce9b001bdfee2b883c5e8f1f517c902881b53ef"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/UC1-initial.md",
+      "change": "A",
+      "sha256": "717d73b83d2f52ceb804b9199d123a794aba16512a3bf1582103e08519cf2119"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/UC2-followup.md",
+      "change": "A",
+      "sha256": "60e346f8d60a8f1220e885b7eeefe21d2a4c02f3e2aeafa9cdb0b94f5da37f26"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/UC2-initial.md",
+      "change": "A",
+      "sha256": "c6136cb386c9d03ff94b643912f10acea3026aa214c0e09eeb0cdab7e07f4dce"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/UC3-focus-followup.md",
+      "change": "A",
+      "sha256": "6c16dffff927bf2bf0c5423d22c0d23d00a5e1e4ad820e147a09049ff271d472"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/UC3-followup.md",
+      "change": "A",
+      "sha256": "7313f0046a58f7c5b312e6e55a028ee1b60eb31c39c0b54d28528a9b17ada1a8"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/UC3-initial.md",
+      "change": "A",
+      "sha256": "0961879662d9c1418085de02ab072ccdeba1145b8cdf38019356f837117e60c4"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-1/implementation/saltcorn/hikyu-plugin/index.js",
+      "change": "A",
+      "sha256": "b3b97bdf7dfd59b0b62610ef8d11e2639d5308dc05f7a46d476e578648466e53"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-1/implementation/v7/plugin.cjs",
+      "change": "A",
+      "sha256": "2f80fadc566d2f4e89d16528fcd6ef6ee5b3e1db8b22ab1c16c1c0ff8954ed22"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-1/implementation/v8/ui/common.cjs",
+      "change": "A",
+      "sha256": "6a6e202319fbe23e4bdcf18fc4e83be4e9c6d9e88f98106447232dbb02dd995c"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-1/implementation/v8/ui/controller.js",
+      "change": "A",
+      "sha256": "cdf415015eee982228b2e286f474224b47eeaa618cdb72932c1fb7e96549f044"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-1/implementation/v8/ui/inbox.cjs",
+      "change": "A",
+      "sha256": "745117bc5d8f974159c9165cc84abf19efd6ba59f5e531971de0416e1a4ad0e0"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-1/implementation/v8/ui/monitor.cjs",
+      "change": "A",
+      "sha256": "f2709831131d2e113fd086f687728ef4735927e360843293670c2268841fff7d"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-1/implementation/v8/ui/progress.cjs",
+      "change": "A",
+      "sha256": "23391f832941a7fe1a8d8610dbeb63c394f645b65d440bc5990fffeaf0bb05d9"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-1/implementation/v8/ui/styles.css",
+      "change": "A",
+      "sha256": "e131bba2de46163548edd2a2f087526d249c664ed1af586d39304afd3da2e7fc"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-1/manifest.json",
+      "change": "A",
+      "sha256": "f46b34d03cb194148c76b0c0dcfd8455409b1eaf84eacfa6d3e1a9264179d025"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-2/implementation/saltcorn/hikyu-plugin/index.js",
+      "change": "A",
+      "sha256": "2949f817f4bb9193efccb0b92eceaf317780cbcbfb1f10d845dc255cd2f06ad5"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-2/implementation/v7/plugin.cjs",
+      "change": "A",
+      "sha256": "2f80fadc566d2f4e89d16528fcd6ef6ee5b3e1db8b22ab1c16c1c0ff8954ed22"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-2/implementation/v8/ui/common.cjs",
+      "change": "A",
+      "sha256": "6a6e202319fbe23e4bdcf18fc4e83be4e9c6d9e88f98106447232dbb02dd995c"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-2/implementation/v8/ui/controller.js",
+      "change": "A",
+      "sha256": "ef2e5fe65880a6a85cbfc7654a6d18f326e36ceb98c3b49710f554953a4fb17d"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-2/implementation/v8/ui/favicon.svg",
+      "change": "A",
+      "sha256": "6370b0e6f08e657ce11fd5b96f59dcd58fe42734f98410be84c5c3a29ac8a207"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-2/implementation/v8/ui/inbox.cjs",
+      "change": "A",
+      "sha256": "745117bc5d8f974159c9165cc84abf19efd6ba59f5e531971de0416e1a4ad0e0"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-2/implementation/v8/ui/monitor.cjs",
+      "change": "A",
+      "sha256": "35b1d82459b2707dc15fb52f38d44ad9a2e65a0279e958c10817700bfea2bbc6"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-2/implementation/v8/ui/progress.cjs",
+      "change": "A",
+      "sha256": "3e69c88439e5b1cf7f6104351ddcde22f8f7306d8073ea67c4b3b82fe359e5ca"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-2/implementation/v8/ui/styles.css",
+      "change": "A",
+      "sha256": "e131bba2de46163548edd2a2f087526d249c664ed1af586d39304afd3da2e7fc"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-2/manifest.json",
+      "change": "A",
+      "sha256": "0eeba8dd81e0d491ab628f4a9cf1573180d62b0fcf9e5517e04f854e7e6c1786"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-3/controller.js",
+      "change": "A",
+      "sha256": "546b3aadac4a35fee442ae1977b8d3ce7b785712fb4cb2a67506509235499e5a"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/generated/round-3/manifest.json",
+      "change": "A",
+      "sha256": "f5e42500c11ad363bf9fe9ee0e6e5ad948ea0e62ad2aa872b6e26b5438ba4cb9"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/prompts/session-log.json",
+      "change": "A",
+      "sha256": "8fd895c9c2524751013f35dd84914eef7d694498ef5f36d9e185001f3954f660"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/runtime.cjs",
+      "change": "A",
+      "sha256": "acdd58b430a6f71c62ebf83adf3c67e6b28b888d6509f116029cd8708485b5a5"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/setup-v8.cjs",
+      "change": "A",
+      "sha256": "49fbb9942bd96c04557898682f93dd0583fca95213fb06fd33f0dc919010adfa"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/tests/browser.cjs",
+      "change": "A",
+      "sha256": "17022be65020fa801adfe477ce5b27f90a6165956c55146a697a787ee75e3ba5"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/tests/capture.cjs",
+      "change": "A",
+      "sha256": "cb8036e2901867ca739edb4cfc31b20b59075949119b614a4768f1c0efb17400"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/tests/engine-branches.cjs",
+      "change": "A",
+      "sha256": "9fbe96d10164b614edc77225c4c716e1c808eb56ef80a18b0e1dbfa903111459"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/tests/seed-demo.cjs",
+      "change": "A",
+      "sha256": "4e0982285b84eb39f9b3fc5f84f828d5676a4abfd7fbcb161474ef289edb2031"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/tests/unit.cjs",
+      "change": "A",
+      "sha256": "f1c069dd0ed11da3bd46d7e32eaca8c1ebe11675edcae877ee9fee23d53ea558"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/ui/common.cjs",
+      "change": "A",
+      "sha256": "6a6e202319fbe23e4bdcf18fc4e83be4e9c6d9e88f98106447232dbb02dd995c"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/ui/controller.js",
+      "change": "A",
+      "sha256": "546b3aadac4a35fee442ae1977b8d3ce7b785712fb4cb2a67506509235499e5a"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/ui/favicon.svg",
+      "change": "A",
+      "sha256": "6370b0e6f08e657ce11fd5b96f59dcd58fe42734f98410be84c5c3a29ac8a207"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/ui/inbox.cjs",
+      "change": "A",
+      "sha256": "745117bc5d8f974159c9165cc84abf19efd6ba59f5e531971de0416e1a4ad0e0"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/ui/monitor.cjs",
+      "change": "A",
+      "sha256": "35b1d82459b2707dc15fb52f38d44ad9a2e65a0279e958c10817700bfea2bbc6"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/ui/progress.cjs",
+      "change": "A",
+      "sha256": "3e69c88439e5b1cf7f6104351ddcde22f8f7306d8073ea67c4b3b82fe359e5ca"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/v8/ui/styles.css",
+      "change": "A",
+      "sha256": "e131bba2de46163548edd2a2f087526d249c664ed1af586d39304afd3da2e7fc"
+    },
+    {
+      "path": "deliverables/hikyu-v7/source/implementation/workflow/src/main/java/demo/WorkflowServer.java",
+      "change": "M",
+      "sha256": "72ad6be8d19374fdc73e2b6faba7fa35a17961c1d984d5dc4979701987e4808e"
+    },
+    {
+      "path": "deliverables/hikyu-v8/README.md",
+      "change": "A",
+      "sha256": "8e83bb59c7099e9bb96f5270a5b8d7fad50b3d93d6feeaffee185dc0a76dfb7e"
+    }
+  ],
+  "deletions": []
+}

@@ -1,0 +1,2 @@
+{"processInstanceId":"4","input":{"description":"I cannot find the payment receipt"},"output":{"category": "payment_tracking", "confidence": 0.968441, "needs_human_review": true, "model_version": "synthetic-nb-v1", "known_tokens": 6}
+}

@@ -1,0 +1,36 @@
+PASS Source content is escaped and metadata is readable
+PASS Draft required and trimmed-length validation is linked and server-consistent
+PASS API failure keeps edited inputs and displays a readable English error
+PASS Repeated enhancement binding produces one POST and no polling
+PASS Pending draft blocks duplicate clicks and submits to actual Flowable
+FAIL Native permissions, transaction ownership and CSRF remain enforced: Expected values to be strictly equal:
+
+200 !== 403
+
+PASS Progress reflects real return and rejection branches after refresh
+FAIL All branch states, unknown state and missing history render safely in native browser: locator.getAttribute: Error: strict mode violation: locator('[data-stage="FUTURE_UNKNOWN"]') resolved to 2 elements:
+    1) <section class="v8-progress" data-stage-kind="unknown" data-stage="FUTURE_UNKNOWN" aria-label="Recorded case progress" data-v8-progress="v6-7546857d-4808-403e-bac2-4a4dbd63bc0d">…</section> aka getByRole('article').filter({ hasText: 'v6-7546857d-4808-403e-bac2-' }).getByLabel('Recorded case progress')
+    2) <section class="v8-progress" data-stage-kind="unknown" data-stage="FUTURE_UNKNOWN" aria-label="Recorded case progress" data-v8-progress="v6-737e541a-1057-45e0-a52c-3804f0575b54">…</section> aka locator('article:nth-child(15) > .v8-progress')
+
+Call log:
+[2m  - waiting for locator('[data-stage="FUTURE_UNKNOWN"]')[22m
+
+PASS Synchronization filters and counts are limited to authorized loaded records
+PASS Replay authorization and backend failure keep real business state
+PASS Refresh failure is visible and preserves the current monitor
+PASS Stale refresh cannot overwrite a newer replay result
+PASS Desktop/mobile, long content and keyboard focus are usable
+PASS Manual refresh keeps filter/search selections and shows truthful receipt provenance
+FAIL Repeated page entry produces no unhandled JavaScript errors: Expected values to be strictly deep-equal:
++ actual - expected
+
++ [
++   {
++     message: 'Failed to load resource: the server responded with a status of 404 (Not Found)',
++     role: 'requester'
++   }
++ ]
+- []
+
+PASS Financial records are unchanged by all support UI operations
+Results: 13 Pass, 3 Fail

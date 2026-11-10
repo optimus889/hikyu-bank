@@ -1,0 +1,18 @@
+PASS Relay authentication, client scope and signed-envelope replay protection
+PASS Actual loopback transport outage is logged and recovers without creating a draft
+PASS Mapped normalized intake creates exactly one durable unverified draft
+PASS Delivered Zapier action and polling functions execute their mapped contracts
+PASS Duplicate source event is idempotent; changed payload conflicts
+PASS Blank/missing required fields, invalid dates and external identity binding are rejected
+PASS Staff assignment, cross-user isolation and requester claim use native authenticated sessions
+PASS Only own transaction can be bound; a stale draft version is rejected
+PASS Claimed draft submits to original Flowable and actual runtime classifier
+PASS Nonterminal records cannot publish outcomes
+PASS Service-agent to reviewer handoff and terminal write-back survive browser refresh
+PASS Persisted terminal outcome publishes a minimal durable event only once
+PASS External write failure is visible while business state remains completed
+PASS Authorized replay recovers with one external row and durable synchronization receipt
+PASS Stale events cannot overwrite a newer external row; mismatched receipts rejected
+PASS Only recoverable transport errors schedule retries
+PASS Original transaction and account/balance records remain unchanged
+Results: 17 Pass, 0 Fail
