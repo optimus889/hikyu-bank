@@ -1,0 +1,410 @@
+{
+  "test_kind": "Local HTTP integration; single-person role simulation; no LCNC connection",
+  "events": [
+    {
+      "actor": null,
+      "path": "/requests",
+      "input": {},
+      "status": 401,
+      "output": {
+        "error": "Authentication required"
+      }
+    },
+    {
+      "actor": "requester.demo",
+      "path": "/requests",
+      "input": {
+        "business_id": "v6-fbd4814f-fa91-46c0-91c4-d155ea7a4033",
+        "description": "Different information"
+      },
+      "status": 201,
+      "output": {
+        "business_id": "v6-fbd4814f-fa91-46c0-91c4-d155ea7a4033",
+        "process_instance_id": "8008",
+        "stage": "agentReview",
+        "sequence": 2,
+        "requester_id": "requester.demo",
+        "ai_status": "succeeded",
+        "ai_result": "{\"category\": \"card_access\", \"confidence\": 0.997822, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 8}\n",
+        "last_actor": null,
+        "last_comment": null,
+        "updated_at": "2026-11-10T16:44:54.660757771Z"
+      }
+    },
+    {
+      "actor": "requester.demo",
+      "path": "/requests",
+      "input": {
+        "business_id": "v6-fbd4814f-fa91-46c0-91c4-d155ea7a4033",
+        "description": "Different information"
+      },
+      "status": 409,
+      "output": {
+        "error": "Idempotency key reused with different input"
+      }
+    },
+    {
+      "actor": "requester.demo",
+      "path": "/requests",
+      "input": {
+        "business_id": "v6-51b05bb6-18f8-4e7d-bad3-e1d087153be1",
+        "description": "My card is locked and purchases are blocked"
+      },
+      "status": 201,
+      "output": {
+        "business_id": "v6-51b05bb6-18f8-4e7d-bad3-e1d087153be1",
+        "process_instance_id": "8030",
+        "stage": "agentReview",
+        "sequence": 2,
+        "requester_id": "requester.demo",
+        "ai_status": "succeeded",
+        "ai_result": "{\"category\": \"card_access\", \"confidence\": 0.997822, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 8}\n",
+        "last_actor": null,
+        "last_comment": null,
+        "updated_at": "2026-11-10T16:44:54.703272029Z"
+      }
+    },
+    {
+      "actor": "requester.demo",
+      "path": "/requests",
+      "input": {
+        "business_id": "v6-51b05bb6-18f8-4e7d-bad3-e1d087153be1",
+        "description": "My card is locked and purchases are blocked"
+      },
+      "status": 200,
+      "output": {
+        "business_id": "v6-51b05bb6-18f8-4e7d-bad3-e1d087153be1",
+        "process_instance_id": "8030",
+        "stage": "agentReview",
+        "sequence": 2,
+        "requester_id": "requester.demo",
+        "ai_status": "succeeded",
+        "ai_result": "{\"category\": \"card_access\", \"confidence\": 0.997822, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 8}\n",
+        "last_actor": null,
+        "last_comment": null,
+        "updated_at": "2026-11-10T16:44:54.703272029Z"
+      }
+    },
+    {
+      "actor": "requester.demo",
+      "path": "/requests",
+      "input": {
+        "business_id": "v6-8ac0c9fa-440e-4847-8b3c-663d7e9cac54",
+        "description": "My card is locked and purchases are blocked"
+      },
+      "status": 201,
+      "output": {
+        "business_id": "v6-8ac0c9fa-440e-4847-8b3c-663d7e9cac54",
+        "process_instance_id": "8052",
+        "stage": "agentReview",
+        "sequence": 2,
+        "requester_id": "requester.demo",
+        "ai_status": "succeeded",
+        "ai_result": "{\"category\": \"card_access\", \"confidence\": 0.997822, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 8}\n",
+        "last_actor": null,
+        "last_comment": null,
+        "updated_at": "2026-11-10T16:44:54.759035392Z"
+      }
+    },
+    {
+      "actor": "service.alpha",
+      "path": "/requests/8052/decision",
+      "input": {
+        "expected_sequence": 2,
+        "decision": "continue",
+        "comment": "Synthetic local role simulation"
+      },
+      "status": 200,
+      "output": {
+        "business_id": "v6-8ac0c9fa-440e-4847-8b3c-663d7e9cac54",
+        "process_instance_id": "8052",
+        "stage": "reviewerReview",
+        "sequence": 4,
+        "requester_id": "requester.demo",
+        "ai_status": "succeeded",
+        "ai_result": "{\"category\": \"card_access\", \"confidence\": 0.997822, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 8}\n",
+        "last_actor": "service.alpha",
+        "last_comment": "Synthetic local role simulation",
+        "updated_at": "2026-11-10T16:44:54.775783864Z"
+      }
+    },
+    {
+      "actor": "reviewer.beta",
+      "path": "/requests/8052/decision",
+      "input": {
+        "expected_sequence": 4,
+        "decision": "complete",
+        "comment": "Synthetic local role simulation"
+      },
+      "status": 200,
+      "output": {
+        "business_id": "v6-8ac0c9fa-440e-4847-8b3c-663d7e9cac54",
+        "process_instance_id": "8052",
+        "stage": "completed",
+        "sequence": 6,
+        "requester_id": "requester.demo",
+        "ai_status": "succeeded",
+        "ai_result": "{\"category\": \"card_access\", \"confidence\": 0.997822, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 8}\n",
+        "last_actor": "reviewer.beta",
+        "last_comment": "Synthetic local role simulation",
+        "updated_at": "2026-11-10T16:44:54.791519695Z"
+      }
+    },
+    {
+      "actor": "requester.demo",
+      "path": "/requests",
+      "input": {
+        "business_id": "v6-7b44b111-8528-4f01-abb1-459496c2ebb0",
+        "description": ""
+      },
+      "status": 400,
+      "output": {
+        "error": "Invalid description"
+      }
+    },
+    {
+      "actor": "requester.demo",
+      "path": "/requests",
+      "input": {
+        "business_id": "v6-38fbcbe1-bf2c-45a9-b2e5-5eeae78fad18",
+        "description": " "
+      },
+      "status": 400,
+      "output": {
+        "error": "Invalid description"
+      }
+    },
+    {
+      "actor": "requester.demo",
+      "path": "/requests",
+      "input": {
+        "business_id": "v6-a7152f1b-48b9-4ba5-b9b3-40745cfbbb7d",
+        "description": "x"
+      },
+      "status": 400,
+      "output": {
+        "error": "Description is too short"
+      }
+    },
+    {
+      "actor": "requester.demo",
+      "path": "/requests",
+      "input": {
+        "business_id": "v6-412460cb-b880-4850-bc53-d3ebcbd48cc6",
+        "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "status": 400,
+      "output": {
+        "error": "Invalid description"
+      }
+    },
+    {
+      "actor": "requester.demo",
+      "path": "/requests",
+      "input": {
+        "business_id": "v6-387898fc-f0be-4331-be4a-d191eb82abc9",
+        "description": "My card is locked and purchases are blocked"
+      },
+      "status": 201,
+      "output": {
+        "business_id": "v6-387898fc-f0be-4331-be4a-d191eb82abc9",
+        "process_instance_id": "8099",
+        "stage": "agentReview",
+        "sequence": 2,
+        "requester_id": "requester.demo",
+        "ai_status": "succeeded",
+        "ai_result": "{\"category\": \"card_access\", \"confidence\": 0.997822, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 8}\n",
+        "last_actor": null,
+        "last_comment": null,
+        "updated_at": "2026-11-10T16:44:54.840288221Z"
+      }
+    },
+    {
+      "actor": "requester.other",
+      "path": "/requests/8099",
+      "input": null,
+      "status": 403,
+      "output": {
+        "error": "Record ownership mismatch"
+      }
+    },
+    {
+      "actor": "requester.demo",
+      "path": "/requests",
+      "input": {
+        "business_id": "v6-31c7ea54-2142-4b6c-9abb-43c6fb6ead07",
+        "description": "My card is locked and purchases are blocked"
+      },
+      "status": 201,
+      "output": {
+        "business_id": "v6-31c7ea54-2142-4b6c-9abb-43c6fb6ead07",
+        "process_instance_id": "8121",
+        "stage": "agentReview",
+        "sequence": 2,
+        "requester_id": "requester.demo",
+        "ai_status": "succeeded",
+        "ai_result": "{\"category\": \"card_access\", \"confidence\": 0.997822, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 8}\n",
+        "last_actor": null,
+        "last_comment": null,
+        "updated_at": "2026-11-10T16:44:54.884275318Z"
+      }
+    },
+    {
+      "actor": "service.alpha",
+      "path": "/requests/8121/decision",
+      "input": {
+        "expected_sequence": 2,
+        "decision": "return",
+        "comment": "Synthetic local role simulation"
+      },
+      "status": 200,
+      "output": {
+        "business_id": "v6-31c7ea54-2142-4b6c-9abb-43c6fb6ead07",
+        "process_instance_id": "8121",
+        "stage": "requesterCorrection",
+        "sequence": 4,
+        "requester_id": "requester.demo",
+        "ai_status": "succeeded",
+        "ai_result": "{\"category\": \"card_access\", \"confidence\": 0.997822, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 8}\n",
+        "last_actor": "service.alpha",
+        "last_comment": "Synthetic local role simulation",
+        "updated_at": "2026-11-10T16:44:54.898252911Z"
+      }
+    },
+    {
+      "actor": "requester.demo",
+      "path": "/requests/8121/decision",
+      "input": {
+        "expected_sequence": 4,
+        "decision": "continue",
+        "comment": "Added context",
+        "description": "Where is my payment receipt"
+      },
+      "status": 200,
+      "output": {
+        "business_id": "v6-31c7ea54-2142-4b6c-9abb-43c6fb6ead07",
+        "process_instance_id": "8121",
+        "stage": "agentReview",
+        "sequence": 6,
+        "requester_id": "requester.demo",
+        "ai_status": "succeeded",
+        "ai_result": "{\"category\": \"payment_tracking\", \"confidence\": 0.971948, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 5}\n",
+        "last_actor": "requester.demo",
+        "last_comment": "Added context",
+        "updated_at": "2026-11-10T16:44:54.954168089Z"
+      }
+    },
+    {
+      "actor": "service.alpha",
+      "path": "/requests/8121/decision",
+      "input": {
+        "expected_sequence": 6,
+        "decision": "reject",
+        "comment": "Synthetic local role simulation"
+      },
+      "status": 200,
+      "output": {
+        "business_id": "v6-31c7ea54-2142-4b6c-9abb-43c6fb6ead07",
+        "process_instance_id": "8121",
+        "stage": "rejected",
+        "sequence": 8,
+        "requester_id": "requester.demo",
+        "ai_status": "succeeded",
+        "ai_result": "{\"category\": \"payment_tracking\", \"confidence\": 0.971948, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 5}\n",
+        "last_actor": "service.alpha",
+        "last_comment": "Synthetic local role simulation",
+        "updated_at": "2026-11-10T16:44:54.966968491Z"
+      }
+    },
+    {
+      "actor": "requester.demo",
+      "path": "/requests",
+      "input": {
+        "business_id": "v6-80fb3425-bf71-46df-86b8-519c6fa9d688",
+        "description": "My card is locked and purchases are blocked"
+      },
+      "status": 201,
+      "output": {
+        "business_id": "v6-80fb3425-bf71-46df-86b8-519c6fa9d688",
+        "process_instance_id": "8174",
+        "stage": "agentReview",
+        "sequence": 2,
+        "requester_id": "requester.demo",
+        "ai_status": "succeeded",
+        "ai_result": "{\"category\": \"card_access\", \"confidence\": 0.997822, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 8}\n",
+        "last_actor": null,
+        "last_comment": null,
+        "updated_at": "2026-11-10T16:44:55.027642845Z"
+      }
+    },
+    {
+      "actor": "service.alpha",
+      "path": "/requests/8174/decision",
+      "input": {
+        "expected_sequence": 2,
+        "decision": "continue",
+        "comment": "Synthetic local role simulation"
+      },
+      "status": 200,
+      "output": {
+        "business_id": "v6-80fb3425-bf71-46df-86b8-519c6fa9d688",
+        "process_instance_id": "8174",
+        "stage": "reviewerReview",
+        "sequence": 4,
+        "requester_id": "requester.demo",
+        "ai_status": "succeeded",
+        "ai_result": "{\"category\": \"card_access\", \"confidence\": 0.997822, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 8}\n",
+        "last_actor": "service.alpha",
+        "last_comment": "Synthetic local role simulation",
+        "updated_at": "2026-11-10T16:44:55.039578076Z"
+      }
+    },
+    {
+      "actor": "reviewer.beta",
+      "path": "/requests/8174/decision",
+      "input": {
+        "expected_sequence": 2,
+        "decision": "complete",
+        "comment": "Synthetic local role simulation"
+      },
+      "status": 409,
+      "output": {
+        "error": "Stale task version"
+      }
+    },
+    {
+      "actor": "requester.demo",
+      "path": "/requests",
+      "input": {
+        "business_id": "v6-2bbd7152-af44-4fe3-96d1-8ca8e4328429",
+        "description": "My card is locked and purchases are blocked"
+      },
+      "status": 201,
+      "output": {
+        "business_id": "v6-2bbd7152-af44-4fe3-96d1-8ca8e4328429",
+        "process_instance_id": "8213",
+        "stage": "agentReview",
+        "sequence": 2,
+        "requester_id": "requester.demo",
+        "ai_status": "succeeded",
+        "ai_result": "{\"category\": \"card_access\", \"confidence\": 0.997822, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 8}\n",
+        "last_actor": null,
+        "last_comment": null,
+        "updated_at": "2026-11-10T16:44:55.112301496Z"
+      }
+    },
+    {
+      "actor": "reviewer.beta",
+      "path": "/requests/8213/decision",
+      "input": {
+        "expected_sequence": 2,
+        "decision": "complete",
+        "comment": "Synthetic local role simulation"
+      },
+      "status": 403,
+      "output": {
+        "error": "Task role or ownership mismatch"
+      }
+    }
+  ]
+}

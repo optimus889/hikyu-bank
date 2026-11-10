@@ -1,0 +1,11 @@
+{
+  "source_commit": "ecbbc93b97030024503de337c2c29d64d049bb07",
+  "latest_integrated_default_branch": "f1271f24330cf8aad0fe5f8dc43834ea49d3800a",
+  "note": "origin/main was integrated into feature before verification; this is not a PR merge claim",
+  "post_commit_unit": 14,
+  "post_commit_browser": 18,
+  "post_commit_http": 9,
+  "changed_package_target_file_equivalence": "Pass",
+  "active_source_has_no_changes_after_source_commit": true,
+  "fresh_package_bootstrap": "Pass"
+}

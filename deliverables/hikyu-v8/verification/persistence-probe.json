@@ -1,0 +1,12 @@
+{
+  "business_id": "v6-8ac0c9fa-440e-4847-8b3c-663d7e9cac54",
+  "process_instance_id": "8052",
+  "stage": "completed",
+  "sequence": 6,
+  "requester_id": "requester.demo",
+  "ai_status": "succeeded",
+  "ai_result": "{\"category\": \"card_access\", \"confidence\": 0.997822, \"needs_human_review\": true, \"model_version\": \"synthetic-nb-v1\", \"known_tokens\": 8}\n",
+  "last_actor": "reviewer.beta",
+  "last_comment": "Synthetic local role simulation",
+  "updated_at": "2026-11-10T16:44:54.791519695Z"
+}

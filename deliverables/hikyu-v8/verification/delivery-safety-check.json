@@ -1,0 +1,7 @@
+{
+  "zip_crc": "Pass",
+  "archive_path_and_exclusion_check": "Pass",
+  "fresh_generated_high_entropy_secret_scan": "Pass",
+  "old_nested_archive_scan": "Pass",
+  "active_source_unchanged_since_source_commit": true
+}

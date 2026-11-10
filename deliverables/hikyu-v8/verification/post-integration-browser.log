@@ -1,0 +1,19 @@
+PASS Source content is escaped and metadata is readable
+PASS Draft required and trimmed-length validation is linked and server-consistent
+PASS API failure keeps edited inputs and displays a readable English error
+PASS Repeated enhancement binding produces one POST and no polling
+PASS Pending draft blocks duplicate clicks and submits to actual Flowable
+PASS Native permissions, transaction ownership and CSRF remain enforced
+PASS Progress reflects real return and rejection branches after refresh
+PASS All branch states, unknown state and missing history render safely in native browser
+PASS Synchronization filters and counts are limited to authorized loaded records
+PASS Replay authorization and backend failure keep real business state
+PASS Refresh failure is visible and preserves the current monitor
+PASS Stale refresh cannot overwrite a newer replay result
+PASS Desktop/mobile, long content and keyboard focus are usable
+PASS Keyboard focus is retained after a successful claim and monitor refresh
+PASS Support progress remains within a narrow mobile viewport
+PASS Manual refresh keeps filter/search selections and shows truthful receipt provenance
+PASS Repeated page entry produces no unhandled JavaScript errors
+PASS Financial records are unchanged by all support UI operations
+Results: 18 Pass, 0 Fail
