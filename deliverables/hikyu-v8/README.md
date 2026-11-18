@@ -16,3 +16,5 @@ The package manifest identifies the source commit and confirmed baseline. The ch
 Local checks passed: 14 unit, 18 native browser and two controlled engine-branch tests. Related V7 regressions passed, with external relay behavior explicitly emulated. Real Zapier/Google execution and real multi-person handoff remain unverified. GitHub PR/merge disposition is reported separately and must not be inferred from these test results.
 
 Current remote handoff: [GitHub status](GitHub_Status.json). The feature source was pushed; this task could not create a PR because the API request was Forbidden. No direct main push was used. [Fresh ZIP startup verification](verification/Package_Verification.json) and [post-source-commit tests](verification/source-commit-verification.json) are retained.
+
+The [browser test log](../hikyu-v7/source/evidence/v8/browser-final.log) and [mobile progress screenshot](../hikyu-v7/source/evidence/v8/final/09-progress-mobile.png) are shared with the retained application source. Their contents matched the copies in this delivery's verification directory byte for byte.

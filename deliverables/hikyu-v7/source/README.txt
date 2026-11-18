@@ -5,10 +5,13 @@ Links: links.txt
 
 Folders
   implementation/   Saltcorn extensions, Flowable BPMN workflow, local AI classifier,
-                    tests, setup scripts, and the Version 5 source baseline (v5-working/)
+                    tests, setup scripts, and the Maven Wrapper in workflow/
   deliverables/     Saltcorn_V6_Application_Pack.json (native LCNC configuration export)
   evidence/         Recorded test outputs and screenshots
   research/         Snapshots of official documentation used for platform selection
+
+The historical Version 5 working snapshot is available under
+implementation/v5-working/ inside ../Hikyu_Bank_V7.zip.
 
 Requirements: Node.js, Python 3, Docker, JDK 17+.
 Run:

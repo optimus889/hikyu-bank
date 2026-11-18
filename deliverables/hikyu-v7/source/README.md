@@ -11,6 +11,8 @@ V6_DB_PORT=55586 python3 implementation/prepare_v8.py
 
 The local application defaults to http://127.0.0.1:8297/page/support-inbox. Flowable uses 8296 and the independent PostgreSQL mapping uses 55586. Fresh credentials are generated into excluded private files. No previous account/database is adopted automatically.
 
+The Maven Wrapper for this checkout is in [`implementation/workflow/`](implementation/workflow/). The preserved V5 working snapshot is available under `implementation/v5-working/` inside the [original V7 ZIP](../Hikyu_Bank_V7.zip).
+
 V8 enhances the existing draft form, honest recorded case progress and synchronization monitor. Existing financial logic, CSRF/authorization, ownership, versions, Flowable and outbox mechanisms remain. There is no V8 business migration or new UI framework.
 
 New verification: 14 unit tests and 18 actual native browser checks Pass, plus two actual controlled engine-branch tests. Related regressions passed: 8 native support, 9 workflow HTTP and 17 emulator-contract checks. The fresh engine build passed 6 tests. These suites overlap; they are not a total count of independent scenarios. One person simulated roles. Real Zapier/Google execution remains unverified.

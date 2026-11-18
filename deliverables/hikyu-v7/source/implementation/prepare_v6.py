@@ -2,13 +2,21 @@
 """Prepare only this standalone V6 directory; no old deployment is contacted."""
 import argparse,pathlib,os,json,secrets,shutil,subprocess,urllib.parse,xml.etree.ElementTree as ET,hashlib,socket
 ROOT=pathlib.Path(__file__).resolve().parent.parent
+WORKFLOW=ROOT/'implementation/workflow'
 parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');parser.add_argument('--start-only',action='store_true');a=parser.parse_args()
 def run(args,env=None):subprocess.run(args,cwd=ROOT,env=env,check=True)
 if a.check:
- required=['implementation/saltcorn/package-lock.json','implementation/workflow/pom.xml','implementation/ai/local_classifier.py','implementation/v5-working/backend/mvnw','deliverables/Saltcorn_V6_Application_Pack.json']
+ required=[
+  'implementation/saltcorn/package-lock.json',
+  'implementation/workflow/pom.xml',
+  'implementation/workflow/mvnw',
+  'implementation/workflow/.mvn/wrapper/maven-wrapper.properties',
+  'implementation/ai/local_classifier.py',
+  'deliverables/Saltcorn_V6_Application_Pack.json',
+ ]
  for name in required:
   if not (ROOT/name).is_file():raise SystemExit('Missing '+name)
- print('V6 source, lockfile, model, V5 wrapper and native export are present. Fresh installation is a separate check.');raise SystemExit(0)
+ print('V6 source, lockfile, model, workflow wrapper and native export are present. Fresh installation is a separate check.');raise SystemExit(0)
 # V8 runtime modules resolve their source root without rewriting tracked files.
 private=ROOT/'private';private.mkdir(exist_ok=True);private.chmod(0o700)
 javac=shutil.which('javac')
@@ -67,6 +75,10 @@ run(['node',str(ROOT/'implementation/saltcorn/protect.cjs')],env)
 (private/'v6-initialized').write_text('Initialized by V6 standalone setup. Never reset automatically.\n')
 start=ROOT/'private/start-workflow.sh';start.write_text('#!/bin/bash\nset -euo pipefail\ncd "'+str(ROOT/'implementation/workflow')+'"\nexec "'+str(jdk/'bin/java')+'" -cp "target/classes:$(cat classpath.txt)" demo.WorkflowServer\n')
 with (private/'model-training.log').open('w') as out:subprocess.run(['python3',str(ROOT/'implementation/ai/local_classifier.py'),'--train'],env=env,stdout=out,check=True)
-subprocess.run(['bash',str(ROOT/'implementation/v5-working/backend/mvnw'),'-B','-ntp','-s',str(private/'maven-settings.xml'),'package','dependency:build-classpath','-Dmdep.outputFile=classpath.txt'],cwd=ROOT/'implementation/workflow',env=env,check=True)
+subprocess.run(
+ ['bash',str(WORKFLOW/'mvnw'),'-B','-ntp','-s',str(private/'maven-settings.xml'),
+  'package','dependency:build-classpath','-Dmdep.outputFile=classpath.txt'],
+ cwd=WORKFLOW,env=env,check=True,
+)
 run(['python3',str(ROOT/'implementation/start-services.py')],env)
 print('V6 prepared. Credentials remain in the private local directory. Review the demo guide and declared parity gaps.')

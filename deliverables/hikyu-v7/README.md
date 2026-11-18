@@ -18,4 +18,4 @@ This is the independent V7 increment based only on the newly supplied `Version6_
 
 The two new Zap designs are External Support Request Intake and Support Case Outcome Synchronization. Flowable retains business workflow ownership. External integration never changes balances or settled transactions. Secret files, runtime databases, installed dependencies and compiled targets are excluded. Generate fresh local credentials with the setup recipe, and authorize only newly created Google/Zapier resources.
 
-The repository's existing application and earlier V6 delivery are retained. V7 is installed from its own `source/` directory; it does not replace the root application. The exact uploaded baseline is preserved inside the V7 source/ZIP for provenance. No previous deployment needs to be contacted.
+The repository's root application and V6 delivery are available alongside the V7 source. For provenance, the [original V7 ZIP](Hikyu_Bank_V7.zip) contains the exact uploaded V6 baseline at `baseline/Version6_MingyuFan.zip` and the V5 working snapshot at `implementation/v5-working/`.
